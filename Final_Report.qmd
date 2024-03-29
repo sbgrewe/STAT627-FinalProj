@@ -2,10 +2,18 @@
 title: "Title of Report"
 subtitle: "Final Project: STAT427/627 Spring 2024"
 author: 
-- Author 01
-- Author 02
-- Author 03
-- Author 04
+- name: Roland Abi
+  affiliations: 
+    - STAT-627
+- name: Elise Buellesbach
+  affiliations: 
+    - STAT-427
+- name: Amanda Concepcion
+  affiliations: 
+    - STAT-427
+- name: Spencer Grewe
+  affiliations: 
+    - STAT-627
 date: today
 number-sections: true
 cache: false
@@ -64,8 +72,16 @@ All of the files are in one directory on OneDrive. They include the qmd files as
 
 {{< include ./Introduction.qmd >}}
 
-# Method 1 {#sec-method-1}
+# Classification {#sec-class}
+
+## Method 1 {#sec-method-1}
 
 {{< include ./Methods/Method_1.qmd >}}
+
+# Regression {#sec-reg}
+
+## Method 4 {#sec-method-4}
+
+
 
 # References

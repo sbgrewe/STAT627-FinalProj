@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Author 01">
-<meta name="author" content="Author 02">
-<meta name="author" content="Author 03">
-<meta name="author" content="Author 04">
+<meta name="author" content="Roland Abi">
+<meta name="author" content="Elise Buellesbach">
+<meta name="author" content="Amanda Concepcion">
+<meta name="author" content="Spencer Grewe">
 <meta name="dcterms.date" content="2024-03-29">
 
 <title>Title of Report</title>
@@ -3104,8 +3104,9 @@ vertical-align: -.125em;
   <ul>
   <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
   <li><a href="#sec-introduction" id="toc-sec-introduction" class="nav-link" data-scroll-target="#sec-introduction"><span class="header-section-number">1</span> Introduction</a></li>
-  <li><a href="#sec-method-1" id="toc-sec-method-1" class="nav-link" data-scroll-target="#sec-method-1"><span class="header-section-number">2</span> Method 1</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">3</span> References</a></li>
+  <li><a href="#sec-class" id="toc-sec-class" class="nav-link" data-scroll-target="#sec-class"><span class="header-section-number">2</span> Classification</a></li>
+  <li><a href="#sec-reg" id="toc-sec-reg" class="nav-link" data-scroll-target="#sec-reg"><span class="header-section-number">3</span> Regression</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">4</span> References</a></li>
   </ul>
 </nav>
 </div>
@@ -3118,19 +3119,47 @@ vertical-align: -.125em;
 </div>
 
 
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Authors</div>
+  <div class="quarto-title-meta-heading">Affiliations</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Roland Abi </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            STAT-627
+          </p>
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Elise Buellesbach </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            STAT-427
+          </p>
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Amanda Concepcion </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            STAT-427
+          </p>
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author">Spencer Grewe </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            STAT-627
+          </p>
+      </div>
+  </div>
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Authors</div>
-    <div class="quarto-title-meta-contents">
-             <p>Author 01 </p>
-             <p>Author 02 </p>
-             <p>Author 03 </p>
-             <p>Author 04 </p>
-          </div>
-  </div>
-    
+      
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
@@ -3190,7 +3219,7 @@ Note
 </ul>
 </div>
 </div>
-<p>The following two sections, <a href="#sec-introduction" class="quarto-xref">Section 1</a> and <a href="#sec-method-1" class="quarto-xref">Section 2</a>, are both “included” files.</p>
+<p>The following two sections, <a href="#sec-introduction" class="quarto-xref">Section 1</a> and <a href="#sec-method-1" class="quarto-xref">Section 2.1</a>, are both “included” files.</p>
 <p>All of the files are in one directory on OneDrive. They include the qmd files as well as optional files for references (references.bib) and an example custom CSS file (my_css.scss) which you can edit as desired.</p>
 </section>
 </section>
@@ -3214,10 +3243,13 @@ Figure 1: An Introduction to Statistical Learning with applications in R
 </ul>
 </section>
 </section>
-<section id="sec-method-1" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Method 1</h1>
-<section id="method-1---regression" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="method-1---regression"><span class="header-section-number">2.1</span> Method 1 - Regression</h2>
+<section id="sec-class" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Classification</h1>
+<section id="sec-method-1" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="sec-method-1"><span class="header-section-number">2.1</span> Method 1</h2>
+</section>
+<section id="method-1---regression" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="method-1---regression"><span class="header-section-number">2.2</span> Method 1 - Regression</h2>
 <p>We ran a linear model of the Home Sales data estimate <code>SALES-PRICE</code> based on all the other variables other than <code>ID</code>.</p>
 <div class="cell">
 <div class="cell-output cell-output-stderr">
@@ -3350,12 +3382,18 @@ Figure 2: Residual Plots from the Linear Model
 </div>
 </section>
 </section>
-<section id="references" class="level1 unnumbered" data-number="3">
+<section id="sec-reg" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Regression</h1>
+<section id="sec-method-4" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="sec-method-4"><span class="header-section-number">3.1</span> Method 4</h2>
+</section>
+</section>
+<section id="references" class="level1 unnumbered" data-number="4">
 
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">3 References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">4 References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-james2023" class="csl-entry" role="listitem">
 James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. 2023. <em>An Introduction to Statistical Learning with Applications in r</em>. 2nd ed. Springer. <a href="https://www.statlearning.com">https://www.statlearning.com</a>.
 </div>

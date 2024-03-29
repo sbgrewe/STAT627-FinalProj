@@ -1,0 +1,43 @@
+
+## Method 1 - Regression
+
+We ran a linear model of the Home Sales data estimate `SALES-PRICE` based on all the other variables other than `ID`.
+
+```{r}
+#| message: false
+#| echo: false
+library(tidyverse)
+```
+
+You can see the structure of the data in the model as follows:
+
+```{r}
+#| message: false
+#| echo: false
+homes <- read_csv("./Data/HOME_SALES.csv")
+glimpse(homes)
+```
+
+```{r}
+#| label: run-linear-model
+lm_out <- lm(SALES_PRICE ~ . -ID, data = homes)
+summary(lm_out)
+```
+
+Check the residual plots in @fig-resid-plots
+
+- With [subcaptions](https://quarto.org/docs/authoring/figures.html#subcaptions).
+
+```{r}
+#| label: fig-resid-plots
+#| layout-ncol: 2
+#| fig-cap: "Residual Plots from the Linear Model"
+#| fig-subcap:
+#|   - "Residuals vs FItted"
+#|   - "QQ Plot"
+#|   - "Scale-Location"
+#|   - "Residuals vs Leverage"
+
+plot(lm_out)
+```
+
