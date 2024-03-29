@@ -1,0 +1,89 @@
+
+/*-- scss:rules --*/
+
+.i-circle {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    background: #fff;
+    border: 2px solid #666;
+    color: #666;
+    text-align: center;
+}
+
+.i-circle-green {
+    background: #7CFC00;
+    color: #fff;
+    padding: 5px 5px;
+    border-radius: 50%;
+    font-size: 12px
+}
+
+.i-circle-red {
+    background: #ff0000;
+    color: #fff;
+    padding: 5px 5px;
+    border-radius: 50%;
+    font-size: 12px
+}
+
+.page_break_before {
+    page-break-before: always
+}
+
+.MathJax {
+    font-size: 100% !important;
+}
+
+.math.inline .MathJax  {
+  font-size: 110% !important;
+}
+
+.math.display .MathJax  {
+  font-size: 120% !important
+}
+
+.v-center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+}
+
+.table-striped {
+    border: 2px solid #04AA6d;
+    border-bottom: hidden;
+    font-size: .75em;
+    line-height: 1.2em;
+
+}
+.table-striped  tr:nth-child(even) {
+      background-color: #c2e0f4;
+}
+
+.table-striped  tr:nth-child(odd) {
+      background-color: #bfedd2;
+}
+
+.table-striped th {
+      background-color: #04AA6d;
+      color: white;
+}
+.table-striped  tr:last-child {
+      border-bottom: 2px solid #04AA6d;
+}
+
+.text-solution {
+  background: #dfeffb;
+  border: true;
+  border: 2px solid #85c2ef;
+  font-size: .9em;
+  padding: 12px 4px 0px 4px;
+  line-height: 1.1em;
+  margin-bottom: 10px;
+}
+
+.html-widget {
+  margin-bottom: 1em;
+}

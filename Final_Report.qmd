@@ -1,0 +1,71 @@
+---
+title: "Title of Report"
+subtitle: "Final Project: STAT427/627 Spring 2024"
+author: 
+- Author 01
+- Author 02
+- Author 03
+- Author 04
+date: today
+number-sections: true
+cache: false
+toc: true
+toc-depth: 1
+bibliography: references.bib
+format:
+  html:
+    embed-resources: true
+    theme: 
+      light: [cerulean, my_css.scss]
+      dark: [solar, my_css.scss]
+---
+
+# Preface {.unnumbered}
+
+Git and GitHub provide standard tools and workflow for collaborating on code development and associated files. However much of the infrastructure is focused on version control of the files in a repository
+
+If you do not need version control and want to collaborate on a report where each person writes their own section of the report and then they get integrated into a main file, there is another way.
+
+[The Quarto Guide](https://quarto.org/docs/guide/) provides in-depth documentation of the Quarto capabilities.[@Quarto]
+
+One of those capabilities is to use what are known as [includes](https://quarto.org/docs/authoring/includes.html).
+
+-   The `{{< include filepath/filename >}}` statement will insert all the contents of the filename file into the file with the include statement.
+
+-   If one person creates a OneDrive folder and shares it with their collaborators, each person can write their own section of the document in their own file.
+
+-   All the sections can then be "included" into the main file and run as a single output document.
+
+-   The main document will use common YAML. When it is rendered, all of the other included documents will appear.
+
+## An Approach
+
+1.  Create a shared folder on OneDrive with the name of the project and share it with collaborators.
+2.  Create a main file with the common YAML.
+3.  Add headers for each section as desired.
+4.  Add a line with the include`{{< include filepath/filename >}}` for each file to be included
+5.  Each author creates their own file and can check it with render.
+6.  Each author can also render the main file to see how their file is included.
+
+::: callout-note
+-   The relative path for the included files is always the working directory of the main file. Thus it may be easiest to have all of the sub files in the top level directory.
+    -   That allows you to use sub folders such as data or images or even output without having to worry about different relative paths.
+-   You can use cross-references and captions just fine with included files.
+-   Be careful not to duplicate code chunk labels across multiple files or cross-reference IDs.
+-   It is fine to have multiple files `library()` the same or different packages.
+-   Be careful to collaborate on how the data is loaded to avoid conflicts with variables names
+:::
+
+The following two sections, @sec-introduction and @sec-method-1, are both "included" files.
+
+All of the files are in one directory on OneDrive. They include the qmd files as well as optional files for references (references.bib) and an example custom CSS file (my_css.scss) which you can edit as desired.
+
+# Introduction {#sec-introduction}
+
+{{< include ./Introduction.qmd >}}
+
+# Method 1 {#sec-method-1}
+
+{{< include ./Methods/Method_1.qmd >}}
+
+# References
