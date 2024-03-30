@@ -68,20 +68,57 @@ The following two sections, @sec-introduction and @sec-method-1, are both "inclu
 
 All of the files are in one directory on OneDrive. They include the qmd files as well as optional files for references (references.bib) and an example custom CSS file (my_css.scss) which you can edit as desired.
 
+# Executive Summary {#sec-exec}
+
+{{< include ./Executive_Summary.qmd >}}
+
 # Introduction {#sec-introduction}
 
 {{< include ./Introduction.qmd >}}
 
-# Classification {#sec-class}
+# Classification Models {#sec-class}
 
-## Method 1 {#sec-method-1}
+## Method 1 {#sec-method-c.1}
+
+{{< include ./Methods/Classification/ClassMethod_1.qmd >}}
+
+## Method 2 {#sec-method-c.2}
+
+{{< include ./Methods/Classification/ClassMethod_2.qmd >}}
+
+## Method 3 {#sec-method-c.3}
+
+{{< include ./Methods/Classification/ClassMethod_3.qmd >}}
+
+
+
+# Regression Models {#sec-reg}
+
+## Method 1 {#sec-method-r.1}
 
 {{< include ./Methods/Method_1.qmd >}}
+{{< include ./Methods/Regression/RegMethod_1.qmd >}}
 
-# Regression {#sec-reg}
+## Method 2 {#sec-method-r.2}
 
-## Method 4 {#sec-method-4}
+{{< include ./Methods/Regression/RegMethod_2.qmd >}}
+
+## Method 3 {#sec-method-r.3}
+
+{{< include ./Methods/Regression/RegMethod_3.qmd >}}
 
 
+# Risk Analysis {#sec-risk}
+
+{{< include ./Ethical_RiskAnalysis.qmd >}}
+
+
+# Summary of Findings {#sec-summary}
+
+{{< include ./Summary.qmd >}}
+
+# Future Directions {#sec-future}
+
+{{< include ./FutureDirs.qmd >}}
 
 # References
