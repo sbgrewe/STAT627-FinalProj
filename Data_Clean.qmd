@@ -1,0 +1,85 @@
+---
+bibliography: references.bib
+---
+
+```{r}
+library(tidyverse); theme_set(theme_bw())
+library(readxl)
+
+path1 <- "Data\\2016-2021-imi-results-long-view.csv"
+path2 <- "Data\\all-primary-care-hpsas.xlsx"
+
+data1 <- read_csv(path1)
+data2 <- read_excel(path2)
+
+print(c(dim(data1), dim(data2)))
+```
+
+```{r}
+head(data1)
+head(data2)
+```
+
+```{r}
+names(data1)
+names(data2)
+```
+
+From data set 1, we want to keep .
+
+From data set 2, we definitely want to keep the HPSA score, PC MCTA score, HPSA status, Metropolitan Indicator, HPSA FTE, % below poverty line, rural status, county equivalent name
+
+```{r}
+
+```
+
+```{r}
+data1_counties <- unique(data1$COUNTY)
+data2_counties <- sort(unique(data2$"County Equivalent Name"))
+
+# all(data1_counties[data1_counties %in% data2_counties] == data2_counties[data2_counties %in% data1_counties])
+common_counties <- data1_counties[data1_counties %in% data2_counties]
+common_counties[1:5]
+```
+
+Subsetting Data Set 1
+```{r}
+data1 %>% 
+  filter(`COUNTY` %in% common_counties)
+```
+
+Subsetting Data Set 2
+```{r}
+data2 %>% 
+  filter(`County Equivalent Name` %in% common_counties)
+```
+
+
+**Preparing the Classification Data Set**
+
+
+
+**Preparing the Regression Data Set**
+
+```{r}
+data2 %>% 
+  select(`County Equivalent Name`) %>% 
+  filter(`County Equivalent Name` %in% common_counties)
+```
+
+```{r}
+unique(data1$`Hospital Ratings`)
+```
+
+
+```{r}
+data1 %>% 
+  filter(`COUNTY` %in% common_counties) %>% 
+  filter(!is.na(`Hospital Ratings`)) %>% 
+  group_by(COUNTY, `Hospital Ratings`) %>% 
+  summarise(count = n())
+```
+
+
+
+
