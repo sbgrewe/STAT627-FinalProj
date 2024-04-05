@@ -8,21 +8,25 @@ library(readxl)
 
 path1 <- "Data\\2016-2021-imi-results-long-view.csv"
 path2 <- "Data\\all-primary-care-hpsas.xlsx"
+path3 <- "Data\\2020census.csv"
 
 data1 <- read_csv(path1)
 data2 <- read_excel(path2)
+data3 <- read_csv(path3)
 
-print(c(dim(data1), dim(data2)))
+print(c(dim(data1), dim(data2), dim(data3)))
 ```
 
 ```{r}
 head(data1)
 head(data2)
+head(data3)
 ```
 
 ```{r}
 names(data1)
 names(data2)
+names(data3)
 ```
 
 From data set 1, we want to keep .
@@ -52,6 +56,11 @@ Subsetting Data Set 2
 ```{r}
 data2 %>% 
   filter(`County Equivalent Name` %in% common_counties)
+```
+**Joinging Data**
+
+```{r}
+
 ```
 
 
