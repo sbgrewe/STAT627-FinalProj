@@ -1,0 +1,440 @@
+hpsa_name,metropolitan_indicator,designation_type,hpsa_discipline_class,hpsa_status,hpsa_score,hpsa_designation_population,u_s_mexico_border_county_indicator,rural_status,hpsa_population_type
+Low Income - Brawley/Calipatria (MSSA 50/51),Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,0,17542,Y,Rural,Native American Population HPSA
+Low Income - MSSA 116q/Anaheim E/City of Orange N,Metropolitan,HPSA Population,Primary Care,Withdrawn,11,37037,N,Non-Rural,Low Income Population HPSA
+Low Income - MSSA 39 & 40/Arcata/Eureka/McKinleyvi,Unknown,HPSA Population,Primary Care,Withdrawn,8,36084,N,Rural,Low Income Population HPSA
+Low Income - MSSA 123.1/Bucks Lake/East Quincy/Cro,Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,8,2026,N,Rural,Low Income Population HPSA
+Fontana North/Rancho Cucamonga Northwest-MSSA 151E,Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,114726,N,Rural,Geographic Population
+MSSA 188.2/Manton,Unknown,Geographic HPSA,Primary Care,Withdrawn,10,6262,N,Non-Rural,Geographic Population
+MSSA 158.2/San Diego County Estates,Unknown,Geographic HPSA,Primary Care,Designated,10,10442,Y,Non-Rural,Geographic Population
+MSSA 219/Rancho Tehama,Unknown,High Needs Geographic HPSA,Primary Care,Withdrawn,17,5032,N,Rural,Geographic Population
+MSSA 29/Herndon/Kerman,Unknown,High Needs Geographic HPSA,Primary Care,Designated,18,51049,N,Rural,Geographic Population
+MSSA 122/125 - Greenville/Chester,Unknown,Geographic HPSA,Primary Care,Designated,12,6271,N,Rural,Geographic Population
+LI-MFW/MSSA 230/Tipton/Tulare/Woodville,Unknown,HPSA Population,Primary Care,Withdrawn,15,45765,N,Non-Rural,Low Income Migrant Farmworker Population HPSA
+MSSA 77.1a/Palmdale Central,Unknown,Geographic HPSA,Primary Care,Designated,9,101329,N,Non-Rural,Geographic Population
+MSSA 148 - Wrightwood,Unknown,Geographic HPSA,Primary Care,Designated,13,5894,N,Non-Rural,Geographic Population
+Low Income/Migrant Seasonal Farmworkers - Dinuba/C,Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,0,93066,N,Non-Rural,Low Income Migrant Seasonal Worker Population HPSA
+Low Income/MFW/Homeless - MSSA 241a/Oxnard East,Unknown,HPSA Population,Primary Care,Withdrawn,12,42478,N,Rural,Low Income Homeless Migrant Farmworker Population HPSA
+Low Income/Migrant Seasonal Farmworkers - Colusa C,Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,0,22458,N,Rural,Low Income Migrant Seasonal Worker Population HPSA
+Low Income/Migrant Seasonal Farmworkers - Tehachap,Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,0,11457,N,Rural,Low Income Migrant Seasonal Worker Population HPSA
+MSSA 48 - El Centro,Unknown,Geographic HPSA,Primary Care,Withdrawn,11,78047,Y,Non-Rural,Geographic Population
+Lytle Creek/Wrightwood (MSSA 148),Non-Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,6472,N,Non-Rural,Geographic Population
+City Terrace East/East L.A. (MSSA 78.2D),Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,102513,N,Non-Rural,Geographic Population
+Low Income/MFW/H - MSSA 35d/35f/Fresno East/North,Unknown,HPSA Population,Primary Care,Withdrawn,14,113106,N,Non-Rural,Low Income Homeless Migrant Farmworker Population HPSA
+LI - MSSA 116g/Santa Ana South,Unknown,HPSA Population,Primary Care,Designated,13,43716,N,Non-Rural,Low Income Population HPSA
+MSSA 123.2 &amp; 124- Portola and Graeagle,Unknown,Geographic HPSA,Primary Care,Designated,15,5735,N,Rural,Geographic Population
+MSSA 187/Castella/Lakehead/O,Unknown,High Needs Geographic HPSA,Primary Care,Designated,13,1623,N,Rural,Geographic Population
+MSSA 65/California City,Unknown,Geographic HPSA,Primary Care,Withdrawn,16,44976,N,Rural,Geographic Population
+LI/MFW - MSSA 221/Red Bluff,Unknown,HPSA Population,Primary Care,Designated,15,17253,N,Rural,Low Income Migrant Farmworker Population HPSA
+MSSA 96 - Atwater,Unknown,Geographic HPSA,Primary Care,Designated,11,51192,N,Non-Rural,Geographic Population
+ME - MSSA 78.2m/Bellflower/Paramount South,Unknown,HPSA Population,Primary Care,Designated,8,44911,N,Unknown,Medicaid Eligible Population HPSA
+ME - MSSA 161h/El Cajon Central and South/Fletcher Hills,Unknown,HPSA Population,Primary Care,Designated,13,45249,Y,Non-Rural,Medicaid Eligible Population HPSA
+MSSA 234.1 &amp; 235/Chinese Camp/Big Oak Flat,Unknown,Geographic HPSA,Primary Care,Designated,13,5531,N,Rural,Geographic Population
+MSSA 36.2/Hamilton City,Unknown,High Needs Geographic HPSA,Primary Care,Designated,13,3501,N,Rural,Geographic Population
+LI - MSSA 151h - Fontana Central/Rialto Central,Unknown,HPSA Population,Primary Care,Designated,17,65291,N,Non-Rural,Low Income Population HPSA
+LI MSSA 116r - Garden Grove North,Unknown,HPSA Population,Primary Care,Designated,13,44516,N,Non-Rural,Low Income Population HPSA
+ME - MSSA 35d/Fresno East Central,Unknown,HPSA Population,Primary Care,Designated,19,71846,N,Non-Rural,Medicaid Eligible Population HPSA
+MSSA 53 - Bishop,Unknown,Geographic HPSA,Primary Care,Designated,11,12338,N,Rural,Geographic Population
+LI/MFW - MSSA 233/Visalia,Unknown,HPSA Population,Primary Care,Designated,15,70725,N,Non-Rural,Low Income Migrant Farmworker Population HPSA
+MSSA 66b - Bakersfield East,Unknown,Geographic HPSA,Primary Care,Designated,12,142648,N,Unknown,Geographic Population
+MSSA 229 - Three Rivers,Unknown,Geographic HPSA,Primary Care,Designated,16,5129,N,Unknown,Geographic Population
+LI-MSSA 78.2yyy-Industry West-La Puente,Unknown,HPSA Population,Primary Care,Designated,4,42463,N,Non-Rural,Low Income Population HPSA
+MSSA 77.3/Juniper Hills,Unknown,Geographic HPSA,Primary Care,Designated,16,17994,N,Non-Rural,Geographic Population
+MSSA 69/Hanford/Lemoore,Unknown,Geographic HPSA,Primary Care,Designated,10,114327,N,Non-Rural,Geographic Population
+MSSA 7.4/Durham,Unknown,Geographic HPSA,Primary Care,Withdrawn,11,5502,N,Non-Rural,Geographic Population
+MSSA 44 - Garberville/Redway,Unknown,Geographic HPSA,Primary Care,Designated,12,6660,N,Rural,Geographic Population
+ME MSSA 35f - Fresno North Central,Unknown,HPSA Population,Primary Care,Designated,10,33937,N,Non-Rural,Medicaid Eligible Population HPSA
+ME - MSSA 218/Live Oak,Unknown,HPSA Population,Primary Care,Designated,17,4981,N,Non-Rural,Medicaid Eligible Population HPSA
+LI - MSSA 161g/Lemon Grove Northwest/National City East,Unknown,HPSA Population,Primary Care,Designated,10,43428,Y,Non-Rural,Low Income Population HPSA
+MSSA 19/Del Norte County,Unknown,High Needs Geographic HPSA,Primary Care,Designated,8,24448,N,Rural,Geographic Population
+MSSA 159/Buckman Springs,Unknown,Geographic HPSA,Primary Care,Withdrawn,13,6864,Y,Rural,Geographic Population
+MSSA 94/Dos Palos,Unknown,High Needs Geographic HPSA,Primary Care,Withdrawn,12,58098,N,Rural,Geographic Population
+MSSA 57.2/Taft,Unknown,High Needs Geographic HPSA,Primary Care,Designated,19,22785,N,Rural,Geographic Population
+ME MSSA 97.3 - Le Grand/Planada,Unknown,HPSA Population,Primary Care,Designated,17,4490,N,Non-Rural,Medicaid Eligible Population HPSA
+MSSA 93.3/Potter Valley,Unknown,Geographic HPSA,Primary Care,Designated,11,1869,N,Rural,Geographic Population
+LI - MSSA 70.1/70.2 Lakeport/Lucerne,Unknown,HPSA Population,Primary Care,Designated,16,9654,N,Rural,Low Income Population HPSA
+LI/MSSA 147-Lake Arrowhead,Unknown,HPSA Population,Primary Care,Designated,14,5949,N,Rural,Low Income Population HPSA
+MSSA 68/Corcoran,Unknown,High Needs Geographic HPSA,Primary Care,Designated,15,19801,N,Rural,Geographic Population
+LI/MFW/H - MSSA 91/Willits,Unknown,HPSA Population,Primary Care,Designated,14,5662,N,Rural,Low Income Homeless Migrant Farmworker Population HPSA
+LI - MSSA 78.2sss/Lynwood North Central,Unknown,HPSA Population,Primary Care,Designated,10,32758,N,Non-Rural,Low Income Population HPSA
+MSSA 67 Avenal,Unknown,High Needs Geographic HPSA,Primary Care,Designated,17,11766,N,Rural,Geographic Population
+ME - MSSA 66c/Bakersfield Southwest,Unknown,HPSA Population,Primary Care,Designated,16,63125,N,Non-Rural,Medicaid Eligible Population HPSA
+ME MSSA 145.1a/Hesperia West/Mountain View Acres,Unknown,HPSA Population,Primary Care,Designated,15,98922,N,Non-Rural,Medicaid Eligible Population HPSA
+East Salinas/North Central Salinas,Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,48722,N,Non-Rural,Geographic Population
+Mission/Ocean/Pacific Beach,Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,59223,Y,Non-Rural,Geographic Population
+Surprise Valley,Non-Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,1410,N,Rural,Geographic Population
+Borrego Springs (MSSA 152),Metropolitan,Geographic HPSA,Primary Care,Withdrawn,11,13486,Y,Rural,Geographic Population
+Tri-Community,Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,2399,N,Partially Rural,Geographic Population
+Lucerne Valley,Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,3055,N,Partially Rural,Geographic Population
+Commerce,Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,10789,N,Non-Rural,Geographic Population
+MSSA 78.2i El Sereno N/Highland Park/,Metropolitan,High Needs Geographic HPSA,Primary Care,Withdrawn,7,129447,N,Non-Rural,Geographic Population
+Seaside,Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,20320,N,Non-Rural,Geographic Population
+Trinidad,Non-Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,3130,N,Rural,Geographic Population
+MSSA 78.2jjj/Long Beach West Central,Unknown,High Needs Geographic HPSA,Primary Care,Designated,14,109987,N,Non-Rural,Geographic Population
+ME - MSSA 133.1/Perris,Unknown,HPSA Population,Primary Care,Designated,9,65540,N,Non-Rural,Medicaid Eligible Population HPSA
+ME-MSSA 78.2aaaa/Torrance East Central,Unknown,HPSA Population,Primary Care,Withdrawn,14,32032,N,Non-Rural,Medicaid Eligible Population HPSA
+Colusa County,Unknown,Geographic HPSA,Primary Care,Designated,9,24753,N,Rural,Geographic Population
+Low Income - Fallbrook/Live Oak (MSSA 160),Metropolitan,HPSA Population,Primary Care,Withdrawn,9,23918,Y,Non-Rural,Low Income Population HPSA
+Low Income - South Sutter (MSSA 217),Metropolitan,HPSA Population,Primary Care,Withdrawn,0,1223,N,Non-Rural,Low Income Population HPSA
+Low Income - Wheatland (MSSA 248.1),Metropolitan,HPSA Population,Primary Care,Withdrawn,0,1368,N,Non-Rural,Low Income Population HPSA
+"MSSA 230/Earlimart, Pixley, Tipton",Metropolitan,High Needs Geographic HPSA,Primary Care,Withdrawn,11,69199,N,Non-Rural,Geographic Population
+Tuolumne City,Non-Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,4500,N,Rural,Geographic Population
+Indochinese Population - Orange,Metropolitan,HPSA Population,Primary Care,Withdrawn,0,25856,N,Non-Rural,Other Population HPSA
+Medicaid Eligible - Vacaville,Metropolitan,HPSA Population,Primary Care,Withdrawn,0,6057,N,Non-Rural,Medicaid Eligible Population HPSA
+Low Income - Pajaro (MSSA 184.2),Metropolitan,HPSA Population,Primary Care,Withdrawn,0,5094,N,Non-Rural,Low Income Population HPSA
+Low Income - Meridian/Robbins (MSSA 216),Metropolitan,HPSA Population,Primary Care,Withdrawn,0,823,N,Non-Rural,Low Income Population HPSA
+Low Income - Live Oak (MSSA 218),Metropolitan,HPSA Population,Primary Care,Withdrawn,0,4252,N,Non-Rural,Low Income Population HPSA
+Low Income - MSSA 78.2p/Long Beach Port,Unknown,HPSA Population,Primary Care,Withdrawn,17,58746,N,Non-Rural,Low Income Population HPSA
+Low Income - West Imperial (MSSA 52),Metropolitan,HPSA Population,Primary Care,Withdrawn,0,344,Y,Rural,Low Income Population HPSA
+Low Income - Fillmore (MSSA 239.2),Metropolitan,HPSA Population,Primary Care,Withdrawn,0,5246,N,Rural,Low Income Population HPSA
+Low Income/MFW - MSSA 241b/Oxnard North Central,Unknown,HPSA Population,Primary Care,Withdrawn,13,64563,N,Non-Rural,Low Income Migrant Farmworker Population HPSA
+Gonzales/Greenfield/Soledad (MSSA 107),Non-Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,41691,N,Rural,Geographic Population
+Low Income - Oceanside West/Carlsbad West,Metropolitan,HPSA Population,Primary Care,Withdrawn,0,32192,Y,Non-Rural,Low Income Population HPSA
+Low Income - MSSA 169a/Stockton North Central,Unknown,HPSA Population,Primary Care,Withdrawn,4,48653,N,Non-Rural,Low Income Population HPSA
+MSSA 149/Barstow,Unknown,Geographic HPSA,Primary Care,Withdrawn,9,50859,N,Non-Rural,Geographic Population
+LI - MSSA 78.2d/City Terrace East,Unknown,HPSA Population,Primary Care,Designated,11,45420,N,Non-Rural,Low Income Population HPSA
+ME MSSA 78.2aaaa -Torrance East Central,Unknown,HPSA Population,Primary Care,Designated,3,35726,N,Non-Rural,Medicaid Eligible Population HPSA
+MSSA 24/South Lake Tahoe,Unknown,Geographic HPSA,Primary Care,Designated,9,53203,N,Rural,Geographic Population
+MSSA 123.1 - Bucks Lake/Cromberg/East Quincy/Greenhorn,Unknown,Geographic HPSA,Primary Care,Designated,13,6328,N,Rural,Geographic Population
+MSSA 49/Calexico,Unknown,Geographic HPSA,Primary Care,Designated,13,40948,Y,Non-Rural,Geographic Population
+MSSA 143/Big River,Unknown,High Needs Geographic HPSA,Primary Care,Designated,17,6640,N,Rural,Geographic Population
+ME - MSSA 107/Soledad,Unknown,HPSA Population,Primary Care,Designated,14,27412,N,Rural,Medicaid Eligible Population HPSA
+MSSA 60 - Delano/McFarland,Unknown,High Needs Geographic HPSA,Primary Care,Designated,16,69129,N,Non-Rural,Geographic Population
+MSSA 77.1C/Lancaster Central/Palmdale North Central,Unknown,High Needs Geographic HPSA,Primary Care,Designated,10,106575,N,Non-Rural,Geographic Population
+MSSA 58.2 - Lost Hills/Wasco,Unknown,High Needs Geographic HPSA,Primary Care,Designated,18,26635,N,Rural,Geographic Population
+ME - MSSA 116c - Anaheim West,Unknown,HPSA Population,Primary Care,Designated,12,56521,N,Non-Rural,Medicaid Eligible Population HPSA
+MSSA 188.1-Big Bend/Montgomery Creek/Oak Run,Unknown,Geographic HPSA,Primary Care,Designated,14,5037,N,Rural,Geographic Population
+MSSA 61/Arvin,Unknown,High Needs Geographic HPSA,Primary Care,Designated,14,42448,N,Rural,Geographic Population
+LI-MSSA 36.1/Orland,Unknown,HPSA Population,Primary Care,Designated,14,6040,N,Rural,Low Income Population HPSA
+MSSA 104-Big Sur,Unknown,High Needs Geographic HPSA,Primary Care,Designated,14,1957,N,Rural,Geographic Population
+LI MSSA 78.2bbb - Compton East,Unknown,HPSA Population,Primary Care,Designated,15,45196,N,Non-Rural,Low Income Population HPSA
+MSSA 78.1/Avalon,Unknown,Geographic HPSA,Primary Care,Designated,17,3926,N,Rural,Geographic Population
+ME MSSA 161d - Chollas Creek/City Heights/East San Diego/Nor,Unknown,HPSA Population,Primary Care,Designated,10,47435,Y,Non-Rural,Medicaid Eligible Population HPSA
+MSSAs 54 & 55 Big Pine/Lone Pine,Unknown,Geographic HPSA,Primary Care,Designated,14,5224,N,Rural,Geographic Population
+LI - MSSA 78.2bbbb/Gardena West,Unknown,HPSA Population,Primary Care,Designated,15,29849,N,Non-Rural,Low Income Population HPSA
+MSSA 223 &amp; 224/Junction City/Weaverville,Unknown,Geographic HPSA,Primary Care,Designated,13,8401,N,Rural,Geographic Population
+LI - MSSA 97.1 &amp; 97.2/Merced/Merced Southwest,Unknown,HPSA Population,Primary Care,Designated,11,47549,N,Unknown,Low Income Population HPSA
+MSSA 220/Dairyville/Paynes Creek,Unknown,High Needs Geographic HPSA,Primary Care,Designated,15,4829,N,Rural,Geographic Population
+ME - MSSA 219/Paskenta/Rancho Tehama,Unknown,HPSA Population,Primary Care,Designated,10,1425,N,Rural,Medicaid Eligible Population HPSA
+LI - MSSA 78.2ooo/Paramount North/Willowbrook,Unknown,HPSA Population,Primary Care,Designated,17,68164,N,Non-Rural,Low Income Population HPSA
+LI-MFW/MSSA 186 Anderson,Unknown,HPSA Population,Primary Care,Designated,14,13285,N,Non-Rural,Low Income Migrant Farmworker Population HPSA
+MSSA 231/Porterville/Alpaugh,Unknown,High Needs Geographic HPSA,Primary Care,Designated,11,100882,N,Non-Rural,Geographic Population
+LI-MSSA 78.2ss/Pomona Central,Unknown,HPSA Population,Primary Care,Designated,10,57709,N,Non-Rural,Low Income Population HPSA
+MSSA 94/Los Banos,Unknown,Geographic HPSA,Primary Care,Designated,7,60795,N,Rural,Geographic Population
+LI/MFW/Homeless - MSSA 190/Burney,Unknown,HPSA Population,Primary Care,Designated,16,2831,N,Rural,Low Income Homeless Migrant Farmworker Population HPSA
+MSSA 214 - Hughson,Unknown,Geographic HPSA,Primary Care,Designated,11,51072,N,Non-Rural,Geographic Population
+LI-MSSA 169a/Stockton North Central,Unknown,HPSA Population,Primary Care,Designated,6,48071,N,Non-Rural,Low Income Homeless Migrant Farmworker Population HPSA
+MSSA 145.2/Adelanto/Victorville Northwest,Unknown,High Needs Geographic HPSA,Primary Care,Designated,16,56246,N,Unknown,Geographic Population
+MSSA 7.4 - Durham,Unknown,Geographic HPSA,Primary Care,Designated,15,6031,N,Non-Rural,Geographic Population
+MSSA 142/Argus,Unknown,High Needs Geographic HPSA,Primary Care,Withdrawn,16,2201,N,Rural,Geographic Population
+ME MSSA 142 - Argus/Borosalvay/Trona,Unknown,HPSA Population,Primary Care,Designated,10,748,N,Rural,Medicaid Eligible Population HPSA
+MSSA 38 Hoopa-Willow Creek,Unknown,High Needs Geographic HPSA,Primary Care,Designated,14,20428,N,Rural,Geographic Population
+MSSA 78.2k/South Central Northwest,Unknown,High Needs Geographic HPSA,Primary Care,Designated,18,79290,N,Non-Rural,Geographic Population
+MSSA 194/Etna,Unknown,Geographic HPSA,Primary Care,Designated,17,5358,N,Rural,Geographic Population
+Low Income - MSSA 130/Idyllwild/Pine Cove,Unknown,HPSA Population,Primary Care,Withdrawn,15,4595,N,Non-Rural,Low Income Population HPSA
+MSSA 79.2/Chowchilla,Unknown,High Needs Geographic HPSA,Primary Care,Designated,10,15066,N,Rural,Geographic Population
+LI-MFW/MSSA 48 El Centro,Unknown,HPSA Population,Primary Care,Withdrawn,17,88014,Y,Non-Rural,Low Income Migrant Farmworker Population HPSA
+MSSA 120/Foresthill,Unknown,Geographic HPSA,Primary Care,Designated,13,6888,N,Rural,Geographic Population
+ME MSSA 161l - Lemon Grove South,Unknown,HPSA Population,Primary Care,Designated,10,29369,Y,Non-Rural,Medicaid Eligible Population HPSA
+MSSA 22/Georgetown N El Dorado,Unknown,Geographic HPSA,Primary Care,Designated,14,11425,N,Rural,Geographic Population
+MSSA 9-Biggs/East Biggs/Gridley,Unknown,Geographic HPSA,Primary Care,Designated,15,16578,N,Rural,Geographic Population
+LI - MSSA 42 - Fortuna,Unknown,HPSA Population,Primary Care,Designated,16,10878,N,Rural,Low Income Homeless Migrant Farmworker Population HPSA
+Poverty/Homeless/AIDS Population - Guerneville,Metropolitan,HPSA Population,Primary Care,Withdrawn,0,3788,N,Non-Rural,Low Income Homeless Population HPSA
+Galt,Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,18931,N,Rural,Geographic Population
+MSSA 200/Dorris,Unknown,Geographic HPSA,Primary Care,Withdrawn,12,1942,N,Rural,Geographic Population
+Point Arena,Non-Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,3093,N,Rural,Geographic Population
+Mono Hispanic - Pacoima/San Fernando,Metropolitan,HPSA Population,Primary Care,Withdrawn,0,52431,N,Non-Rural,Other Population HPSA
+Low Income - Palm Desert (MSSA 129.1A),Metropolitan,HPSA Population,Primary Care,Withdrawn,0,42634,N,Non-Rural,Low Income Population HPSA
+Low Income - West Point/Wilseyville,Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,0,4969,N,Rural,Low Income Population HPSA
+Low Income - Bishop (MSSA 53),Frontier,HPSA Population,Primary Care,Withdrawn,0,3855,N,Rural,Low Income Population HPSA
+Low Income - MSSA 69 (Hanford/Lemoore),Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,13,42160,N,Rural,Low Income Population HPSA
+Low Income - East Los Angeles (MSSA 78.2D),Metropolitan,HPSA Population,Primary Care,Withdrawn,0,59999,N,Non-Rural,Low Income Population HPSA
+Low Income - San Andreas (MSSA 13),Metropolitan,HPSA Population,Primary Care,Withdrawn,0,6994,N,Non-Rural,Low Income Population HPSA
+Low Income - North Hollywood (MSSA 78.2BB),Metropolitan,HPSA Population,Primary Care,Withdrawn,0,45005,N,Non-Rural,Low Income Population HPSA
+Low Income - Bell Garden(MSSA 78.2C),Metropolitan,HPSA Population,Primary Care,Withdrawn,0,54309,N,Non-Rural,Low Income Population HPSA
+Low Income - Bell (MSSA 78.2DDD),Metropolitan,HPSA Population,Primary Care,Withdrawn,0,84680,N,Non-Rural,Low Income Population HPSA
+Low Income - San Ysidro,Metropolitan,HPSA Population,Primary Care,Withdrawn,0,54005,Y,Non-Rural,Low Income Population HPSA
+MSSA 147/Blue Jay,Unknown,Geographic HPSA,Primary Care,Withdrawn,8,19840,N,Rural,Geographic Population
+Newman/Patterson (MSSA 213),Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,18571,N,Non-Rural,Geographic Population
+LI - MSSA 78.2bb/North Hollywood Central a,Unknown,HPSA Population,Primary Care,Designated,16,43422,N,Non-Rural,Low Income Population HPSA
+MSSA 62/Tehachapi,Unknown,High Needs Geographic HPSA,Primary Care,Designated,11,31480,N,Non-Rural,Geographic Population
+LI MSSA 132 &amp; 133.2 - Hemet &amp; San Jacinto,Unknown,HPSA Population,Primary Care,Designated,14,81476,N,Non-Rural,Low Income Population HPSA
+MSSA 78.2mmm/Downtown Southeast,Unknown,High Needs Geographic HPSA,Primary Care,Designated,17,108949,N,Non-Rural,Geographic Population
+Modoc County,Unknown,High Needs Geographic HPSA,Primary Care,Designated,15,8603,N,Rural,Geographic Population
+LI-MSSA 78.2q/Inglewood West,Unknown,HPSA Population,Primary Care,Designated,8,33604,N,Non-Rural,Low Income Population HPSA
+MSSA 3/Markleeville,Unknown,Geographic HPSA,Primary Care,Designated,9,1039,N,Rural,Geographic Population
+ME-MSSA 78.2v/Carson,Unknown,HPSA Population,Primary Care,Designated,13,56943,N,Non-Rural,Medicaid Eligible Population HPSA
+LI/H/MFW - MSSA 169b/Stockton South/Stockton Southeast,Unknown,HPSA Population,Primary Care,Designated,12,82612,N,Non-Rural,Low Income Homeless Migrant Farmworker Population HPSA
+ME MSSA 211 - Oakdale/Riverbank,Unknown,HPSA Population,Primary Care,Designated,13,18788,N,Non-Rural,Medicaid Eligible Population HPSA
+MSSA 176 b -East Menlo Park/East Palo Alto/North Fair Oaks/R,Unknown,HPSA Population,Primary Care,Designated,13,24456,N,Non-Rural,Low Income Population HPSA
+MSSA 25/Firebaugh,Unknown,High Needs Geographic HPSA,Primary Care,Designated,17,23240,N,Rural,Geographic Population
+Low Inc/MFW - MSSA 80 (W & SW Madera),Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,16,59615,N,Non-Rural,Low Income Migrant Farmworker Population HPSA
+MSSA 76.2 Castaic/Val Verde,Metropolitan,Geographic HPSA,Primary Care,Withdrawn,12,19281,N,Non-Rural,Geographic Population
+Low Income - MSSA 98 &100/Alturas/Adin/Newell,Unknown,HPSA Population,Primary Care,Withdrawn,10,3597,N,Rural,Low Income Population HPSA
+"Low Income - MSSA 72, 75/Susanville/Westwood",Metropolitan,HPSA Population,Primary Care,Withdrawn,8,6739,N,Rural,Low Income Population HPSA
+MSSA 87.2 and 89 - Mendocino/Fort Bragg,Metropolitan,Geographic HPSA,Primary Care,Withdrawn,13,74091,N,Rural,Geographic Population
+Low Income - MSSA 191/East Sierra/Sattley/Sierra C,Metropolitan,HPSA Population,Primary Care,Withdrawn,13,1074,N,Rural,Low Income Population HPSA
+Low Income - MSSA 78.2L (Exposition Park/Lei),Metropolitan,HPSA Population,Primary Care,Withdrawn,0,113628,N,Non-Rural,Low Income Population HPSA
+LI-MSSA 65-Boron/California City,Unknown,HPSA Population,Primary Care,Designated,18,19103,N,Rural,Low Income Population HPSA
+ME MSSA 37 - Artois/Elk Creek/Glenn/Grindstone Indian Ranche,Unknown,HPSA Population,Primary Care,Designated,12,4473,N,Rural,Medicaid Eligible Population HPSA
+Low Income - MSSA 211/Oakdale/Riverbank,Unknown,HPSA Population,Primary Care,Withdrawn,12,19909,N,Non-Rural,Low Income Population HPSA
+MSSA 153.1/Pala,Unknown,Geographic HPSA,Primary Care,Designated,15,7043,Y,Unknown,Geographic Population
+ME - MSSA/130 Idyllwild/Pine Cove,Unknown,HPSA Population,Primary Care,Designated,16,3980,N,Rural,Medicaid Eligible Population HPSA
+LI-MSSA 151k Highland/San Bernardino East,Unknown,HPSA Population,Primary Care,Designated,18,65179,N,Non-Rural,Low Income Population HPSA
+LI/MFW MSSA 105-King City/San Lucas,Unknown,HPSA Population,Primary Care,Designated,14,11378,N,Rural,Low Income Migrant Farmworker Population HPSA
+MSSA 226/Kettenpom,Unknown,High Needs Geographic HPSA,Primary Care,Designated,16,894,N,Rural,Geographic Population
+Low Income - MSSA 150/Baker,Unknown,HPSA Population,Primary Care,Designated,16,5018,N,Rural,Low Income Population HPSA
+LI - MSSA 129.2/Indio North,Unknown,HPSA Population,Primary Care,Designated,15,22119,N,Non-Rural,Low Income Population HPSA
+MSSA 126 &amp; 127/Blythe/Chiriaco Summit,Unknown,High Needs Geographic HPSA,Primary Care,Designated,11,16528,N,Rural,Geographic Population
+MSSA 144.2 &amp; 144.3/Joshua Tree/Cadiz,Unknown,High Needs Geographic HPSA,Primary Care,Designated,9,60766,N,Rural,Geographic Population
+LI - MSSA 78.2fff/Firestone/Florence South,Unknown,HPSA Population,Primary Care,Designated,10,85390,N,Non-Rural,Low Income Population HPSA
+MSSA 88 - Point Arena,Unknown,Geographic HPSA,Primary Care,Designated,16,4419,N,Rural,Geographic Population
+LI - MSSA 78.2ppp Pacoima East/Sun Valley,Unknown,HPSA Population,Primary Care,Designated,17,45359,N,Non-Rural,Low Income Population HPSA
+South Rialto/Fontana (MSSA 151F),Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,121380,N,Non-Rural,Geographic Population
+Doyle (MSSA 74),Frontier,Geographic HPSA,Primary Care,Withdrawn,13,2706,N,Rural,Geographic Population
+Low Income - Westwood (MSSA 75),Frontier,HPSA Population,Primary Care,Withdrawn,0,1309,N,Rural,Low Income Population HPSA
+City Heights (MSSA 161D),Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,100893,Y,Non-Rural,Geographic Population
+Low Income - MSSA 168 Thorton/South Woodbridge,Metropolitan,HPSA Population,Primary Care,Withdrawn,14,5821,N,Rural,Low Income Population HPSA
+Low Income - Newman/Patterson (MSSA 213),Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,0,12107,N,Non-Rural,Low Income Population HPSA
+Low Income - MSSA 40 (Bluelake/McKinleyville),Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,13,7137,N,Rural,Low Income Population HPSA
+Low Income/Migrant Farmworker - MSSA 23.2/Pollock,Unknown,HPSA Population,Primary Care,Withdrawn,11,8177,N,Rural,Low Income Migrant Farmworker Population HPSA
+LI-MSSA 38 Willow Creek,Unknown,HPSA Population,Primary Care,Withdrawn,9,3312,N,Rural,Low Income Population HPSA
+Low Income - MSSA 214/Hughson,Unknown,HPSA Population,Primary Care,Withdrawn,10,21412,N,Non-Rural,Low Income Population HPSA
+LI - MSSA 87.1/Boonville/Navarro/Philo,Unknown,HPSA Population,Primary Care,Designated,18,1280,N,Rural,Low Income Population HPSA
+MSSA 10/Oroville,Unknown,High Needs Geographic HPSA,Primary Care,Designated,15,49485,N,Rural,Geographic Population
+MSSA 58.1/Shafter,Unknown,High Needs Geographic HPSA,Primary Care,Designated,14,24338,N,Non-Rural,Geographic Population
+Alpine,Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,6060,Y,Non-Rural,Geographic Population
+Poverty Population - South Sacramento,Metropolitan,HPSA Population,Primary Care,Withdrawn,0,13156,N,Non-Rural,Low Income Population HPSA
+Medicaid - Tuolumne County,Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,0,5330,N,Rural,Medicaid Eligible Population HPSA
+Medicaid Eligible - Ridgecrest (MSSA 64),Metropolitan,HPSA Population,Primary Care,Withdrawn,0,2706,N,Rural,Medicaid Eligible Population HPSA
+Poverty Population - Fowler/Selma/Kingsburg,Metropolitan,HPSA Population,Primary Care,Withdrawn,0,5431,N,Rural,Low Income Population HPSA
+Medicaid Eligible - Auburn/Colfax/Forsethill,Metropolitan,HPSA Population,Primary Care,Withdrawn,0,3659,N,Rural,Medicaid Eligible Population HPSA
+Low Income - Cutler/Orosi/Dinuba,Metropolitan,HPSA Population,Primary Care,Withdrawn,0,22404,N,Non-Rural,Low Income Population HPSA
+Medicaid Eligible - Ukiah/Hopland,Metropolitan,HPSA Population,Primary Care,Withdrawn,0,6424,N,Rural,Medicaid Eligible Population HPSA
+Idyllwild/Pine Cove (MSSA 130),Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,11700,N,Non-Rural,Geographic Population
+Medi-Cal Population - Waterford,Metropolitan,HPSA Population,Primary Care,Withdrawn,0,1300,N,Non-Rural,Medicaid Eligible Population HPSA
+Migrant Seasonal Farmworkers - Pajaro Valley,Metropolitan,HPSA Population,Primary Care,Withdrawn,0,46697,N,Non-Rural,Migrant Seasonal Worker Population HPSA
+Gustine/Newman,Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,12141,N,Partially Rural,Geographic Population
+Low Income - Eureka (MSSA 39),Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,11,30354,N,Rural,Low Income Population HPSA
+Markleeville,Non-Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,2326,N,Rural,Geographic Population
+Low Inc - MSSA 161g (Lemon Grove NW/National City E),Metropolitan,HPSA Population,Primary Care,Withdrawn,6,46340,Y,Non-Rural,Low Income Population HPSA
+Ceres/Modesto South Central (MSSA 215C),Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,83534,N,Non-Rural,Geographic Population
+Low Income/Migrant Farmworker-MSSA 35C-F/Fresno We,Metropolitan,HPSA Population,Primary Care,Withdrawn,17,237476,N,Non-Rural,Low Income Migrant Farmworker Population HPSA
+Low Inc-MSSA 149/Barstow/Daggett/Oro Grande/Yermo,Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,13,22789,N,Non-Rural,Low Income Population HPSA
+Gilroy/Morgan Hill (MSSA 182),Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,95649,N,Non-Rural,Geographic Population
+Low Income - Lompoc (MSSA 179),Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,0,18839,N,Non-Rural,Low Income Population HPSA
+Alemany/Excelsior (MSSA 162F),Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,125119,N,Non-Rural,Geographic Population
+MSSA 78.2c/Bell NE/Bell Gardens/Montebello S,Unknown,Geographic HPSA,Primary Care,Withdrawn,9,125390,N,Non-Rural,Geographic Population
+LI-MSSA 73/Bieber,Unknown,HPSA Population,Primary Care,Withdrawn,10,356,N,Rural,Low Income Population HPSA
+Low Income/Migrant Farmworkers - MSSA 169b/French Camp,Unknown,HPSA Population,Primary Care,Withdrawn,4,80912,N,Non-Rural,Low Income Migrant Farmworker Population HPSA
+Adin/Lookout (MSSA 100),Non-Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,7741,N,Rural,Geographic Population
+Low Income/MFW - MSSA 31/Sanger/Clovis E,Unknown,HPSA Population,Primary Care,Withdrawn,9,31291,N,Non-Rural,Low Income Migrant Farmworker Population HPSA
+LI-MSSA 77.1c/Lancaster Central,Unknown,HPSA Population,Primary Care,Withdrawn,13,54320,N,Non-Rural,Low Income Population HPSA
+Low Income - MSSA 78.2m/Bellflower,Unknown,HPSA Population,Primary Care,Withdrawn,15,41605,N,Non-Rural,Low Income Population HPSA
+LI/MFW/Homeless - MSSA 30/Kingsburg/Selma,Unknown,HPSA Population,Primary Care,Withdrawn,12,55279,N,Rural,Low Income Homeless Migrant Farmworker Population HPSA
+Low Income/MFW/H - MSSA 35b/Clovis West/Fresno Eas,Unknown,HPSA Population,Primary Care,Withdrawn,11,35589,N,Non-Rural,Low Income Homeless Migrant Farmworker Population HPSA
+Bell Southwest/Vernon (MSSA 78.2DDD),Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,84680,N,Non-Rural,Geographic Population
+MSSA 30/Kingsburg/Selma,Unknown,High Needs Geographic HPSA,Primary Care,Designated,11,92487,N,Non-Rural,Geographic Population
+MSSA 77.2/Lake Los Angeles,Unknown,Geographic HPSA,Primary Care,Designated,17,18283,N,Non-Rural,Geographic Population
+MSSA 8-Magalia/Paradise/Stirling City,Unknown,Geographic HPSA,Primary Care,Designated,15,40625,N,Rural,Geographic Population
+LI MSSA 129.3/Agua Caliente/Palm Springs Central,Unknown,HPSA Population,Primary Care,Designated,14,11080,N,Non-Rural,Low Income Population HPSA
+ME-MSSA 180.1/Orcutt/Santa Maria,Unknown,HPSA Population,Primary Care,Designated,12,65254,N,Non-Rural,Medicaid Eligible Population HPSA
+Manteca/Escalon MSSA-164.1 and 164.2,Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,112539,N,Non-Rural,Geographic Population
+Low Income/MFW/H - MSSA 35c/35e/Fresno W Central/S,Unknown,HPSA Population,Primary Care,Withdrawn,11,118159,N,Non-Rural,Low Income Homeless Migrant Farmworker Population HPSA
+LI-MSSA 78.2c/Bell NE,Unknown,HPSA Population,Primary Care,Designated,16,60229,N,Non-Rural,Low Income Population HPSA
+MSSA 189.1 - Palo Cedro,Unknown,Geographic HPSA,Primary Care,Designated,11,4629,N,Non-Rural,Geographic Population
+MSSAs 27 &amp; 28/Coalinga/Huron,Unknown,High Needs Geographic HPSA,Primary Care,Designated,16,25539,N,Rural,Geographic Population
+ME - MSSA 159/Campo,Unknown,HPSA Population,Primary Care,Designated,17,3166,Y,Rural,Medicaid Eligible Population HPSA
+MSSAs 227.1 and 227.2/Dinuba-Orosi,Unknown,High Needs Geographic HPSA,Primary Care,Designated,15,53940,N,Rural,Geographic Population
+MSSA 39 &amp; 40 - Arcata/Eureka,Unknown,High Needs Geographic HPSA,Primary Care,Designated,9,94800,N,Rural,Geographic Population
+MSSA 78.2GGG Low Income/S.Central Northeast,Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,10,72077,N,Non-Rural,Low Income Population HPSA
+MSSA 185.2 (Davenport),Non-Metropolitan,Geographic HPSA,Primary Care,Withdrawn,11,4018,N,Non-Rural,Geographic Population
+MSSA 78.2s/South Central Southwest,Metropolitan,High Needs Geographic HPSA,Primary Care,Withdrawn,14,90943,N,Non-Rural,Geographic Population
+MSSA 228.1/Ivanhoe,Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,15,16961,N,Non-Rural,Geographic Population
+Low Income - MSSA 190 (Burney/Cassel),Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,0,8721,N,Rural,Low Income Population HPSA
+Low Income/Migrant Farmworker - MSSA 66B (Bakersfi,Metropolitan,HPSA Population,Primary Care,Withdrawn,19,97630,N,Non-Rural,Low Income Migrant Farmworker Population HPSA
+Low Income/MFW - MSSA 64/Inyokern/Ridgecrest,Unknown,HPSA Population,Primary Care,Withdrawn,15,10921,N,Rural,Low Income Migrant Farmworker Population HPSA
+MSSA 140/Hollister,Unknown,Geographic HPSA,Primary Care,Designated,7,59218,N,Rural,Geographic Population
+MSSA 145.1b - Hesperia East,Unknown,HPSA Population,Primary Care,Designated,13,47369,N,Unknown,Low Income Population HPSA
+MSSA 96/Atwater,Unknown,High Needs Geographic HPSA,Primary Care,Withdrawn,5,50566,N,Non-Rural,Geographic Population
+MSSA 63/Lake Isabella,Unknown,High Needs Geographic HPSA,Primary Care,Designated,17,15346,N,Rural,Geographic Population
+LI/MFW - MSSA 195/Yreka/Montague/Grenada/Gazelle/Hilt/Hornbrook,Unknown,HPSA Population,Primary Care,Designated,15,6767,N,Rural,Low Income Migrant Farmworker Population HPSA
+MSSA 11 - Berry Creek,Unknown,Geographic HPSA,Primary Care,Designated,16,4660,N,Rural,Geographic Population
+MSSA 114 &amp; 117/Truckee/Dollar Point,Unknown,Geographic HPSA,Primary Care,Designated,6,31036,N,Rural,Geographic Population
+MSSA 228.1/Woodlake/Ivanhoe,Unknown,High Needs Geographic HPSA,Primary Care,Designated,16,16283,N,Non-Rural,Geographic Population
+LI/MFW - MSSA 95/Ballico/Delhi/Livingston,Unknown,HPSA Population,Primary Care,Designated,16,20117,N,Non-Rural,Low Income Migrant Farmworker Population HPSA
+Sierra County,Unknown,Geographic HPSA,Primary Care,Designated,10,3013,N,Rural,Geographic Population
+MSSA 71.1 Clearlake/Clearlake Oaks,Unknown,High Needs Geographic HPSA,Primary Care,Designated,9,23144,N,Rural,Geographic Population
+LI/MFW - MSSA 184/Freedom/Watsonville,Unknown,HPSA Population,Primary Care,Designated,8,29753,N,Non-Rural,Low Income Migrant Farmworker Population HPSA
+"MSSA 46, 47, 50/East Imperial",Unknown,High Needs Geographic HPSA,Primary Care,Designated,10,42420,Y,Rural,Geographic Population
+MSSAs 234.2/236-Sonora/E Sonora,Unknown,Geographic HPSA,Primary Care,Withdrawn,11,54777,N,Rural,Geographic Population
+Low Income/MFW - MSSA 97.3/Le Grand/Planada,Unknown,HPSA Population,Primary Care,Withdrawn,17,4875,N,Rural,Low Income Migrant Farmworker Population HPSA
+Low Income/Migrant FW - MSSA 145.1a/Hesperia West,Unknown,HPSA Population,Primary Care,Withdrawn,16,87711,N,Non-Rural,Low Income Migrant Farmworker Population HPSA
+LI-MSSA 78.2s/South Central Southwest,Unknown,HPSA Population,Primary Care,Designated,19,57417,N,Non-Rural,Low Income Population HPSA
+MSSA 37/Willows,Unknown,High Needs Geographic HPSA,Primary Care,Withdrawn,10,10939,N,Rural,Geographic Population
+LI/MFW MSSA 230 - Tulare,Unknown,HPSA Population,Primary Care,Designated,17,42336,N,Non-Rural,Low Income Migrant Farmworker Population HPSA
+"MSSA 222/Corning, Los Molinos, Tehama County",Unknown,High Needs Geographic HPSA,Primary Care,Designated,15,17795,N,Rural,Geographic Population
+Sierra,Frontier,Geographic HPSA,Primary Care,Withdrawn,0,3400,N,Rural,Geographic Population
+San Benito,Non-Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,24799,N,Rural,Geographic Population
+Glenn,Non-Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,27531,N,Rural,Geographic Population
+ME-MSSA 151f/Colton,Unknown,HPSA Population,Primary Care,Designated,9,73534,N,Non-Rural,Medicaid Eligible Population HPSA
+MSSA 78.2oo - El Monte/Five Points,Unknown,High Needs Geographic HPSA,Primary Care,Designated,10,99650,N,Non-Rural,Geographic Population
+MSSA 78.2ggg/South Central Northeast,Unknown,High Needs Geographic HPSA,Primary Care,Designated,13,138940,N,Non-Rural,Geographic Population
+LI MFW MSSA 26 - San Joaquin,Unknown,HPSA Population,Primary Care,Designated,17,4916,N,Rural,Low Income Migrant Farmworker Population HPSA
+Low Income/MFW - MSSA 161h/El Cajon Central and So,Unknown,HPSA Population,Primary Care,Withdrawn,12,46575,Y,Non-Rural,Low Income Migrant Farmworker Population HPSA
+"MSSA 225/Hayfork, Forest Glen, Peanut",Unknown,Geographic HPSA,Primary Care,Designated,15,3182,N,Rural,Geographic Population
+Low Income/Migrant Farmworker - Tulare (MSSA 233B),Metropolitan,HPSA Population,Primary Care,Withdrawn,0,41444,N,Non-Rural,Low Income Migrant Farmworker Population HPSA
+Low Income - Antioch N./Pittsburg N.(MSSA18D),Metropolitan,HPSA Population,Primary Care,Withdrawn,0,27667,N,Non-Rural,Low Income Population HPSA
+Low Income/Migrant Farmworker - Willows (MSSA 37),Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,0,12257,N,Rural,Low Income Migrant Farmworker Population HPSA
+Low Income - Hollister (MSSA 140),Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,0,15335,N,Rural,Low Income Population HPSA
+Low Income - Fontana East (MSSA 151F),Metropolitan,HPSA Population,Primary Care,Withdrawn,0,58281,N,Non-Rural,Low Income Population HPSA
+Pollock Pines (MSSA 23.2),Non-Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,24336,N,Rural,Geographic Population
+Ramona,Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,27889,Y,Non-Rural,Geographic Population
+Poverty Population - San Marcos,Metropolitan,HPSA Population,Primary Care,Withdrawn,0,3627,N,Rural,Low Income Population HPSA
+MSSA 30/Caruthers-Raisin City,Non-Metropolitan,High Needs Geographic HPSA,Primary Care,Withdrawn,7,92258,N,Rural,Geographic Population
+MSSA 190 Burney/Cassel/Fall River Mills/Hat Creek/,Unknown,Geographic HPSA,Primary Care,Withdrawn,15,7153,N,Rural,Geographic Population
+Downieville MSSA 192,Non-Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,3468,N,Rural,Geographic Population
+Coalinga,Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,9480,N,Rural,Geographic Population
+MSSA 26/San Joaquin,Unknown,Geographic HPSA,Primary Care,Withdrawn,16,9467,N,Rural,Geographic Population
+Low Income - Oroville/Palermo (MSSA 10),Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,0,43389,N,Rural,Low Income Population HPSA
+Low Income - Lower Lake (MSSA 71),Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,0,14561,N,Rural,Low Income Population HPSA
+Low Income - MSSA 24/South Lake Tahoe,Unknown,HPSA Population,Primary Care,Withdrawn,16,10741,N,Rural,Low Income Population HPSA
+Low Income/MFW - MSSA 99/Surprise Valley,Unknown,HPSA Population,Primary Care,Withdrawn,9,617,N,Rural,Low Income Migrant Farmworker Population HPSA
+Low Income - Alturas/Canby (MSSA 98),Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,0,5846,N,Rural,Low Income Population HPSA
+MSSA 78.2aaa-Watts/Willowbrook,Metropolitan,High Needs Geographic HPSA,Primary Care,Withdrawn,7,82431,N,Non-Rural,Geographic Population
+Low Income/Migrant Farmworker/Homeless - Atascader,Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,0,13609,N,Non-Rural,Low Income Homeless Migrant Farmworker Population HPSA
+Low Income - Boonville (MSSA 87.1),Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,0,1341,N,Rural,Low Income Population HPSA
+Low Income - Coulterville/Mariposa,Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,0,5894,N,Rural,Low Income Population HPSA
+Maple/Santa Barbara,Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,93367,N,Non-Rural,Geographic Population
+Huntington Park/Slauson Central MSSA 78,Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,115999,N,Non-Rural,Geographic Population
+Poverty/Migrant Farmworker - Buttonwillow/Wasco/Sh,Metropolitan,HPSA Population,Primary Care,Withdrawn,0,10884,N,Non-Rural,Low Income Migrant Farmworker Population HPSA
+Hayfork/Forest Glen/Peanut(MSSA 225),Non-Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,3121,N,Rural,Geographic Population
+Bolinas/Stinson Beach (MSSA 81),Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,15006,N,Rural,Geographic Population
+Medicaid Eligible - Central North Redding MSSA 189,Metropolitan,HPSA Population,Primary Care,Withdrawn,0,31000,N,Non-Rural,Medicaid Eligible Population HPSA
+Low Income - Angels (MSSA 12),Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,0,43712,N,Rural,Low Income Population HPSA
+Low Income - Lake Tahoe/Tahoe City,Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,0,2885,N,Rural,Low Income Population HPSA
+Medicaid Eligible - Winterhaven-Bard,Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,0,1355,N,Rural,Medicaid Eligible Population HPSA
+Low Income/Migrant Farmworker - San Juan Capistran,Metropolitan,HPSA Population,Primary Care,Withdrawn,0,16766,N,Non-Rural,Low Income Migrant Farmworker Population HPSA
+Low Income/Migrant Farmworker - Northern Napa Coun,Metropolitan,HPSA Population,Primary Care,Withdrawn,0,4234,N,Rural,Low Income Migrant Farmworker Population HPSA
+Low Income - Shafter (MSSA 58.1),Metropolitan,HPSA Population,Primary Care,Withdrawn,0,14990,N,Non-Rural,Low Income Population HPSA
+LI/MSSA 176b/E Menlo Park/E Palo Alto/Fa,Unknown,HPSA Population,Primary Care,Withdrawn,6,26639,N,Non-Rural,Low Income Population HPSA
+MSSA 78.2fff-Firestone/Florence South,Metropolitan,High Needs Geographic HPSA,Primary Care,Withdrawn,12,97695,N,Non-Rural,Geographic Population
+Low Income - Lake Isabella (MSSA 63),Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,0,7511,N,Rural,Low Income Population HPSA
+Low Income - Petaluma,Metropolitan,HPSA Population,Primary Care,Withdrawn,0,17848,N,Non-Rural,Low Income Population HPSA
+Migrant Seasonal Farmworkers - Lower Coachella Val,Metropolitan,HPSA Population,Primary Care,Withdrawn,0,8680,N,Non-Rural,Migrant Seasonal Worker Population HPSA
+LI-MSSA 230/Tulare/Tipton,Unknown,HPSA Population,Primary Care,Withdrawn,10,35509,N,Non-Rural,Low Income Population HPSA
+Honey Lake,Non-Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,2502,N,Rural,Geographic Population
+Mono North/Topaz Walker,Non-Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,5058,N,Rural,Geographic Population
+MSSA 58.2/Lost Hills/Wasco,Unknown,High Needs Geographic HPSA,Primary Care,Withdrawn,17,24124,N,Rural,Geographic Population
+Figueroa/Firestone/Green Meadows/Watts,Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,152055,N,Non-Rural,Geographic Population
+Low Income/Migrant Farmworker - MSSA 212.1 (Denair,Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,0,26857,N,Non-Rural,Low Income Migrant Farmworker Population HPSA
+Low Income - Rio Dell/Scotia (MSSA 43),Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,0,1980,N,Rural,Low Income Population HPSA
+Low Income - MSSA 42/Fortuna,Unknown,HPSA Population,Primary Care,Withdrawn,9,11707,N,Rural,Low Income Population HPSA
+LI - MSSA 78.2l/Exposition Park/Leimert Park,Unknown,HPSA Population,Primary Care,Designated,12,51869,N,Non-Rural,Low Income Population HPSA
+MSSA 57.1/Fort Tejon,Unknown,Geographic HPSA,Primary Care,Designated,17,7676,N,Rural,Geographic Population
+MSSA 48 El Centro,Unknown,High Needs Geographic HPSA,Primary Care,Designated,11,87253,Y,Non-Rural,Geographic Population
+Low Income - MSSA 161d/Chollas Creek,Unknown,HPSA Population,Primary Care,Withdrawn,12,56853,Y,Non-Rural,Low Income Population HPSA
+Low Income - MSSA 145.1b/Apple Valley,Unknown,HPSA Population,Primary Care,Withdrawn,16,47533,N,Non-Rural,Low Income Population HPSA
+ME - MSSA109.2/Salinas,Unknown,HPSA Population,Primary Care,Designated,16,96399,N,Non-Rural,Medicaid Eligible Population HPSA
+LI/MFW - MSSA 228.2/Exeter,Unknown,HPSA Population,Primary Care,Designated,19,28164,N,Non-Rural,Low Income Migrant Farmworker Population HPSA
+MSSA 232/Springville,Unknown,Geographic HPSA,Primary Care,Designated,16,5173,N,Rural,Geographic Population
+MSSA 71.2 &amp; 71.3/Lower Lake/Cobb,Unknown,Geographic HPSA,Primary Care,Designated,14,23150,N,Rural,Geographic Population
+Low Income - MSSA 133.1/Canyon Lake,Unknown,HPSA Population,Primary Care,Withdrawn,13,73838,N,Non-Rural,Low Income Population HPSA
+LI/MFW/H - MSSAs197/198/199/Weed/Dunsmuir/McCloud,Unknown,HPSA Population,Primary Care,Designated,17,7241,N,Rural,Low Income Homeless Migrant Farmworker Population HPSA
+ME - MSSA 116q/Anaheim East/City of Orange North/Placentia,Unknown,HPSA Population,Primary Care,Designated,13,43084,N,Non-Rural,Medicaid Eligible Population HPSA
+LI-MSSA 78.2p/Long Beach Port,Unknown,HPSA Population,Primary Care,Designated,16,55581,N,Non-Rural,Low Income Population HPSA
+Watsonville,Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,59841,N,Non-Rural,Geographic Population
+South Barstow-Victorville/Adelanto/Apple Val,Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,178736,N,Non-Rural,Geographic Population
+Argus/Trona (MSSA 142),Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,2239,N,Rural,Geographic Population
+Huron (MSSA 28),Non-Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,8447,N,Rural,Geographic Population
+South Coachella Valley/Mecca,Non-Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,16993,N,Rural,Geographic Population
+Chuckwall/Desert Center/Eagle Mountain,Non-Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,1905,N,Rural,Geographic Population
+MSSA 104/Big Sur,Unknown,Geographic HPSA,Primary Care,Withdrawn,14,2746,N,Rural,Geographic Population
+West Imperial,Non-Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,694,Y,Rural,Geographic Population
+"MSSA 187/Castella, Lakehead, O",Unknown,Geographic HPSA,Primary Care,Withdrawn,9,1678,N,Rural,Geographic Population
+Low Income/MFW - MSSA 32/Parlier/Reedley,Unknown,HPSA Population,Primary Care,Withdrawn,6,39437,N,Non-Rural,Low Income Migrant Farmworker Population HPSA
+Low Income - Big Bear Lake(MSSA 146),Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,0,24755,N,Non-Rural,Low Income Population HPSA
+Knights Landing,Non-Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,3177,N,Non-Rural,Geographic Population
+Southeast Fresno,Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,22075,N,Non-Rural,Geographic Population
+Willow Creek/Hoopa (MSSA 38),Non-Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,5819,Y,Non-Rural,Geographic Population
+West Berkeley,Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,32757,N,Non-Rural,Geographic Population
+Wrightwood,Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,3024,N,Non-Rural,Geographic Population
+West Point/Wilseyville,Non-Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,12347,N,Rural,Geographic Population
+Sutter Creek/Plymouth,Non-Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,7280,N,Rural,Geographic Population
+Stanislaus/Yosemite,Non-Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,10340,N,Rural,Geographic Population
+Pine Grove/Silver Lake,Non-Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,5953,N,Rural,Geographic Population
+Spanish Speaking Population - Healdsburg,Metropolitan,HPSA Population,Primary Care,Withdrawn,0,5271,N,Non-Rural,Other Population HPSA
+MSSA 169b/Stockton South & Southeast,Metropolitan,High Needs Geographic HPSA,Primary Care,Withdrawn,12,144306,N,Non-Rural,Geographic Population
+Low Income - Yuba Foothills,Metropolitan,HPSA Population,Primary Care,Withdrawn,0,1880,N,Non-Rural,Low Income Population HPSA
+Low Income - Los Banos (MSSA 94),Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,0,21403,N,Rural,Low Income Population HPSA
+Medicaid - Oakdale/Riverbank,Metropolitan,HPSA Population,Primary Care,Withdrawn,0,5764,N,Rural,Medicaid Eligible Population HPSA
+Low Income - Lindsay (MSSA 228),Metropolitan,HPSA Population,Primary Care,Withdrawn,0,25249,N,Rural,Low Income Population HPSA
+Low Income - MSSA 23.3 (Placerville),Unknown,HPSA Population,Primary Care,Withdrawn,5,14821,N,Non-Rural,Low Income Population HPSA
+Low Income - East Bakersfield (MSSA 66B),Metropolitan,HPSA Population,Primary Care,Withdrawn,0,52604,N,Non-Rural,Low Income Population HPSA
+Willows,Non-Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,14345,N,Rural,Geographic Population
+Low Income - Anderson/Cottonwood (MSSA 186),Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,0,11942,N,Non-Rural,Low Income Population HPSA
+Medi-Cal Population - Calaveras County,Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,0,3978,N,Rural,Medicaid Eligible Population HPSA
+East Yolo,Non-Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,31507,N,Non-Rural,Geographic Population
+Nipomo/Arroyo Grande,Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,0,10000,N,Non-Rural,Geographic Population
+MSSA 56/Death Valley,Frontier,Geographic HPSA,Primary Care,Withdrawn,15,1244,N,Rural,Geographic Population
+The Developmentally Disabled-Ventura County,Metropolitan,HPSA Population,Primary Care,Withdrawn,0,15000,N,Partially Rural,Other Population HPSA
+MSSA 79.1/Oakhurst-N Fork,Unknown,High Needs Geographic HPSA,Primary Care,Withdrawn,9,31841,N,Non-Rural,Geographic Population
+Low Income/Migrant Farmworker - Southwest Merced,Metropolitan,HPSA Population,Primary Care,Withdrawn,0,20370,N,Non-Rural,Low Income Migrant Farmworker Population HPSA
+Low Income/Migrant Farmworker - Atwater/Livingston,Metropolitan,HPSA Population,Primary Care,Withdrawn,0,32532,N,Non-Rural,Low Income Migrant Farmworker Population HPSA
+Lemon Grove/National City (MSSA 161G),Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,88919,Y,Non-Rural,Geographic Population
+Low Income - South of Market,Metropolitan,HPSA Population,Primary Care,Withdrawn,0,40740,N,Non-Rural,Low Income Population HPSA
+Helendale/Silver Lakes,Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,6444,N,Non-Rural,Geographic Population
+MSSA 73-Bieber,Frontier,Geographic HPSA,Primary Care,Withdrawn,13,2217,N,Rural,Geographic Population
+Madeline Plains,Non-Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,369,N,Rural,Geographic Population
+Palo Verde/Blythe,Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,13699,N,Rural,Geographic Population
+Loma Prieta School District,Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,7000,N,Non-Rural,Geographic Population
+Mig./Spanish Speaking Population - Southwest Stani,Metropolitan,HPSA Population,Primary Care,Withdrawn,0,6916,N,Partially Rural,Other Population HPSA
+Migrant Spanish Speaking-Greater Merced,Metropolitan,HPSA Population,Primary Care,Withdrawn,0,10000,N,Non-Rural,Migrant Seasonal Worker Population HPSA
+Low Income - MSSA 116B (Central Santa Ana),Metropolitan,HPSA Population,Primary Care,Withdrawn,10,77498,N,Non-Rural,Low Income Population HPSA
+East Contra Costa,Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,39032,N,Non-Rural,Geographic Population
+MSSA 144.2 & 144.3/Joshua Tree/Cadiz,Unknown,Geographic HPSA,Primary Care,Withdrawn,12,59390,N,Rural,Geographic Population
+Maywood Bell,Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,121086,N,Non-Rural,Geographic Population
+East Oakland,Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,71543,N,Non-Rural,Geographic Population
+Central Oakland,Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,68540,N,Non-Rural,Geographic Population
+Orland,Non-Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,10173,N,Rural,Geographic Population
+Low Income - Ferndale (MSSA 41),Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,0,3101,N,Rural,Low Income Population HPSA
+Low Income - Blue Lake (MSSA 40),Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,0,2577,N,Rural,Low Income Population HPSA
+Low Income - North Coastal (MSSA 39),Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,0,1183,N,Rural,Low Income Population HPSA
+Low Income - South Napa (MSSA 112),Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,0,19818,N,Non-Rural,Low Income Population HPSA
+Low Income - Paradise,Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,0,14143,N,Rural,Low Income Population HPSA
+Mammoth Lakes (MSSA 103),Frontier,Geographic HPSA,Primary Care,Withdrawn,0,5030,N,Rural,Geographic Population
+Low Income - Dunsmuir,Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,0,1288,N,Rural,Low Income Population HPSA
+Low Income - Mt. Shasta/Weed,Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,0,4508,N,Rural,Low Income Population HPSA
+McCloud/Tennant (MSSA 199),Frontier,Geographic HPSA,Primary Care,Withdrawn,0,1691,N,Rural,Geographic Population
+Low Income - Highland Park (MSSA 78.2I),Metropolitan,HPSA Population,Primary Care,Withdrawn,0,75983,N,Non-Rural,Low Income Population HPSA
+Low Income - Newman,Metropolitan,HPSA Population,Primary Care,Withdrawn,0,8487,N,Rural,Low Income Population HPSA
+Low Income/Migrant Farmworker - Gustine,Metropolitan,HPSA Population,Primary Care,Withdrawn,0,2624,N,Rural,Low Income Migrant Farmworker Population HPSA
+Low Income - Healdsburg/Geyserville,Metropolitan,HPSA Population,Primary Care,Withdrawn,0,6760,Y,Non-Rural,Low Income Population HPSA
+Low Income - Lake Arrowhead,Metropolitan,HPSA Population,Primary Care,Withdrawn,0,3894,N,Non-Rural,Low Income Population HPSA
+Florence/Huntington Park,Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,87147,N,Non-Rural,Geographic Population
+Spanish Speaking Population - San Marcos,Metropolitan,HPSA Population,Primary Care,Withdrawn,0,4177,Y,Non-Rural,Other Population HPSA
+Medicaid - Tehama County,Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,0,9204,N,Rural,Medicaid Eligible Population HPSA
+Redwood/Potter Valley,Non-Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,7519,N,Rural,Geographic Population
+Low Income/Migrant Seasonal Farmworkers - Arvin/La,Non-Metropolitan,HPSA Population,Primary Care,Withdrawn,0,31360,N,Non-Rural,Low Income Migrant Seasonal Worker Population HPSA
+MSSA 78.2r - Inglewood East,Unknown,Geographic HPSA,Primary Care,Designated,11,76951,N,Non-Rural,Geographic Population
+LI MSSA 247 - Brownsville,Unknown,HPSA Population,Primary Care,Designated,10,1261,N,Unknown,Low Income Population HPSA
+MSSA 79.1-Oakhurst- Yosemite Lakes,Unknown,Geographic HPSA,Primary Care,Designated,12,33123,N,Rural,Geographic Population
+Low Income/MFW - MSSA 105&107 /King City/Soledad,Unknown,HPSA Population,Primary Care,Withdrawn,17,34630,N,Rural,Low Income Migrant Farmworker Population HPSA
+MSSA 85 &amp; 86 - Mariposa/Yosemite Valley,Unknown,Geographic HPSA,Primary Care,Designated,16,17112,N,Rural,Geographic Population
+LI-MSSA 64 Ridgecrest,Unknown,HPSA Population,Primary Care,Designated,14,11352,N,Rural,Low Income Population HPSA
+MSSA 146/Big Bear Lake,Unknown,Geographic HPSA,Primary Care,Designated,13,26087,N,Rural,Geographic Population
+MSSA 23.2/Pollock,Unknown,High Needs Geographic HPSA,Primary Care,Withdrawn,15,23498,N,Non-Rural,Geographic Population
+ME 78.2vv-Los Nietos/Santa Fe Springs Northeast,Unknown,HPSA Population,Primary Care,Designated,16,32438,N,Non-Rural,Medicaid Eligible Population HPSA
+LI-MSSA 78.2ll/San Fernando West,Unknown,HPSA Population,Primary Care,Designated,13,58599,N,Non-Rural,Low Income Population HPSA
+Low Income - MSSA 116c/Anaheim W,Unknown,HPSA Population,Primary Care,Withdrawn,11,53495,N,Non-Rural,Low Income Population HPSA
+Cuyama,Non-Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,1206,N,Rural,Geographic Population
+Clearlake Highlands,Non-Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,20966,N,Rural,Geographic Population
+Spanish Speaking Population - North West Merced,Metropolitan,HPSA Population,Primary Care,Withdrawn,0,7166,N,Rural,Other Population HPSA
+Stewarts Point,Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,2089,N,Non-Rural,Geographic Population
+Spanish Speaking Population - Porterville,Metropolitan,HPSA Population,Primary Care,Withdrawn,0,14756,N,Non-Rural,Other Population HPSA
+Indochinese Population - Sacramento Area,Metropolitan,HPSA Population,Primary Care,Withdrawn,0,10300,N,Partially Rural,Other Population HPSA
+Pittsburg,Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,43843,N,Non-Rural,Geographic Population
+Esparto,Non-Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,3538,N,Non-Rural,Geographic Population
+Dixon,Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,14109,N,Rural,Geographic Population
+West Compton,Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,76794,N,Non-Rural,Geographic Population
+Greenville,Non-Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,3057,N,Rural,Geographic Population
+Tenderloin,Metropolitan,Geographic HPSA,Primary Care,Withdrawn,0,23044,N,Partially Rural,Geographic Population

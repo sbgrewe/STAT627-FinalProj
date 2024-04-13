@@ -8,8 +8,9 @@ hpsas <- read_csv("all-primary-care-hpsas.csv") |>
 
 hpsas_df <- hpsas |>
   select(
-    hpsa_name, designation_type, hpsa_discipline_class, hpsa_status,
-    hpsa_designation_date, hpsa_designation_last_update_date, 
+    hpsa_name, metropolitan_indicator, designation_type, hpsa_discipline_class, 
+    hpsa_status, hpsa_score,hpsa_designation_population, 
+    u_s_mexico_border_county_indicator,
     rural_status, hpsa_population_type, county_equivalent_name
   )
 
@@ -17,12 +18,16 @@ hpsas_df <- hpsas_df |>
   drop_na() |>
   rename("counties" = "county_equivalent_name")
 
-hpsas_df |>
-  select(counties) |>
-  group_by(counties) |>
+hpsas_full <- hpsas_df |>
+  select(-counties) |>
+  filter(hpsa_designation_population != 0) |>
+  distinct(hpsa_name, .keep_all = TRUE)
+
+hpsas_full |>
+  group_by(u_s_mexico_border_county_indicator, rural_status) |>
   count()
 
-glimpse(hpsas_df)
+write_csv(hpsas_full, "hpsas_full.csv")
 
 ### census data ---------------------------------------------------
 censusdf <- read_csv("2020Census.csv") |>
@@ -57,5 +62,6 @@ census_pov <- read_csv("census_pov_medHHinc_2016.csv") |>
 
 complet_df <- census_hpsas |>
   left_join(census_pov, by = "counties")
-
 write_csv(complet_df, "data2.csv")
+
+
