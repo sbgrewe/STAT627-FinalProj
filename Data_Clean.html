@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.550">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>data_clean</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="Data_Clean_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Data_Clean_files/libs/quarto-html/quarto.js"></script>
+<script src="Data_Clean_files/libs/quarto-html/popper.min.js"></script>
+<script src="Data_Clean_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Data_Clean_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Data_Clean_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Data_Clean_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Data_Clean_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Data_Clean_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Data_Clean_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="loading-and-exploring-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="loading-and-exploring-the-data">Loading and Exploring the Data</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse); <span class="fu">theme_set</span>(<span class="fu">theme_bw</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.0     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>path1 <span class="ot">&lt;-</span> <span class="st">"Data</span><span class="sc">\\</span><span class="st">2016-2021-imi-results-long-view.csv"</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>path2 <span class="ot">&lt;-</span> <span class="st">"Data</span><span class="sc">\\</span><span class="st">all-primary-care-hpsas.csv"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>path3 <span class="ot">&lt;-</span> <span class="st">"Data</span><span class="sc">\\</span><span class="st">2020census.csv"</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>data1 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(path1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 53216 Columns: 11
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (10): COUNTY, HOSPITAL, OSHPDID, Procedure/Condition, Risk Adjuested Mor...
+dbl  (1): YEAR
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>data2 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(path2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 7441 Columns: 65
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (52): HPSA Name, HPSA ID, Designation Type, HPSA Discipline Class, Prima...
+dbl (13): HPSA Score, PC MCTA Score, HPSA FTE, HPSA Designation Population, ...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>data3 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(path3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>New names:
+Rows: 1676 Columns: 20
+── Column specification
+──────────────────────────────────────────────────────── Delimiter: "," chr
+(9): Geography, Median age (years), Male Median age (years), Female Medi... num
+(9): Total Population, Male, Female, Persons Under 5 years, Persons Unde... lgl
+(2): ...18, ...20
+ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
+Specify the column types or set `show_col_types = FALSE` to quiet this message.
+• `` -&gt; `...18`
+• `` -&gt; `...20`</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>data_dims <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Dimension"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Rows"</span>, <span class="st">"Columns"</span>),</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Data1"</span> <span class="ot">=</span> <span class="fu">dim</span>(data1), </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Data2"</span> <span class="ot">=</span> <span class="fu">dim</span>(data2), </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Data3"</span> <span class="ot">=</span> <span class="fu">dim</span>(data3)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>) </span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>data_dims <span class="sc">%&gt;%</span> knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Dimension</th>
+<th style="text-align: right;">Data1</th>
+<th style="text-align: right;">Data2</th>
+<th style="text-align: right;">Data3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Rows</td>
+<td style="text-align: right;">53216</td>
+<td style="text-align: right;">7441</td>
+<td style="text-align: right;">1676</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Columns</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">65</td>
+<td style="text-align: right;">20</td>
+</tr>
+</tbody>
+</table>
+<p>Dimensions of data sets before cleaning</p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 11
+   YEAR COUNTY HOSPITAL  OSHPDID `Procedure/Condition`    Risk Adjuested Morta…¹
+  &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;                    &lt;chr&gt;                 
+1  2016 AAAA   STATEWIDE None    AAA Repair Unruptured    1.3                   
+2  2016 AAAA   STATEWIDE None    AMI                      6.1                   
+3  2016 AAAA   STATEWIDE None    Acute Stroke             9.1                   
+4  2016 AAAA   STATEWIDE None    Acute Stroke Hemorrhagic 21.1                  
+5  2016 AAAA   STATEWIDE None    Acute Stroke Ischemic    5                     
+6  2016 AAAA   STATEWIDE None    Acute Stroke Subarachno… 22.7                  
+# ℹ abbreviated name: ¹​`Risk Adjuested Mortality Rate`
+# ℹ 5 more variables: `# of Deaths` &lt;chr&gt;, `# of Cases` &lt;chr&gt;,
+#   `Hospital Ratings` &lt;chr&gt;, LONGITUDE &lt;chr&gt;, LATITUDE &lt;chr&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 65
+  `HPSA Name`   `HPSA ID` `Designation Type` HPSA Discipline Clas…¹ `HPSA Score`
+  &lt;chr&gt;         &lt;chr&gt;     &lt;chr&gt;              &lt;chr&gt;                         &lt;dbl&gt;
+1 Fruitridge/O… 10699906… Geographic HPSA    Primary Care                      0
+2 Fruitridge/O… 10699906… Geographic HPSA    Primary Care                      0
+3 Neighborhood… 10699906… Federally Qualifi… Primary Care                     18
+4 Clinicas De … 10699906… Federally Qualifi… Primary Care                     18
+5 APLA HEALTH … 10699906… Federally Qualifi… Primary Care                     16
+6 SAN JOAQUIN … 10699906… Rural Health Clin… Primary Care                     17
+# ℹ abbreviated name: ¹​`HPSA Discipline Class`
+# ℹ 60 more variables: `PC MCTA Score` &lt;dbl&gt;,
+#   `Primary State Abbreviation` &lt;chr&gt;, `HPSA Status` &lt;chr&gt;,
+#   `HPSA Designation Date` &lt;chr&gt;, `HPSA Designation Last Update Date` &lt;chr&gt;,
+#   `Metropolitan Indicator` &lt;chr&gt;,
+#   `HPSA Geography Identification Number` &lt;chr&gt;,
+#   `HPSA Degree of Shortage` &lt;chr&gt;, `Withdrawn Date` &lt;chr&gt;, …</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 20
+  Geography      `Total Population`     Male   Female `Median age (years)`
+  &lt;chr&gt;                       &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;               
+1 California               39538223 19549003 19989220 37.5                
+2 Alameda County            1682353   824426   857927 37.7                
+3 Alameda city                78280    37328    40952 41.4                
+4 Albany city                 20271     9657    10614 36.3                
+5 Ashland CDP                 23823    11657    12166 34.5                
+6 Berkeley city              124321    60913    63408 31.3                
+# ℹ 15 more variables: `Male Median age (years)` &lt;chr&gt;,
+#   `Female Median age (years)` &lt;chr&gt;, `Average Household size*` &lt;chr&gt;,
+#   `Average Family size*` &lt;chr&gt;, `Persons Under 5 years` &lt;dbl&gt;,
+#   `Persons Under 18 years` &lt;dbl&gt;, `Persons Age 21+` &lt;dbl&gt;,
+#   `Persons Age 55+` &lt;dbl&gt;, `Persons Age 60+` &lt;dbl&gt;, `Persons Age 65+` &lt;dbl&gt;,
+#   `Percent Population Female` &lt;chr&gt;, `Percent Population Less than 18` &lt;chr&gt;,
+#   ...18 &lt;lgl&gt;, Geoid &lt;chr&gt;, ...20 &lt;lgl&gt;</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># names(data1)</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># names(data2)</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># names(data3)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><em>Cleaning Data Set 1</em></p>
+<p>From data set 1, let’s drop the geographic variables (since they’re redundant when <code>County</code> is in the data set).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(data1) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Year"</span>, <span class="st">"County"</span>, <span class="st">"Hospital"</span>, <span class="st">"OSHPDID"</span>, <span class="st">"Procedure"</span>, <span class="st">"AdjMortRate"</span>, <span class="st">"Deaths"</span>, <span class="st">"Cases"</span>, <span class="st">"HospitalRating"</span>, <span class="st">"Longitude"</span>, <span class="st">"Latitude"</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>kept_cols <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Year"</span>, <span class="st">"County"</span>, <span class="st">"Hospital"</span>, <span class="st">"OSHPDID"</span>, <span class="st">"Procedure"</span>, <span class="st">"AdjMortRate"</span>, <span class="st">"Deaths"</span>, <span class="st">"Cases"</span>, <span class="st">"HospitalRating"</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>data1 <span class="ot">&lt;-</span> data1[, kept_cols]</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(data1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 53,216
+Columns: 9
+$ Year           &lt;dbl&gt; 2016, 2016, 2016, 2016, 2016, 2016, 2016, 2016, 2016, 2…
+$ County         &lt;chr&gt; "AAAA", "AAAA", "AAAA", "AAAA", "AAAA", "AAAA", "AAAA",…
+$ Hospital       &lt;chr&gt; "STATEWIDE", "STATEWIDE", "STATEWIDE", "STATEWIDE", "ST…
+$ OSHPDID        &lt;chr&gt; "None", "None", "None", "None", "None", "None", "None",…
+$ Procedure      &lt;chr&gt; "AAA Repair Unruptured", "AMI", "Acute Stroke", "Acute …
+$ AdjMortRate    &lt;chr&gt; "1.3", "6.1", "9.1", "21.1", "5", "22.7", "0.5", "3.9",…
+$ Deaths         &lt;chr&gt; "30", "3178", "5482", "2580", "2258", "644", "25", "11"…
+$ Cases          &lt;chr&gt; "2358", "52167", "60184", "12210", "45141", "2833", "48…
+$ HospitalRating &lt;chr&gt; "None", "None", "None", "None", "None", "None", "None",…</code></pre>
+</div>
+</div>
+<p>Let’s keep observations from data set 1 only if they come from a county which exists in the second data set.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>data1_counties <span class="ot">&lt;-</span> <span class="fu">unique</span>(data1<span class="sc">$</span>County)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>data2_counties <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">unique</span>(data2<span class="sc">$</span><span class="st">"County Equivalent Name"</span>))</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co"># all(data1_counties[data1_counties %in% data2_counties] == data2_counties[data2_counties %in% data1_counties])</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>common_counties <span class="ot">&lt;-</span> data1_counties[data1_counties <span class="sc">%in%</span> data2_counties]</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>common_counties[<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Alameda"   "Amador"    "Butte"     "Calaveras" "Colusa"   </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>data1 <span class="sc">%&gt;%</span> </span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(County <span class="sc">%in%</span> common_counties) <span class="ot">-&gt;</span> data1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><em>Cleaning Data Set 2</em></p>
+<p>From data set 2, we definitely want to keep the HPSA score, PC MCTA score, HPSA status, Metropolitan Indicator, HPSA FTE, % below poverty line, rural status, county equivalent name</p>
+<p>Again, let’s keep observations from data set 2 only if they come from a county which exists in the first data set.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>data2 <span class="sc">%&gt;%</span> </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">County Equivalent Name</span><span class="st">`</span> <span class="sc">%in%</span> common_counties) <span class="ot">-&gt;</span> data2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><em>Cleaning Data Set 3</em></p>
+<p><code>AvgHouseholdMems</code>, <code>AvgFamilyMems</code>, <code>18</code> and <code>21</code> are entirely empty, so we will remove all of those variables. <code>Geoid</code> also does not contain any useful information not explained by Geography.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(data3) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Geography"</span>, <span class="st">"TotalPop"</span>, <span class="st">"MalePop"</span>, <span class="st">"FemalePop"</span>, <span class="st">"MedianAge"</span>, <span class="st">"MaleMedianAge"</span>, <span class="st">"FemaleMedianAge"</span>, <span class="st">"AvgHouseholdMems"</span>, <span class="st">"AvgFamilyMems"</span>, <span class="st">"Under5yoPop"</span>, <span class="st">"Under18yoPop"</span>, <span class="st">"Pop21andOlder"</span>, <span class="st">"Pop55andOlder"</span>, <span class="st">"Pop60andOlder"</span>, <span class="st">"Pop65andOlder"</span>, <span class="st">"PercFemale"</span>, <span class="st">"PercUnder18yo"</span>, <span class="st">"18"</span>, <span class="st">"Geoid"</span>, <span class="st">"21"</span>)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>kept_cols <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Geography"</span>, <span class="st">"TotalPop"</span>, <span class="st">"MalePop"</span>, <span class="st">"FemalePop"</span>, <span class="st">"MedianAge"</span>, <span class="st">"MaleMedianAge"</span>, <span class="st">"FemaleMedianAge"</span>, <span class="st">"Under5yoPop"</span>, <span class="st">"Under18yoPop"</span>, <span class="st">"Pop21andOlder"</span>, <span class="st">"Pop55andOlder"</span>, <span class="st">"Pop60andOlder"</span>, <span class="st">"Pop65andOlder"</span>, <span class="st">"PercFemale"</span>, <span class="st">"PercUnder18yo"</span>)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>data3 <span class="ot">&lt;-</span> data3[, kept_cols]</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(data3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 1,676
+Columns: 15
+$ Geography       &lt;chr&gt; "California", "Alameda County", "Alameda city", "Alban…
+$ TotalPop        &lt;dbl&gt; 39538223, 1682353, 78280, 20271, 23823, 124321, 66441,…
+$ MalePop         &lt;dbl&gt; 19549003, 824426, 37328, 9657, 11657, 60913, 32275, 79…
+$ FemalePop       &lt;dbl&gt; 19989220, 857927, 40952, 10614, 12166, 63408, 34166, 7…
+$ MedianAge       &lt;chr&gt; "37.5", "37.7", "41.4", "36.3", "34.5", "31.3", "40.9"…
+$ MaleMedianAge   &lt;chr&gt; "36.3", "36.9", "40.0", "34.6", "33.7", "30.9", "40.0"…
+$ FemaleMedianAge &lt;chr&gt; "38.7", "38.5", "42.9", "37.8", "35.3", "31.7", "41.9"…
+$ Under5yoPop     &lt;dbl&gt; 2137439, 89533, 4118, 1057, 1508, 4097, 3520, 982, 490…
+$ Under18yoPop    &lt;dbl&gt; 8711118, 343965, 15609, 4382, 5685, 15394, 14316, 3733…
+$ Pop21andOlder   &lt;dbl&gt; 29188764, 1270547, 60466, 14403, 17212, 92716, 49881, …
+$ Pop55andOlder   &lt;dbl&gt; 10887954, 440539, 23747, 5046, 5152, 30312, 20782, 361…
+$ Pop60andOlder   &lt;dbl&gt; 8367217, 335671, 18623, 3992, 3718, 24485, 15958, 2689…
+$ Pop65andOlder   &lt;dbl&gt; 6017164, 240483, 13711, 3036, 2439, 18926, 11229, 1831…
+$ PercFemale      &lt;chr&gt; "50.6%", "51.0%", "52.3%", "52.4%", "51.1%", "51.0%", …
+$ PercUnder18yo   &lt;chr&gt; "22.0%", "20.4%", "19.9%", "21.6%", "23.9%", "12.4%", …</code></pre>
+</div>
+</div>
+<p><em>Re-coding variables to their correct data type</em></p>
+<p>Several variables in the census data set use <code>"-"</code> as a placeholder observation for no data, which forces the entire data to take on the character string type. We can replace this entry with <code>NA</code> and then try to coerce the variable to a numeric type.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(data3<span class="sc">$</span>MedianAge)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1] "37.5" "37.7" "41.4" "36.3" "34.5" "31.3" "40.9" "35.2" "36.4" "35.0"
+ [11] "41.3" "38.0" "36.2" "39.9" "36.8" "37.2" "45.7" "40.7" "39.4" "51.7"
+ [21] "39.6" "50.1" "55.0" "54.0" "32.0" "57.6" "55.5" "51.6" "46.5" "61.6"
+ [31] "59.5" "41.0" "45.5" "51.5" "57.1" "43.6" "49.2" "56.0" "61.1" "53.9"
+ [41] "55.7" "56.8" "46.8" "50.9" "53.8" "37.9" "35.4" "58.4" "40.3" "48.7"
+ [51] "33.2" "60.1" "50.3" "45.3" "48.2" "51.8" "36.1" "55.3" "49.6" "47.2"
+ [61] "34.7" "48.6" "42.8" "55.6" "52.5" "39.0" "33.8" "46.0" "38.5" "47.5"
+ [71] "57.3" "51.1" "61.0" "58.6" "53.3" "59.9" "60.9" "58.3" "45.6" "46.2"
+ [81] "44.6" "44.5" "46.3" "35.5" "32.8" "35.7" "58.1" "30.6" "40.1" "47.6"
+ [91] "53.1" "54.6" "39.3" "40.8" "49.7" "42.5" "39.5" "34.6" "46.6" "49.8"
+[101] "43.9" "47.0" "42.6" "42.4" "50.5" "45.2" "42.9" "38.3" "53.6" "31.6"
+[111] "35.6" "41.7" "43.8" "51.0" "36.9" "34.4" "43.1" "49.4" "39.2" "40.2"
+[121] "40.0" "59.7" "56.3" "38.9" "54.1" "55.9" "45.0" "50.4" "43.5" "43.3"
+[131] "47.9" "38.1" "48.3" "33.3" "45.8" "26.2" "29.0" "29.6" "34.0" "31.7"
+[141] "37.4" "45.1" "32.2" "28.3" "30.4" "33.7" "32.9" "32.4" "30.9" "26.6"
+[151] "27.0" "28.4" "26.5" "29.8" "31.9" "60.6" "40.4" "36.6" "30.5" "34.3"
+[161] "35.8" "39.1" "28.5" "54.3" "38.6" "48.9" "43.4" "31.4" "41.1" "44.1"
+[171] "49.3" "42.0" "41.5" "48.5" "40.5" "54.5" "42.7" "39.8" "42.1" "32.1"
+[181] "48.8" "32.3" "41.8" "60.2" "32.7" "33.1" "61.7" "62.7" "32.5" "44.8"
+[191] "41.6" "53.5" "61.5" "61.4" "50.6" "57.8" "33.0" "36.0" "59.0" "-"   
+[201] "26.4" "54.9" "31.5" "55.4" "28.7" "23.8" "18.6" "44.7" "27.8" "35.1"
+[211] "28.9" "24.4" "37.3" "57.5" "41.9" "38.8" "29.2" "60.7" "58.0" "30.3"
+[221] "50.8" "28.1" "44.9" "27.6" "43.0" "23.6" "48.4" "51.9" "44.4" "56.1"
+[231] "36.5" "64.5" "57.0" "30.2" "37.6" "29.5" "30.1" "59.6" "63.0" "31.2"
+[241] "33.4" "22.8" "30.0" "56.6" "44.2" "43.2" "47.7" "48.1" "38.4" "44.3"
+[251] "49.0" "66.4" "51.2" "40.6" "37.8" "34.1" "32.6" "42.2" "46.4" "34.9"
+[261] "38.7" "31.0" "46.1" "34.8" "37.1" "45.9" "52.2" "43.7" "44.0" "46.7"
+[271] "52.4" "20.5" "38.2" "50.0" "41.2" "30.8" "62.3" "39.7" "36.7" "29.1"
+[281] "29.3" "52.7" "52.9" "54.4" "49.5" "51.3" "53.7" "50.2" "60.4" "46.9"
+[291] "57.2" "52.1" "54.7" "60.3" "48.0" "67.3" "61.2" "33.9" "29.4" "35.3"
+[301] "28.6" "65.8" "53.2" "59.4" "59.2" "52.6" "54.8" "63.1" "53.4" "28.2"
+[311] "60.0" "27.3" "27.9" "28.8" "74.0" "50.7" "56.9" "60.5" "47.4" "35.9"
+[321] "52.0" "74.9" "49.1" "37.0" "33.5" "60.8" "45.4" "55.1" "54.2" "42.3"
+[331] "53.0" "72.2" "71.6" "9.5"  "65.6" "62.4" "66.9" "61.9" "65.0" "47.8"
+[341] "64.7" "64.8" "58.5" "65.5" "66.8" "68.5" "62.2" "68.8" "64.0" "76.6"
+[351] "69.2" "26.0" "57.9" "66.2" "52.8" "33.6" "49.9" "47.1" "59.8" "24.0"
+[361] "29.7" "25.7" "21.9" "22.3" "63.3" "67.8" "20.9" "21.4" "55.8" "20.2"
+[371] "23.5" "25.8" "51.4" "58.2" "61.8" "56.7" "62.5" "62.8" "63.9" "63.8"
+[381] "58.8" "68.0" "72.3" "24.3" "24.9" "66.5" "25.5" "31.1" "24.5" "65.3"
+[391] "68.9" "27.1" "76.8" "27.4" "56.4" "27.5" "22.7" "55.2" "63.2" "63.4"
+[401] "31.8" "19.7" "47.3" NA    </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>data3<span class="sc">$</span>MedianAge[data3<span class="sc">$</span>MedianAge <span class="sc">==</span> <span class="st">'-'</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>data3<span class="sc">$</span>MedianAge <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(data3<span class="sc">$</span>MedianAge)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="co"># data3$MedianAge</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>data3<span class="sc">$</span>MaleMedianAge[data3<span class="sc">$</span>MaleMedianAge <span class="sc">==</span> <span class="st">'-'</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>data3<span class="sc">$</span>MaleMedianAge <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(data3<span class="sc">$</span>MaleMedianAge)</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>data3<span class="sc">$</span>FemaleMedianAge[data3<span class="sc">$</span>FemaleMedianAge <span class="sc">==</span> <span class="st">'-'</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>data3<span class="sc">$</span>FemaleMedianAge <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(data3<span class="sc">$</span>FemaleMedianAge)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This unfortunately does not work for two variables, where percent signs have been appended to the numbers. Luckily, a quick regex pass can both remove the percent signs and replace the <code>"-"</code> entries with <code>NA</code>s.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(data3<span class="sc">$</span>PercUnder18yo)[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "22.0%" "20.4%" "19.9%" "21.6%" "23.9%" "12.4%" "21.5%" "23.6%" "26.3%"
+[10] "10.8%"</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>string <span class="ot">&lt;-</span> <span class="st">"24.5%"</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="co"># string &lt;- NA</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>expression <span class="ot">&lt;-</span> <span class="st">"(</span><span class="sc">\\</span><span class="st">d{2}</span><span class="sc">\\</span><span class="st">.</span><span class="sc">\\</span><span class="st">d)"</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(<span class="fu">str_extract</span>(string, expression))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 24.5</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>expression <span class="ot">&lt;-</span> <span class="st">"(</span><span class="sc">\\</span><span class="st">d{1,3}</span><span class="sc">\\</span><span class="st">.</span><span class="sc">\\</span><span class="st">d)"</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">&lt;-</span> <span class="fu">double</span>(<span class="fu">length</span>(data3<span class="sc">$</span>PercUnder18yo))</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(data3<span class="sc">$</span>PercUnder18yo)){</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    temp[i] <span class="ot">&lt;-</span> <span class="fu">as.double</span>(<span class="fu">str_extract</span>(data3<span class="sc">$</span>PercUnder18yo[i], expression))</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>data3<span class="sc">$</span>PercUnder18yo <span class="ot">&lt;-</span> temp</span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>temp <span class="ot">&lt;-</span> <span class="fu">double</span>(<span class="fu">length</span>(data3<span class="sc">$</span>PercFemale))</span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="fu">seq_along</span>(data3<span class="sc">$</span>PercFemale)){</span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>    temp[i] <span class="ot">&lt;-</span> <span class="fu">as.double</span>(<span class="fu">str_extract</span>(data3<span class="sc">$</span>PercFemale[i], expression))</span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>data3<span class="sc">$</span>PercFemale <span class="ot">&lt;-</span> temp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tbl-cap: "Dimensions of data sets after cleaning"</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>data_dims <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Dimension"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Rows"</span>, <span class="st">"Columns"</span>),</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Data1"</span> <span class="ot">=</span> <span class="fu">dim</span>(data1), </span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Data2"</span> <span class="ot">=</span> <span class="fu">dim</span>(data2), </span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Data3"</span> <span class="ot">=</span> <span class="fu">dim</span>(data3)</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>) </span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>data_dims <span class="sc">%&gt;%</span> knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Dimension</th>
+<th style="text-align: right;">Data1</th>
+<th style="text-align: right;">Data2</th>
+<th style="text-align: right;">Data3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Rows</td>
+<td style="text-align: right;">53050</td>
+<td style="text-align: right;">7379</td>
+<td style="text-align: right;">1676</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Columns</td>
+<td style="text-align: right;">9</td>
+<td style="text-align: right;">65</td>
+<td style="text-align: right;">15</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="joining-data" class="level3">
+<h3 class="anchored" data-anchor-id="joining-data">Joining Data</h3>
+<section id="preparing-the-classification-data-set" class="level4">
+<h4 class="anchored" data-anchor-id="preparing-the-classification-data-set">Preparing the Classification Data Set</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Goal is to have final data into a rectangular tibble with no/few NAs</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>class_data_final <span class="ot">=</span> <span class="fu">tibble</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="preparing-the-regression-data-set" class="level4">
+<h4 class="anchored" data-anchor-id="preparing-the-regression-data-set">Preparing the Regression Data Set</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">unique</span>(data1<span class="sc">$</span>HospitalRating)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA            "As Expected" "Worse"       "Better"     </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>data1 <span class="sc">%&gt;%</span> </span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(HospitalRating)) <span class="sc">%&gt;%</span> </span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(County, HospitalRating) <span class="sc">%&gt;%</span> </span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'County'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 135 × 3
+# Groups:   County [55]
+   County    HospitalRating count
+   &lt;chr&gt;     &lt;chr&gt;          &lt;int&gt;
+ 1 Alameda   As Expected     1253
+ 2 Alameda   Better            53
+ 3 Alameda   Worse             66
+ 4 Amador    As Expected       79
+ 5 Amador    Worse              4
+ 6 Butte     As Expected      311
+ 7 Butte     Better            19
+ 8 Butte     Worse             10
+ 9 Calaveras As Expected       72
+10 Colusa    As Expected       35
+# ℹ 125 more rows</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Goal is to have final data into a rectangular tibble with no/few NAs</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>reg_data_final <span class="ot">=</span> <span class="fu">tibble</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

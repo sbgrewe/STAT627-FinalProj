@@ -4,11 +4,15 @@
 library(tree)
 ```
 
-```{r}
-set.seed(123)
-n <- 10 #temporary
-X <- sample(n, n/2, replace = F)
 
-```
+Goals: 
 
+- Regression Tree
+	- Cross validate using cv.tree
+- Gradient Boosted Reg Tree
+
+Report:
+- variables actually used
+- tree plots
+- Find prediction MSE
 
