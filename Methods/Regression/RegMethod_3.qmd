@@ -2,6 +2,8 @@
 
 ```{r}
 library(tree)
+library(rpart)
+library(rpart.plot)
 ```
 
 
@@ -15,4 +17,11 @@ Report:
 - variables actually used
 - tree plots
 - Find prediction MSE
+
+```{r}
+trp <- rpart(survived ~ ., data = titanic)
+rpart.plot(trp)
+
+plotcp(trp)
+```
 

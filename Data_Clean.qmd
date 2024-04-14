@@ -7,24 +7,12 @@ bibliography: references.bib
 library(tidyverse); theme_set(theme_bw())
 
 path1 <- "Data\\2016-2021-imi-results-long-view.csv"
-path2 <- "Data\\all-primary-care-hpsas.csv"
+path2 <- "Data\\data2.csv"
 path3 <- "Data\\2020census.csv"
 
 data1 <- read_csv(path1)
 data2 <- read_csv(path2)
 data3 <- read_csv(path3)
-```
-
-
-```{r}
-#| tbl-cap: "Dimensions of data sets before cleaning"
-data_dims <- tibble(
-	"Dimension" = c("Rows", "Columns"),
-	"Data1" = dim(data1), 
-	"Data2" = dim(data2), 
-	"Data3" = dim(data3)
-) 
-data_dims %>% knitr::kable()
 ```
 
 ```{r}
@@ -54,7 +42,7 @@ glimpse(data1)
 Let's keep observations from data set 1 only if they come from a county which exists in the second data set.
 ```{r}
 data1_counties <- unique(data1$County)
-data2_counties <- sort(unique(data2$"County Equivalent Name"))
+data2_counties <- sort(unique(data2$counties))
 
 # all(data1_counties[data1_counties %in% data2_counties] == data2_counties[data2_counties %in% data1_counties])
 common_counties <- data1_counties[data1_counties %in% data2_counties]
@@ -62,17 +50,28 @@ common_counties[1:5]
 
 data1 %>% 
   filter(County %in% common_counties) -> data1
+
+data1$AdjMortRate <- ifelse(data1$AdjMortRate == ".", NA, data1$AdjMortRate)
+data1$AdjMortRate <- as.numeric(data1$AdjMortRate)
+data1$Deaths <- ifelse(data1$Deaths == ".", NA, data1$Deaths)
+data1$Deaths <- as.numeric(data1$Deaths)
+
+unique(data1$Procedure)
 ```
 
+```{r}
+data1 %>% 
+	group_by(County) %>% 
+	filter(Procedure == "Heart Failure") -> data1_heart
+```
+
+
 #### Cleaning Data Set 2
-
-From data set 2, we definitely want to keep the HPSA score, PC MCTA score, HPSA status, Metropolitan Indicator, HPSA FTE, % below poverty line, rural status, county equivalent name
-
 
 Again, let's keep observations from data set 2 only if they come from a county which exists in the first data set.
 ```{r}
 data2 %>% 
-  filter(`County Equivalent Name` %in% common_counties) -> data2
+  filter(counties %in% common_counties) -> data2
 ```
 
 
@@ -150,6 +149,14 @@ data_dims <- tibble(
 ) 
 data_dims %>% knitr::kable()
 ```
+
+```{r}
+#| eval: false
+write_csv(data1, ".\\Data\\data1_clean.csv")
+write_csv(data2, ".\\Data\\data2_clean.csv")
+write_csv(data3, ".\\Data\\data3_clean.csv")
+```
+
 
 ### Joining Data
 

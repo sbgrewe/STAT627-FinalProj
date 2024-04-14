@@ -147,6 +147,7 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>data_dims <span class="sc">%&gt;%</span> knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
+<caption>Dimensions of data sets before cleaning</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Dimension</th>
@@ -170,7 +171,6 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 </tr>
 </tbody>
 </table>
-<p>Dimensions of data sets before cleaning</p>
 </div>
 </div>
 <div class="cell">
@@ -233,7 +233,8 @@ Specify the column types or set `show_col_types = FALSE` to quiet this message.
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># names(data2)</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># names(data3)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><em>Cleaning Data Set 1</em></p>
+<section id="cleaning-data-set-1" class="level4">
+<h4 class="anchored" data-anchor-id="cleaning-data-set-1">Cleaning Data Set 1</h4>
 <p>From data set 1, let’s drop the geographic variables (since they’re redundant when <code>County</code> is in the data set).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(data1) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Year"</span>, <span class="st">"County"</span>, <span class="st">"Hospital"</span>, <span class="st">"OSHPDID"</span>, <span class="st">"Procedure"</span>, <span class="st">"AdjMortRate"</span>, <span class="st">"Deaths"</span>, <span class="st">"Cases"</span>, <span class="st">"HospitalRating"</span>, <span class="st">"Longitude"</span>, <span class="st">"Latitude"</span>)</span>
@@ -268,14 +269,18 @@ $ HospitalRating &lt;chr&gt; "None", "None", "None", "None", "None", "None", "No
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>data1 <span class="sc">%&gt;%</span> </span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(County <span class="sc">%in%</span> common_counties) <span class="ot">-&gt;</span> data1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><em>Cleaning Data Set 2</em></p>
+</section>
+<section id="cleaning-data-set-2" class="level4">
+<h4 class="anchored" data-anchor-id="cleaning-data-set-2">Cleaning Data Set 2</h4>
 <p>From data set 2, we definitely want to keep the HPSA score, PC MCTA score, HPSA status, Metropolitan Indicator, HPSA FTE, % below poverty line, rural status, county equivalent name</p>
 <p>Again, let’s keep observations from data set 2 only if they come from a county which exists in the first data set.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>data2 <span class="sc">%&gt;%</span> </span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="st">`</span><span class="at">County Equivalent Name</span><span class="st">`</span> <span class="sc">%in%</span> common_counties) <span class="ot">-&gt;</span> data2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><em>Cleaning Data Set 3</em></p>
+</section>
+<section id="cleaning-data-set-3" class="level4">
+<h4 class="anchored" data-anchor-id="cleaning-data-set-3">Cleaning Data Set 3</h4>
 <p><code>AvgHouseholdMems</code>, <code>AvgFamilyMems</code>, <code>18</code> and <code>21</code> are entirely empty, so we will remove all of those variables. <code>Geoid</code> also does not contain any useful information not explained by Geography.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(data3) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Geography"</span>, <span class="st">"TotalPop"</span>, <span class="st">"MalePop"</span>, <span class="st">"FemalePop"</span>, <span class="st">"MedianAge"</span>, <span class="st">"MaleMedianAge"</span>, <span class="st">"FemaleMedianAge"</span>, <span class="st">"AvgHouseholdMems"</span>, <span class="st">"AvgFamilyMems"</span>, <span class="st">"Under5yoPop"</span>, <span class="st">"Under18yoPop"</span>, <span class="st">"Pop21andOlder"</span>, <span class="st">"Pop55andOlder"</span>, <span class="st">"Pop60andOlder"</span>, <span class="st">"Pop65andOlder"</span>, <span class="st">"PercFemale"</span>, <span class="st">"PercUnder18yo"</span>, <span class="st">"18"</span>, <span class="st">"Geoid"</span>, <span class="st">"21"</span>)</span>
@@ -396,17 +401,16 @@ $ PercUnder18yo   &lt;chr&gt; "22.0%", "20.4%", "19.9%", "21.6%", "23.9%", "12.4
 <span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>data3<span class="sc">$</span>PercFemale <span class="ot">&lt;-</span> temp</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tbl-cap: "Dimensions of data sets after cleaning"</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>data_dims <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Dimension"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Rows"</span>, <span class="st">"Columns"</span>),</span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Data1"</span> <span class="ot">=</span> <span class="fu">dim</span>(data1), </span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Data2"</span> <span class="ot">=</span> <span class="fu">dim</span>(data2), </span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Data3"</span> <span class="ot">=</span> <span class="fu">dim</span>(data3)</span>
-<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>) </span>
-<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>data_dims <span class="sc">%&gt;%</span> knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>data_dims <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Dimension"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Rows"</span>, <span class="st">"Columns"</span>),</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Data1"</span> <span class="ot">=</span> <span class="fu">dim</span>(data1), </span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Data2"</span> <span class="ot">=</span> <span class="fu">dim</span>(data2), </span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Data3"</span> <span class="ot">=</span> <span class="fu">dim</span>(data3)</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>) </span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>data_dims <span class="sc">%&gt;%</span> knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
+<caption>Dimensions of data sets after cleaning</caption>
 <thead>
 <tr class="header">
 <th style="text-align: left;">Dimension</th>
@@ -432,6 +436,7 @@ $ PercUnder18yo   &lt;chr&gt; "22.0%", "20.4%", "19.9%", "21.6%", "23.9%", "12.4
 </table>
 </div>
 </div>
+</section>
 </section>
 <section id="joining-data" class="level3">
 <h3 class="anchored" data-anchor-id="joining-data">Joining Data</h3>
