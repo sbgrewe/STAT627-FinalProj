@@ -19,9 +19,9 @@ Report:
 - Find prediction MSE
 
 ```{r}
-trp <- rpart(survived ~ ., data = titanic)
-rpart.plot(trp)
+# trp <- rpart(survived ~ ., data = titanic)
+# rpart.plot(trp)
 
-plotcp(trp)
+# plotcp(trp)
 ```
 

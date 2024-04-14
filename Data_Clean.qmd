@@ -186,8 +186,31 @@ class_data_final = tibble()
 
 ```{r}
 data1_heart <- read_csv(".\\Data\\data1_heart.csv")
+data2 <- read_csv(".\\Data\\data2_clean.csv")
 data3_counties <- read_csv(".\\Data\\data3_counties.csv")
+
+names(data2)[names(data2) == 'counties'] <- "County"
+data2 %>% 
+	group_by(County, hpsa_status) %>% 
+	select(rural_status, per_pov, med_hh) -> data2hpsa
 ```
+
+
+
+```{r}
+# Want two new variables for every county: number of withdrawn HPSA hospitals, and num of active HSPA hospitals
+
+data2hpsa %>% 
+	group_by(County) %>% 
+	filter(hpsa_status == "Withdrawn") %>% 
+	count() -> data2withdr
+data2hpsa %>% 
+	group_by(County) %>%
+	filter(hpsa_status != "Withdrawn") %>% 
+	count() -> data2desig
+
+```
+
 
 ```{r}
 data1 %>% 
@@ -198,8 +221,9 @@ data1 %>%
 
 ```{r}
 data1_heart %>% 
-	left_join(data3_counties, by = "County") -> data13
-head(data13)
+	left_join(data2, by = "County") %>% 
+	left_join(data3_counties, by = "County") -> data123
+data123
 ```
 
 

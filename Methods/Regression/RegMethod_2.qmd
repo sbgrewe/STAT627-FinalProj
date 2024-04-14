@@ -1,4 +1,7 @@
 
+```{r}
+library(glmnet)
+```
 
 
 ```{r}
@@ -12,15 +15,15 @@
 
 ```{r}
 set.seed(123)
-LASSO_reg <- cv.glmnet(X_model, y_true, alpha = 1, nfolds = 10)
+# LASSO_reg <- cv.glmnet(X_model, y_true, alpha = 1, nfolds = 10)
 # coef(LASSO_reg)
-LASSO_reg
+# LASSO_reg
 ```
 
 Prediction MSE
 ```{r}
-y_pred_1s <- predict(LASSO_reg, newx = X_model, type = "response", s = "lambda.1se")
-y_pred_min <- predict(LASSO_reg, newx = X_model, type = "response", s = "lambda.min")
+# y_pred_1s <- predict(LASSO_reg, newx = X_model, type = "response", s = "lambda.1se")
+# y_pred_min <- predict(LASSO_reg, newx = X_model, type = "response", s = "lambda.min")
 
-c("PredMSE 1se" = mean((y_pred_1s - y_true)^2), "PredMSE min" = mean((y_pred_min - y_true)^2))
+# c("PredMSE 1se" = mean((y_pred_1s - y_true)^2), "PredMSE min" = mean((y_pred_min - y_true)^2))
 ```
