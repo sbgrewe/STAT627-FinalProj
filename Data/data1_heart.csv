@@ -1,0 +1,119 @@
+County,HospitalRating,Total_Mort,Total_Deaths
+Alameda,As Expected,302.4,1153
+Alameda,Better,12.5,83
+Alameda,Worse,31,120
+Amador,As Expected,28.6,20
+Amador,Worse,16,12
+Butte,As Expected,63.7,348
+Butte,Better,5.3,21
+Calaveras,As Expected,29.4,11
+Colusa,As Expected,18.8,8
+Contra Costa,As Expected,182.3,827
+Contra Costa,Better,4.8,30
+Contra Costa,Worse,8.8,52
+Del Norte,As Expected,28.2,34
+Del Norte,Better,0,0
+El Dorado,As Expected,83.3,92
+Fresno,As Expected,192.8,648
+Fresno,Worse,85.1,488
+Fresno,NA,NA,NA
+Glenn,As Expected,0,0
+Humboldt,As Expected,121.2,135
+Humboldt,Worse,48.8,38
+Humboldt,NA,NA,NA
+Imperial,As Expected,55.2,103
+Imperial,Better,1.6,4
+Imperial,Worse,6.2,11
+Inyo,As Expected,6.4,2
+Inyo,NA,NA,NA
+Kern,As Expected,264.8,577
+Kern,Better,4.4,14
+Kern,Worse,39,96
+Kern,NA,NA,NA
+Kings,As Expected,29.6,126
+Kings,Worse,14.9,61
+Lake,As Expected,45.7,26
+Lassen,As Expected,29.6,5
+Lassen,Worse,49.2,14
+Los Angeles,As Expected,1743,6279
+Los Angeles,Better,108.3,870
+Los Angeles,Worse,189.8,780
+Los Angeles,NA,NA,NA
+Madera,As Expected,31.4,34
+Marin,As Expected,87.5,180
+Mariposa,As Expected,22.4,3
+Mendocino,As Expected,120.4,78
+Mendocino,Worse,44.6,6
+Merced,As Expected,70.1,142
+Merced,Better,3.8,28
+Modoc,As Expected,66.9,5
+Mono,As Expected,0,0
+Monterey,As Expected,144.9,334
+Monterey,Worse,9,56
+Napa,As Expected,62.3,180
+Nevada,As Expected,75.6,92
+Orange,As Expected,542.2,1878
+Orange,Better,15.4,138
+Orange,Worse,61.8,20
+Orange,NA,NA,NA
+Placer,As Expected,71.3,409
+Placer,Better,2.6,26
+Placer,Worse,27.1,168
+Plumas,As Expected,284,8
+Plumas,NA,NA,NA
+Riverside,As Expected,442.1,1279
+Riverside,Better,27.5,172
+Riverside,Worse,78.2,30
+Riverside,NA,NA,NA
+Sacramento,As Expected,213.4,1480
+Sacramento,Better,7.199999999999999,70
+Sacramento,Worse,12.8,103
+San Benito,As Expected,60,21
+San Bernardino,As Expected,315.5,1182
+San Bernardino,Better,8.8,46
+San Bernardino,Worse,98.5,262
+San Bernardino,NA,NA,NA
+San Diego,As Expected,338.9,1940
+San Diego,Better,27.8,258
+San Diego,Worse,50.2,274
+San Francisco,As Expected,197,560
+San Francisco,Better,5.6,36
+San Francisco,Worse,111,474
+San Francisco,NA,NA,NA
+San Joaquin,As Expected,177.3,591
+San Joaquin,Better,7.4,81
+San Joaquin,Worse,16,49
+San Luis Obispo,As Expected,139.1,222
+San Mateo,As Expected,140.1,479
+San Mateo,Better,5.2,30
+San Mateo,Worse,11.2,24
+Santa Barbara,As Expected,170.9,329
+Santa Barbara,Worse,9.2,48
+Santa Clara,As Expected,231.6,1337
+Santa Clara,Better,10.9,74
+Santa Clara,Worse,30.7,213
+Santa Cruz,As Expected,64.4,176
+Shasta,As Expected,72.6,160
+Shasta,Worse,43.4,245
+Siskiyou,As Expected,61.5,15
+Siskiyou,Worse,38.4,10
+Solano,As Expected,140.1,486
+Solano,Worse,19.3,57
+Sonoma,As Expected,223.9,245
+Sonoma,Better,4.2,16
+Sonoma,Worse,61.2,114
+Sonoma,NA,NA,NA
+Stanislaus,As Expected,122.7,535
+Stanislaus,Worse,9.8,70
+Tehama,As Expected,42.8,62
+Trinity,As Expected,12.2,2
+Trinity,NA,NA,NA
+Tulare,As Expected,108.1,482
+Tulare,Worse,23.6,58
+Tuolumne,As Expected,38.7,94
+Tuolumne,Worse,11.6,24
+Ventura,As Expected,175.4,530
+Ventura,Better,8.6,54
+Ventura,Worse,18.4,14
+Yolo,As Expected,73.89999999999999,92
+Yuba,As Expected,36,245

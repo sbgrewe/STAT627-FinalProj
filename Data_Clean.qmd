@@ -61,8 +61,9 @@ unique(data1$Procedure)
 
 ```{r}
 data1 %>% 
-	group_by(County) %>% 
-	filter(Procedure == "Heart Failure") -> data1_heart
+	group_by(County, HospitalRating) %>% 
+	filter(Procedure == "Heart Failure") %>% 
+	summarize(Total_Mort = sum(AdjMortRate), Total_Deaths = sum(Deaths)) -> data1_heart
 ```
 
 
@@ -137,6 +138,17 @@ for (i in seq_along(data3$PercFemale)){
 data3$PercFemale <- temp
 ```
 
+```{r}
+expression <- "(.*) County"
+data3_counties <- data3[str_detect(data3$Geography, expression),]
+names(data3_counties)[1] <- "County"
+
+expression <- "(.*) County"
+data3_counties$County <- str_match(data3_counties$County, expression)[,2]
+
+head(data3_counties)
+```
+
 
 ```{r}
 #| tbl-cap: "Dimensions of data sets after cleaning"
@@ -145,16 +157,18 @@ data_dims <- tibble(
 	"Dimension" = c("Rows", "Columns"),
 	"Data1" = dim(data1), 
 	"Data2" = dim(data2), 
-	"Data3" = dim(data3)
+	"Data3" = dim(data3_counties)
 ) 
 data_dims %>% knitr::kable()
 ```
+
 
 ```{r}
 #| eval: false
 write_csv(data1, ".\\Data\\data1_clean.csv")
 write_csv(data2, ".\\Data\\data2_clean.csv")
-write_csv(data3, ".\\Data\\data3_clean.csv")
+write_csv(data3_counties, ".\\Data\\data3_counties.csv")
+write_csv(data1_heart, ".\\Data\\data1_heart.csv")
 ```
 
 
@@ -171,7 +185,8 @@ class_data_final = tibble()
 #### Preparing the Regression Data Set
 
 ```{r}
-unique(data1$HospitalRating)
+data1_heart <- read_csv(".\\Data\\data1_heart.csv")
+data3_counties <- read_csv(".\\Data\\data3_counties.csv")
 ```
 
 ```{r}
@@ -181,10 +196,14 @@ data1 %>%
   summarise(count = n())
 ```
 
+```{r}
+data1_heart %>% 
+	left_join(data3_counties, by = "County") -> data13
+head(data13)
+```
+
 
 ```{r}
 # Goal is to have final data into a rectangular tibble with no/few NAs
 reg_data_final = tibble()
 ```
-
-
