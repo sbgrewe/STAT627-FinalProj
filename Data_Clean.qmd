@@ -209,6 +209,22 @@ data2hpsa %>%
 	filter(hpsa_status != "Withdrawn") %>% 
 	count() -> data2desig
 
+hpsa_counties <- tibble(
+  County = common_counties
+)
+
+data2desig %>% 
+  select(County, n) %>% 
+  rename(num_desig = n) %>% 
+  right_join(hpsa_counties, by = "County") -> hpsa_counties
+
+data2withdr %>% 
+  select(County, n) %>% 
+  rename(num_withdr = n) %>% 
+  right_join(hpsa_counties, by = "County") -> hpsa_counties
+
+hpsa_counties[is.na(hpsa_counties$num_withdr), "num_withdr"] <- 0
+hpsa_counties[is.na(hpsa_counties$num_desig), "num_desig"] <- 0
 ```
 
 
@@ -216,18 +232,37 @@ data2hpsa %>%
 data1 %>% 
   filter(!is.na(HospitalRating)) %>% 
   group_by(County, HospitalRating) %>% 
-  summarise(count = n())
+  summarise(count = n()) -> county_ratings
+
+county_ratings[county_ratings$HospitalRating == "Better",] %>% 
+  select(County, count) %>% 
+  rename(num_better = count) %>% 
+  right_join(hpsa_counties, by = "County") -> hpsa_counties
+
+county_ratings[county_ratings$HospitalRating == "As Expected",] %>% 
+  select(County, count) %>% 
+  rename(num_asexp = count) %>% 
+  right_join(hpsa_counties, by = "County") -> hpsa_counties
+
+county_ratings[county_ratings$HospitalRating == "Worse",] %>% 
+  select(County, count) %>% 
+  rename(num_worse = count) %>% 
+  right_join(hpsa_counties, by = "County") -> hpsa_counties
+
+head(hpsa_counties)
 ```
 
 ```{r}
 data1_heart %>% 
-	left_join(data2, by = "County") %>% 
-	left_join(data3_counties, by = "County") -> data123
-data123
+	left_join(data3_counties, by = "County") %>% 
+	left_join(hpsa_counties, by = "County") -> reg_data_final
+
+dim(reg_data_final)
+head(reg_data_final)
 ```
 
 
 ```{r}
 # Goal is to have final data into a rectangular tibble with no/few NAs
-reg_data_final = tibble()
+write_csv(reg_data_final, ".\\Data\\reg_data_final.csv")
 ```

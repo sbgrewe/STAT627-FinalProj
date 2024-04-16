@@ -1,11 +1,18 @@
 
 ```{r}
 library(glmnet)
+library(tidyverse); theme_set(theme_bw())
+reg_data <- read_csv(".\\..\\..\\Data\\reg_data_final.csv")
+reg_data
+```
+
+```{r}
+pivot_longer()
 ```
 
 
 ```{r}
-# model_full <- lm(y ~ ., data = data) 
+# model_full <- lm(Total_Deaths ~ ., data = data) 
 
 # X_model <- model.matrix(model_full)
 # X_model <- X_model[,-1]
