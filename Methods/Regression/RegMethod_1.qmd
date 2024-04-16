@@ -1,5 +1,54 @@
 
+Here we are working on a basic multiple linear model with cross validation. 
 
+Importing data
+```{r}
+library(tidyverse); theme_set(theme_bw())
+reg_data_long <- read_csv(".\\..\\..\\Data\\reg_data_long.csv")
+head(reg_data_long)
+reg_data_long$female_prop <- reg_data_long$FemalePop/reg_data_long$TotalPop
+
+```
+
+Question: Can mortality rate from heart disease per 1000 people be predicted from demographic conditions (such as healthcare funding or median income) within counties in California?
+
+To start, we will employ a series of multiple regressions to get a better understanding of the relationships at play and which variables are most useful in predicting the mortality rate from heart disease. 
+
+Splitting up the data
 ```{r}
 
 ```
+
+
+Training the full model
+```{r}
+
+```
+
+Testing the full model
+```{r}
+
+```
+
+Error rate
+```{r}
+
+```
+
+Training the reduced model
+```{r}
+
+```
+
+Testing the reduced model
+```{r}
+
+```
+
+Error rate
+```{r}
+
+```
+
+Comparison between the two models and reccomednation 
+
