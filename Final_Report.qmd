@@ -89,5 +89,9 @@ format:
 {{< include ./FutureDirs.qmd >}}
 
 
+# Appendix {#sec-appendix}
+
+{{< include ./Appendix >}}
+
 # References
 

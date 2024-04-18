@@ -1,11 +1,28 @@
 
 ```{r}
 library(glmnet)
+library(GGally)
 library(tidyverse); theme_set(theme_bw())
 reg_data_long <- read_csv(".\\..\\..\\Data\\reg_data_long.csv")
 head(reg_data_long)
 reg_data_long$female_prop <- reg_data_long$FemalePop/reg_data_long$TotalPop
 ```
+
+### Exploration of Multicollinearity
+
+```{r}
+ggplot() + 
+	geom_histogram(aes(x = reg_data_long$DeathsperThou))
+```
+
+```{r}
+reg_data_long[, c(16, 32, 34:37, 39, 40)]
+
+ggpairs(reg_data_long[, c(16, 32, 34:37, 39, 40)])
+```
+
+
+### Regression
 
 The goal of this regression is to determine whether deaths per 1000 individuals due to heart disease can be predicted given demographic information, as well as information about the hospitals located within counties in California. 
 
