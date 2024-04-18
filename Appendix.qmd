@@ -1,0 +1,18 @@
+---
+bibliography: references.bib
+---
+
+## Group Member Accomplishments
+
+*Roland Abi*
+
+
+*Elise Buellesbach*
+
+
+*Amanda Concepcion*
+
+
+*Spencer Grewe*
+
+Acquired CA demographic data (`data4`). Cleaned datasets 1, 3, and 4. Contributed toward tidying and joining datasets 1, 3, and 4 for the regression tasks. Carried out 627 tasks involving model selection for regression. 

@@ -2,6 +2,8 @@
 
 ```{r}
 library(tree)
+library(rpart)
+library(rpart.plot)
 ```
 
 
@@ -15,4 +17,12 @@ Report:
 - variables actually used
 - tree plots
 - Find prediction MSE
+
+```{r}
+tree(DeathsperThou ~ TotalPop + nonwhite_pop + prop_hpsa + median_income + poverty_prop + unempl_prop, data = reg_data_long)
+# trp <- rpart(survived ~ ., data = titanic)
+# rpart.plot(trp)
+
+# plotcp(trp)
+```
 

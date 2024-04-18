@@ -5,32 +5,24 @@ bibliography: references.bib
 ### Loading and Exploring the Data
 ```{r}
 library(tidyverse); theme_set(theme_bw())
+library(readxl)
 
 path1 <- "Data\\2016-2021-imi-results-long-view.csv"
-path2 <- "Data\\all-primary-care-hpsas.csv"
+path2 <- "Data\\data2.csv"
 path3 <- "Data\\2020census.csv"
+path4 <- "Data\\CA_datapile.xlsx"
 
 data1 <- read_csv(path1)
 data2 <- read_csv(path2)
 data3 <- read_csv(path3)
-```
-
-
-```{r}
-#| tbl-cap: "Dimensions of data sets before cleaning"
-data_dims <- tibble(
-	"Dimension" = c("Rows", "Columns"),
-	"Data1" = dim(data1), 
-	"Data2" = dim(data2), 
-	"Data3" = dim(data3)
-) 
-data_dims %>% knitr::kable()
+data4 <- read_excel(path4, sheet = 2)
 ```
 
 ```{r}
 head(data1)
 head(data2)
 head(data3)
+head(data4)
 ```
 
 ```{r}
@@ -48,13 +40,13 @@ From data set 1, let's drop the geographic variables (since they're redundant wh
 names(data1) <- c("Year", "County", "Hospital", "OSHPDID", "Procedure", "AdjMortRate", "Deaths", "Cases", "HospitalRating", "Longitude", "Latitude")
 kept_cols <- c("Year", "County", "Hospital", "OSHPDID", "Procedure", "AdjMortRate", "Deaths", "Cases", "HospitalRating")
 data1 <- data1[, kept_cols]
-glimpse(data1)
+head(data1)
 ```
 
 Let's keep observations from data set 1 only if they come from a county which exists in the second data set.
 ```{r}
 data1_counties <- unique(data1$County)
-data2_counties <- sort(unique(data2$"County Equivalent Name"))
+data2_counties <- sort(unique(data2$counties))
 
 # all(data1_counties[data1_counties %in% data2_counties] == data2_counties[data2_counties %in% data1_counties])
 common_counties <- data1_counties[data1_counties %in% data2_counties]
@@ -62,17 +54,32 @@ common_counties[1:5]
 
 data1 %>% 
   filter(County %in% common_counties) -> data1
+
+data1$AdjMortRate <- ifelse(data1$AdjMortRate == ".", NA, data1$AdjMortRate)
+data1$AdjMortRate <- as.numeric(data1$AdjMortRate)
+data1$Deaths <- ifelse(data1$Deaths == ".", NA, data1$Deaths)
+data1$Deaths <- as.numeric(data1$Deaths)
+data1$Cases <- ifelse(data1$Cases == ".", NA, data1$Cases)
+data1$Cases <- as.numeric(data1$Cases)
+
+unique(data1$Procedure)
 ```
 
+```{r}
+data1 %>% 
+	group_by(County, HospitalRating) %>% 
+	filter(Procedure == "Heart Failure" & !is.na(HospitalRating)) %>% 
+	summarize(Total_Deaths = sum(Deaths), Total_Cases = sum(Cases)) %>% 
+	pivot_wider(names_from = HospitalRating, values_from = c(Total_Deaths, Total_Cases), values_fill = 0) -> data1_heart
+```
+
+
 #### Cleaning Data Set 2
-
-From data set 2, we definitely want to keep the HPSA score, PC MCTA score, HPSA status, Metropolitan Indicator, HPSA FTE, % below poverty line, rural status, county equivalent name
-
 
 Again, let's keep observations from data set 2 only if they come from a county which exists in the first data set.
 ```{r}
 data2 %>% 
-  filter(`County Equivalent Name` %in% common_counties) -> data2
+  filter(counties %in% common_counties) -> data2
 ```
 
 
@@ -138,18 +145,62 @@ for (i in seq_along(data3$PercFemale)){
 data3$PercFemale <- temp
 ```
 
+```{r}
+expression <- "(.*) County"
+data3_counties <- data3[str_detect(data3$Geography, expression),]
+names(data3_counties)[1] <- "County"
+
+expression <- "(.*) County"
+data3_counties$County <- str_match(data3_counties$County, expression)[,2]
+
+head(data3_counties)
+```
+
+#### Cleaning Data Set 4
+
+```{r}
+# names(data4)
+
+data4 %>% 
+	rename(amer_indian = "Race/Ethnicity: American Indian (2023)",
+				 black = "Race/Ethnicity: Black (2023)",
+				 asian = "Race/Ethnicity: Asian (2023)",
+				 hispanic = "Race/Ethnicity: Hispanic (2023)",
+				 multi_race = "Race/Ethnicity: Multi-Racial/Ethnic (2023)",
+				 pac_island = "Race/Ethnicity: Hawaiian/ Pacific Island (2023)",
+				 white = "Race/Ethnicity: White (2023)",
+				 poverty = "Poverty: All Ages (2021)",
+				 labor_force = "Labor Force (9-2023)",
+				 unemployed = "Labor Force: Unemployed (9-2023)",
+				 median_income = "Median Household Income (2021)") %>% 
+  filter(County %in% common_counties) %>% 
+	select(County, amer_indian, black, hispanic, asian, multi_race, pac_island, white, poverty, labor_force, unemployed, median_income) -> data4
+```
+
 
 ```{r}
 #| tbl-cap: "Dimensions of data sets after cleaning"
 
 data_dims <- tibble(
 	"Dimension" = c("Rows", "Columns"),
-	"Data1" = dim(data1), 
+	"Data1" = dim(data1_heart), 
 	"Data2" = dim(data2), 
-	"Data3" = dim(data3)
+	"Data3" = dim(data3_counties),
+	"Data4" = dim(data4)
 ) 
 data_dims %>% knitr::kable()
 ```
+
+
+```{r}
+#| eval: false
+write_csv(data1, ".\\Data\\data1_clean.csv")
+write_csv(data2, ".\\Data\\data2_clean.csv")
+write_csv(data3_counties, ".\\Data\\data3_counties.csv")
+write_csv(data1_heart, ".\\Data\\data1_heart.csv")
+write_csv(data4, ".\\Data\\data4.csv")
+```
+
 
 ### Joining Data
 
@@ -164,20 +215,121 @@ class_data_final = tibble()
 #### Preparing the Regression Data Set
 
 ```{r}
-unique(data1$HospitalRating)
+data1_heart <- read_csv(".\\Data\\data1_heart.csv")
+data2 <- read_csv(".\\Data\\data2_clean.csv")
+data3_counties <- read_csv(".\\Data\\data3_counties.csv")
+
+names(data2)[names(data2) == 'counties'] <- "County"
+data2 %>% 
+	group_by(County, hpsa_status) %>% 
+	select(rural_status, per_pov, med_hh) -> data2hpsa
 ```
+
+
+
+```{r}
+# Want two new variables for every county: number of withdrawn HPSA hospitals, and num of active HSPA hospitals
+
+data2hpsa %>% 
+	group_by(County) %>% 
+	filter(hpsa_status == "Withdrawn") %>% 
+	count() -> data2withdr
+data2hpsa %>% 
+	group_by(County) %>%
+	filter(hpsa_status != "Withdrawn") %>% 
+	count() -> data2desig
+
+hpsa_counties <- tibble(
+  County = common_counties
+)
+
+data2desig %>% 
+  select(County, n) %>% 
+  rename(num_desig = n) %>% 
+  right_join(hpsa_counties, by = "County") -> hpsa_counties
+
+data2withdr %>% 
+  select(County, n) %>% 
+  rename(num_withdr = n) %>% 
+  right_join(hpsa_counties, by = "County") -> hpsa_counties
+
+hpsa_counties[is.na(hpsa_counties$num_withdr), "num_withdr"] <- 0
+hpsa_counties[is.na(hpsa_counties$num_desig), "num_desig"] <- 0
+```
+
 
 ```{r}
 data1 %>% 
   filter(!is.na(HospitalRating)) %>% 
   group_by(County, HospitalRating) %>% 
-  summarise(count = n())
+  summarise(count = n()) -> county_ratings
+
+county_ratings[county_ratings$HospitalRating == "Better",] %>% 
+  select(County, count) %>% 
+  rename(num_better = count) %>% 
+  right_join(hpsa_counties, by = "County") -> hpsa_counties
+
+county_ratings[county_ratings$HospitalRating == "As Expected",] %>% 
+  select(County, count) %>% 
+  rename(num_asexp = count) %>% 
+  right_join(hpsa_counties, by = "County") -> hpsa_counties
+
+county_ratings[county_ratings$HospitalRating == "Worse",] %>% 
+  select(County, count) %>% 
+  rename(num_worse = count) %>% 
+  right_join(hpsa_counties, by = "County") -> hpsa_counties
+
+head(hpsa_counties)
+```
+
+
+```{r}
+data1_heart %>% 
+	left_join(data3_counties, by = "County") %>% 
+	left_join(hpsa_counties, by = "County") %>% 
+	left_join(data4, by = "County") -> reg_data_final
+
+dim(reg_data_final)
+head(reg_data_final)
 ```
 
 
 ```{r}
 # Goal is to have final data into a rectangular tibble with no/few NAs
-reg_data_final = tibble()
+reg_data <- reg_data_final
+reg_data$TotalDeaths <- reg_data$`Total_Deaths_As Expected` + reg_data$Total_Deaths_Better + reg_data$Total_Deaths_Worse
+reg_data$TotalCases <- reg_data$`Total_Cases_As Expected` + reg_data$Total_Cases_Better + reg_data$Total_Cases_Worse
+reg_data$prop_hpsa <- reg_data$num_desig/(reg_data$num_desig + reg_data$num_withdr)
+reg_data$nonwhite_prop <- (reg_data$TotalPop - reg_data$white)/(reg_data$TotalPop)
+head(reg_data)
+
+deaths_names <- names(reg_data)[2:4]
+cases_names <- names(reg_data)[5:7]
+
+reg_data %>% 
+	pivot_longer(deaths_names,
+    names_prefix = "Total_Deaths_", values_to = "Deaths", names_to = "Rating") %>% 
+	filter(!is.na(num_worse) & !is.na(num_better)) %>% 
+	mutate(DeathsperThou = 1000*(Deaths/TotalPop),
+				 unempl_prop = unemployed/labor_force,
+				 poverty_prop = poverty/TotalPop, 
+				 prop55older = Pop55andOlder/TotalPop) -> reg_data_long
+reg_data_long$Cases <- rep(NA, nrow(reg_data_long))
+reg_data_long[reg_data_long$Rating == 'Better',"Cases"] <- reg_data_long[reg_data_long$Rating == 'Better', "Total_Cases_Better"]
+reg_data_long[reg_data_long$Rating == 'As Expected',"Cases"] <- reg_data_long[reg_data_long$Rating == 'As Expected', "Total_Cases_As Expected"]
+reg_data_long[reg_data_long$Rating == 'Worse',"Cases"] <- reg_data_long[reg_data_long$Rating == 'Worse', "Total_Cases_Worse"]
+
+reg_data_long$HospNumber <- rep(NA, nrow(reg_data_long))
+reg_data_long[reg_data_long$Rating == 'Better',"HospNumber"] <- reg_data_long[reg_data_long$Rating == 'Better', "num_better"]
+reg_data_long[reg_data_long$Rating == 'As Expected',"HospNumber"] <- reg_data_long[reg_data_long$Rating == 'As Expected', "num_asexp"]
+reg_data_long[reg_data_long$Rating == 'Worse',"HospNumber"] <- reg_data_long[reg_data_long$Rating == 'Worse', "num_worse"]
+
+# reg_data_long$DeathsperThou <- 1000*(reg_data_long$Deaths/reg_data_long$TotalPop)
+reg_data_long$CasesperThou <- 1000*(reg_data_long$Cases/reg_data_long$TotalPop)
+reg_data_long <- reg_data_long[,c(1, 5:18, 23:47)]
 ```
 
 
+```{r}
+write_csv(reg_data_long, ".\\Data\\reg_data_long.csv")
+```
