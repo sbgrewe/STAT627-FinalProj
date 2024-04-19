@@ -29,71 +29,72 @@ nrow(hpsa_test)
 nrow(hpsa_train)
 ```
 
-### Variable selection
+### Models
 
 ```{r}
 set.seed(123)
 log_full <- glm(as.factor(hpsa_status) ~., data = hpsa_train, 
-                family = "binomial")
-log_null <- glm(as.factor(hpsa_status) ~ 1, data = hpsa_train,
                 family = "binomial")
 
 summary(log_full)
 ```
 
 ```{r}
-step_outf <- step(log_null, 
-                 scope = list(lower = log_null, upper = log_full),
-                 method = "forward", trace = 0)
+set.seed(123)
+log_reduced <- glm(as.factor(hpsa_status) ~ designation_type + hpsa_score + 
+                     rural_status + hpsa_population_type, data = hpsa_train, 
+                   family = "binomial")
 
-step_outb <- step(log_full, 
-                 scope = list(lower = log_null, upper = log_full),
-                 method = "backward", trace = 0)
-```
-
-```{r}
-summary(step_outf)
+summary(log_reduced)
 ```
 
 ### Prediction Accuracy
 
 ```{r}
 
-#Step forward model
-
+# Reduced model
 # Predictions
-predsrd <- predict(step_outf, newdata = hpsa_test, type = "response")
+preds_reduced <- predict(log_reduced, newdata = hpsa_test, type = "response")
 
 # Convert to classification prediction
-Yhatrd <-  ifelse(predsrd >= 0.5, "Designated", "Withdrawn")
+Yhat_reduced <-  ifelse(preds_reduced >= 0.5, "Withdrawn", "Designated")
 
 # confusion matrix
-confmatrd <- table(Yhatrd, hpsa_test$hpsa_status)
-confmatrd
+confm_reduced <- table(Yhat_reduced, hpsa_test$hpsa_status)
+confm_reduced
 
 # Correct classification prediction rate
-accuracyrd <- sum(confmatrd[1], confmatrd[4])/sum(confmatrd)
-accuracyrd
+accuracy_reduced <- sum(confm_reduced[1], confm_reduced[4])/sum(confm_reduced)
+accuracy_reduced
+
+# test error rate
+error_reduced <- mean(Yhat_reduced != hpsa_test$hpsa_status)
+error_reduced
 ```
 
 ```{r}
 
-# Step backward model
-
+# Full model
 # Predictions
-predsrdb <- predict(step_outb, newdata = hpsa_test, type = "response")
+preds <- predict(log_full, newdata = hpsa_test, type = "response")
 
 # Convert to classification prediction
-Yhatrdb <-  ifelse(predsrdb >= 0.5, "Designated", "Withdrawn")
+Yhat <-  ifelse(preds >= 0.5, "Withdrawn", "Designated")
 
 # confusion matrix
-confmatrdb <- table(Yhatrdb, hpsa_test$hpsa_status)
-confmatrdb
+confm <- table(Yhat, hpsa_test$hpsa_status)
+confm
 
 # Correct classification prediction rate
-accuracyrdb <- sum(confmatrdb[1], confmatrdb[4])/sum(confmatrdb)
-accuracyrdb
+accuracy <- sum(confm[1], confm[4])/sum(confm)
+accuracy
+
+# test error rate 
+error_full <- mean(Yhat != hpsa_test$hpsa_status)
+error_full
 ```
+
+Accuracy of full model was slightly higher than the reduced model, with the full model also having the lowest test error rate.
 
 ### Using K-fold cross validation to find prediction mean squared error
 
@@ -115,13 +116,26 @@ hpsa$Y <- as.numeric(as.factor(hpsa$hpsa_status)) - 1
 library(boot)
 set.seed(123)
 
+## Prediction error rate
 # K = 10
 
-# KFold Step Forward model
-Kfold_stepoutf <- cv.glm(hpsa, step_outf, cost = Lossfn, K=10)$delta
-Kfold_stepoutf
+# KFold Reduced
+Kfold_reduced <- cv.glm(hpsa, log_reduced, cost = Lossfn, K=10)$delta
+Kfold_reduced
 
 
-Kfold_stepoutb <- cv.glm(hpsa, step_outb, cost = Lossfn, K=10)$delta
-Kfold_stepoutb
+# Full Model 
+Kfold_full <- cv.glm(hpsa, log_full, cost = Lossfn, K=10)$delta
+Kfold_full
 ```
+
+While the full and reduced model had similar prediction mean squared error, the full model had a slightly lower prediction mean squared error.
+
+### Compare models
+
+```{r}
+anova(log_reduced, log_full, test = "Chisq")
+```
+
+Giving the results obtained and from this approaches and the results of model comparison we lack sufficient evidence (p = 1.551e-09) to conclude that the reduced logistic regression model with parameters (`designation_type`, `hpsa_score`, `rural status`, and `hpsa_population_type`) is better than the full logistic regression model.
+Consequently, we will recommend the full logistic regression model as the better model.
