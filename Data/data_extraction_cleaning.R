@@ -8,7 +8,7 @@ hpsas <- read_csv("all-primary-care-hpsas.csv") |>
 
 hpsas_df <- hpsas |>
   select(
-    hpsa_name, metropolitan_indicator, designation_type, hpsa_discipline_class, 
+    hpsa_name, metropolitan_indicator, designation_type,  
     hpsa_status, hpsa_score,hpsa_designation_population, 
     u_s_mexico_border_county_indicator,
     rural_status, hpsa_population_type, county_equivalent_name
@@ -16,18 +16,37 @@ hpsas_df <- hpsas |>
 
 hpsas_df <- hpsas_df |>
   drop_na() |>
-  rename("counties" = "county_equivalent_name")
+  rename("counties" = "county_equivalent_name")|>
+  select(-counties)
 
-hpsas_full <- hpsas_df |>
-  select(-counties) |>
-  filter(hpsa_designation_population != 0) |>
-  distinct(hpsa_name, .keep_all = TRUE)
 
-hpsas_full |>
-  group_by(u_s_mexico_border_county_indicator, rural_status) |>
-  count()
+hpsa <- hpsas_df |>
+  mutate(
+    hpsa_population_type = 
+      fct_collapse(hpsa_population_type,
+                   migrant_population = c("Low Income Population HPSA", 
+                                           "Low Income Migrant Farmworker Population HPSA",
+                                           "Low Income Migrant Seasonal Worker Population HPSA",
+                                           "Low Income Homeless Migrant Farmworker Population HPSA",
+                                           "Low Income Homeless Population HPSA",
+                                           "Migrant Seasonal Worker Population HPSA",
+                                           "Low Income Population HPSA"),
+                  native_american = c("Native American Population HPSA",
+                                      "Medicaid Eligible Population HPSA",
+                                      "Other Population HPSA",
+                                      "Geographic Population")
+    ),
+    rural_status = fct_collapse(rural_status,
+                              non_rural = "Non-Rural",
+                              unknown = c("Not Applicable", "Unknown"),
+                              partially_rural = "Partially Rural",
+                              rural = "Rural")
+  )
 
-write_csv(hpsas_full, "hpsas_full.csv")
+hpsa <- hpsa |>
+  distinct()
+
+write_csv(hpsa, "hpsa.csv")
 
 ### census data ---------------------------------------------------
 censusdf <- read_csv("2020Census.csv") |>

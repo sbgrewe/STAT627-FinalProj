@@ -1,0 +1,588 @@
+metropolitan_indicator,designation_type,hpsa_status,hpsa_score,hpsa_designation_population,u_s_mexico_border_county_indicator,rural_status,hpsa_population_type
+Metropolitan,Geographic HPSA,Withdrawn,0,0,N,non_rural,native_american
+Non-Metropolitan,HPSA Population,Withdrawn,0,17542,Y,rural,native_american
+Non-Metropolitan,HPSA Population,Withdrawn,0,17542,Y,non_rural,native_american
+Non-Metropolitan,HPSA Population,Withdrawn,0,17542,N,non_rural,native_american
+Metropolitan,HPSA Population,Withdrawn,11,37037,N,non_rural,migrant_population
+Unknown,HPSA Population,Withdrawn,8,36084,N,rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,8,2026,N,rural,migrant_population
+Metropolitan,Geographic HPSA,Withdrawn,0,114726,N,rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,114726,N,non_rural,native_american
+Unknown,Geographic HPSA,Withdrawn,10,6262,N,non_rural,native_american
+Unknown,Geographic HPSA,Designated,10,10442,Y,non_rural,native_american
+Unknown,High Needs Geographic HPSA,Withdrawn,17,5032,N,rural,native_american
+Unknown,High Needs Geographic HPSA,Designated,18,51049,N,rural,native_american
+Unknown,High Needs Geographic HPSA,Designated,18,51049,N,non_rural,native_american
+Unknown,Geographic HPSA,Designated,12,6271,N,rural,native_american
+Unknown,HPSA Population,Withdrawn,15,45765,N,non_rural,migrant_population
+Unknown,Geographic HPSA,Designated,9,101329,N,non_rural,native_american
+Unknown,Geographic HPSA,Designated,13,5894,N,non_rural,native_american
+Non-Metropolitan,HPSA Population,Withdrawn,0,93066,N,non_rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,0,93066,N,rural,migrant_population
+Unknown,HPSA Population,Withdrawn,12,42478,N,rural,migrant_population
+Unknown,HPSA Population,Withdrawn,12,42478,N,non_rural,migrant_population
+Unknown,HPSA Population,Withdrawn,12,42478,N,unknown,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,0,22458,N,rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,0,11457,N,rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,0,11457,N,non_rural,migrant_population
+Unknown,Geographic HPSA,Withdrawn,11,78047,Y,non_rural,native_american
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,6472,N,non_rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,102513,N,non_rural,native_american
+Unknown,HPSA Population,Withdrawn,14,113106,N,non_rural,migrant_population
+Unknown,HPSA Population,Designated,13,43716,N,non_rural,migrant_population
+Unknown,Geographic HPSA,Designated,15,5735,N,rural,native_american
+Unknown,High Needs Geographic HPSA,Designated,13,1623,N,rural,native_american
+Unknown,Geographic HPSA,Withdrawn,16,44976,N,rural,native_american
+Unknown,Geographic HPSA,Withdrawn,16,44976,N,non_rural,native_american
+Unknown,HPSA Population,Designated,15,17253,N,rural,migrant_population
+Unknown,Geographic HPSA,Designated,11,51192,N,non_rural,native_american
+Unknown,HPSA Population,Designated,8,44911,N,unknown,native_american
+Unknown,HPSA Population,Designated,8,44911,N,non_rural,native_american
+Unknown,HPSA Population,Designated,13,45249,Y,non_rural,native_american
+Unknown,Geographic HPSA,Designated,13,5531,N,rural,native_american
+Unknown,High Needs Geographic HPSA,Designated,13,3501,N,rural,native_american
+Unknown,HPSA Population,Designated,17,65291,N,non_rural,migrant_population
+Unknown,HPSA Population,Designated,13,44516,N,non_rural,migrant_population
+Unknown,HPSA Population,Designated,19,71846,N,non_rural,native_american
+Unknown,Geographic HPSA,Designated,11,12338,N,rural,native_american
+Unknown,HPSA Population,Designated,15,70725,N,non_rural,migrant_population
+Unknown,Geographic HPSA,Designated,12,142648,N,unknown,native_american
+Unknown,Geographic HPSA,Designated,12,142648,N,non_rural,native_american
+Unknown,Geographic HPSA,Designated,16,5129,N,unknown,native_american
+Unknown,HPSA Population,Designated,4,42463,N,non_rural,migrant_population
+Unknown,Geographic HPSA,Designated,16,17994,N,non_rural,native_american
+Unknown,Geographic HPSA,Designated,10,114327,N,non_rural,native_american
+Unknown,Geographic HPSA,Withdrawn,11,5502,N,non_rural,native_american
+Unknown,Geographic HPSA,Designated,12,6660,N,rural,native_american
+Unknown,HPSA Population,Designated,10,33937,N,non_rural,native_american
+Unknown,HPSA Population,Designated,17,4981,N,non_rural,native_american
+Unknown,HPSA Population,Designated,10,43428,Y,non_rural,migrant_population
+Unknown,High Needs Geographic HPSA,Designated,8,24448,N,rural,native_american
+Unknown,Geographic HPSA,Withdrawn,13,6864,Y,rural,native_american
+Unknown,High Needs Geographic HPSA,Withdrawn,12,58098,N,rural,native_american
+Unknown,High Needs Geographic HPSA,Designated,19,22785,N,rural,native_american
+Unknown,HPSA Population,Designated,17,4490,N,non_rural,native_american
+Unknown,HPSA Population,Designated,17,4490,N,rural,native_american
+Unknown,Geographic HPSA,Designated,11,1869,N,rural,native_american
+Unknown,HPSA Population,Designated,16,9654,N,rural,migrant_population
+Unknown,HPSA Population,Designated,16,9654,N,unknown,migrant_population
+Unknown,HPSA Population,Designated,14,5949,N,rural,migrant_population
+Unknown,High Needs Geographic HPSA,Designated,15,19801,N,rural,native_american
+Unknown,HPSA Population,Designated,14,5662,N,rural,migrant_population
+Unknown,HPSA Population,Designated,10,32758,N,non_rural,migrant_population
+Unknown,HPSA Population,Designated,10,32758,N,unknown,migrant_population
+Unknown,High Needs Geographic HPSA,Designated,17,11766,N,rural,native_american
+Unknown,HPSA Population,Designated,16,63125,N,non_rural,native_american
+Unknown,HPSA Population,Designated,15,98922,N,non_rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,48722,N,non_rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,48722,Y,non_rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,59223,Y,non_rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,59223,N,rural,native_american
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,1410,N,rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,11,13486,Y,rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,11,13486,Y,non_rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,2399,N,partially_rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,3055,N,partially_rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,0,N,partially_rural,native_american
+Non-Metropolitan,HPSA Population,Withdrawn,0,0,N,rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,0,Y,non_rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,10789,N,non_rural,native_american
+Metropolitan,High Needs Geographic HPSA,Withdrawn,7,129447,N,non_rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,20320,N,non_rural,native_american
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,3130,N,rural,native_american
+Unknown,High Needs Geographic HPSA,Designated,14,109987,N,non_rural,native_american
+Unknown,HPSA Population,Designated,9,65540,N,non_rural,native_american
+Unknown,HPSA Population,Withdrawn,14,32032,N,non_rural,native_american
+Unknown,Geographic HPSA,Designated,9,24753,N,rural,native_american
+Metropolitan,HPSA Population,Withdrawn,9,23918,Y,non_rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,0,N,rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,1223,N,non_rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,1368,N,non_rural,migrant_population
+Metropolitan,High Needs Geographic HPSA,Withdrawn,11,69199,N,non_rural,native_american
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,4500,N,rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,25856,N,non_rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,6057,N,non_rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,5094,N,non_rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,823,N,non_rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,4252,N,non_rural,migrant_population
+Unknown,HPSA Population,Withdrawn,17,58746,N,non_rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,344,Y,rural,migrant_population
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,0,N,rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,5246,N,rural,migrant_population
+Unknown,HPSA Population,Withdrawn,13,64563,N,non_rural,migrant_population
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,41691,N,rural,native_american
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,41691,N,non_rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,32192,Y,non_rural,migrant_population
+Unknown,HPSA Population,Withdrawn,4,48653,N,non_rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,0,0,N,non_rural,migrant_population
+Unknown,Geographic HPSA,Withdrawn,9,50859,N,non_rural,native_american
+Unknown,Geographic HPSA,Withdrawn,9,50859,N,rural,native_american
+Unknown,HPSA Population,Designated,11,45420,N,non_rural,migrant_population
+Unknown,HPSA Population,Designated,3,35726,N,non_rural,native_american
+Unknown,HPSA Population,Designated,3,35726,N,unknown,native_american
+Unknown,Geographic HPSA,Designated,9,53203,N,rural,native_american
+Unknown,Geographic HPSA,Designated,13,6328,N,rural,native_american
+Unknown,Geographic HPSA,Designated,13,40948,Y,non_rural,native_american
+Unknown,Geographic HPSA,Designated,13,40948,Y,rural,native_american
+Unknown,High Needs Geographic HPSA,Designated,17,6640,N,rural,native_american
+Unknown,HPSA Population,Designated,14,27412,N,rural,native_american
+Unknown,HPSA Population,Designated,14,27412,N,non_rural,native_american
+Unknown,High Needs Geographic HPSA,Designated,16,69129,N,non_rural,native_american
+Unknown,High Needs Geographic HPSA,Designated,10,106575,N,non_rural,native_american
+Unknown,High Needs Geographic HPSA,Designated,10,106575,N,rural,native_american
+Unknown,High Needs Geographic HPSA,Designated,18,26635,N,rural,native_american
+Unknown,HPSA Population,Designated,12,56521,N,non_rural,native_american
+Unknown,Geographic HPSA,Designated,14,5037,N,rural,native_american
+Unknown,High Needs Geographic HPSA,Designated,14,42448,N,rural,native_american
+Unknown,High Needs Geographic HPSA,Designated,14,42448,N,non_rural,native_american
+Unknown,HPSA Population,Designated,14,6040,N,rural,migrant_population
+Unknown,High Needs Geographic HPSA,Designated,14,1957,N,rural,native_american
+Unknown,HPSA Population,Designated,15,45196,N,non_rural,migrant_population
+Unknown,HPSA Population,Designated,15,45196,N,unknown,migrant_population
+Unknown,Geographic HPSA,Designated,17,3926,N,rural,native_american
+Unknown,Geographic HPSA,Designated,17,3926,N,non_rural,native_american
+Unknown,HPSA Population,Designated,10,47435,Y,non_rural,native_american
+Unknown,Geographic HPSA,Designated,14,5224,N,rural,native_american
+Unknown,HPSA Population,Designated,15,29849,N,non_rural,migrant_population
+Unknown,Geographic HPSA,Designated,13,8401,N,rural,native_american
+Unknown,HPSA Population,Designated,11,47549,N,unknown,migrant_population
+Unknown,HPSA Population,Designated,11,47549,N,non_rural,migrant_population
+Unknown,High Needs Geographic HPSA,Designated,15,4829,N,rural,native_american
+Unknown,HPSA Population,Designated,10,1425,N,rural,native_american
+Unknown,HPSA Population,Designated,17,68164,N,non_rural,migrant_population
+Unknown,HPSA Population,Designated,14,13285,N,non_rural,migrant_population
+Unknown,HPSA Population,Designated,14,13285,N,rural,migrant_population
+Unknown,High Needs Geographic HPSA,Designated,11,100882,N,non_rural,native_american
+Unknown,High Needs Geographic HPSA,Designated,11,100882,N,rural,native_american
+Unknown,HPSA Population,Designated,10,57709,N,non_rural,migrant_population
+Unknown,Geographic HPSA,Designated,7,60795,N,rural,native_american
+Unknown,HPSA Population,Designated,16,2831,N,rural,migrant_population
+Unknown,Geographic HPSA,Designated,11,51072,N,non_rural,native_american
+Unknown,Geographic HPSA,Designated,11,51072,N,unknown,native_american
+Unknown,HPSA Population,Designated,6,48071,N,non_rural,migrant_population
+Unknown,High Needs Geographic HPSA,Designated,16,56246,N,unknown,native_american
+Unknown,High Needs Geographic HPSA,Designated,16,56246,N,non_rural,native_american
+Unknown,Geographic HPSA,Designated,15,6031,N,non_rural,native_american
+Unknown,High Needs Geographic HPSA,Withdrawn,16,2201,N,rural,native_american
+Unknown,HPSA Population,Designated,10,748,N,rural,native_american
+Unknown,High Needs Geographic HPSA,Designated,14,20428,N,rural,native_american
+Unknown,High Needs Geographic HPSA,Designated,18,79290,N,non_rural,native_american
+Unknown,Geographic HPSA,Designated,17,5358,N,rural,native_american
+Unknown,HPSA Population,Withdrawn,15,4595,N,non_rural,migrant_population
+Unknown,HPSA Population,Withdrawn,15,4595,N,rural,migrant_population
+Unknown,High Needs Geographic HPSA,Designated,10,15066,N,rural,native_american
+Unknown,HPSA Population,Withdrawn,17,88014,Y,non_rural,migrant_population
+Unknown,Geographic HPSA,Designated,13,6888,N,rural,native_american
+Unknown,HPSA Population,Designated,10,29369,Y,non_rural,native_american
+Unknown,Geographic HPSA,Designated,14,11425,N,rural,native_american
+Unknown,Geographic HPSA,Designated,14,11425,N,non_rural,native_american
+Unknown,Geographic HPSA,Designated,15,16578,N,rural,native_american
+Unknown,HPSA Population,Designated,16,10878,N,rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,3788,N,non_rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,3788,N,rural,migrant_population
+Metropolitan,Geographic HPSA,Withdrawn,0,18931,N,rural,native_american
+Unknown,Geographic HPSA,Withdrawn,12,1942,N,rural,native_american
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,3093,N,rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,52431,N,non_rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,52431,N,rural,native_american
+Non-Metropolitan,HPSA Population,Withdrawn,0,0,N,rural,migrant_population
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,0,N,non_rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,42634,N,non_rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,42634,N,rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,0,4969,N,rural,migrant_population
+Frontier,HPSA Population,Withdrawn,0,3855,N,rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,13,42160,N,rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,13,42160,N,non_rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,59999,N,non_rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,6994,N,non_rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,6994,N,rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,45005,N,non_rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,54309,N,non_rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,54309,N,rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,84680,N,non_rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,54005,Y,non_rural,migrant_population
+Unknown,Geographic HPSA,Withdrawn,8,19840,N,rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,18571,N,non_rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,18571,N,rural,native_american
+Unknown,HPSA Population,Designated,16,43422,N,non_rural,migrant_population
+Unknown,High Needs Geographic HPSA,Designated,11,31480,N,non_rural,native_american
+Unknown,High Needs Geographic HPSA,Designated,11,31480,N,rural,native_american
+Unknown,HPSA Population,Designated,14,81476,N,non_rural,migrant_population
+Unknown,HPSA Population,Designated,14,81476,N,unknown,migrant_population
+Unknown,High Needs Geographic HPSA,Designated,17,108949,N,non_rural,native_american
+Unknown,High Needs Geographic HPSA,Designated,15,8603,N,rural,native_american
+Unknown,HPSA Population,Designated,8,33604,N,non_rural,migrant_population
+Unknown,Geographic HPSA,Designated,9,1039,N,rural,native_american
+Unknown,HPSA Population,Designated,13,56943,N,non_rural,native_american
+Unknown,HPSA Population,Designated,12,82612,N,non_rural,migrant_population
+Unknown,HPSA Population,Designated,13,18788,N,non_rural,native_american
+Unknown,HPSA Population,Designated,13,24456,N,non_rural,migrant_population
+Unknown,HPSA Population,Designated,13,24456,N,unknown,migrant_population
+Unknown,High Needs Geographic HPSA,Designated,17,23240,N,rural,native_american
+Non-Metropolitan,HPSA Population,Withdrawn,16,59615,N,non_rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,16,59615,N,rural,migrant_population
+Metropolitan,Geographic HPSA,Withdrawn,12,19281,N,non_rural,native_american
+Unknown,HPSA Population,Withdrawn,10,3597,N,rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,8,6739,N,rural,migrant_population
+Metropolitan,Geographic HPSA,Withdrawn,13,74091,N,rural,native_american
+Metropolitan,HPSA Population,Withdrawn,13,1074,N,rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,113628,N,non_rural,migrant_population
+Unknown,HPSA Population,Designated,18,19103,N,rural,migrant_population
+Unknown,HPSA Population,Designated,18,19103,N,non_rural,migrant_population
+Unknown,HPSA Population,Designated,12,4473,N,rural,native_american
+Unknown,HPSA Population,Withdrawn,12,19909,N,non_rural,migrant_population
+Unknown,Geographic HPSA,Designated,15,7043,Y,unknown,native_american
+Unknown,HPSA Population,Designated,16,3980,N,rural,native_american
+Unknown,HPSA Population,Designated,16,3980,N,non_rural,native_american
+Unknown,HPSA Population,Designated,18,65179,N,non_rural,migrant_population
+Unknown,HPSA Population,Designated,18,65179,N,rural,migrant_population
+Unknown,HPSA Population,Designated,14,11378,N,rural,migrant_population
+Unknown,High Needs Geographic HPSA,Designated,16,894,N,rural,native_american
+Unknown,HPSA Population,Designated,16,5018,N,rural,migrant_population
+Unknown,HPSA Population,Designated,15,22119,N,non_rural,migrant_population
+Unknown,High Needs Geographic HPSA,Designated,11,16528,N,rural,native_american
+Unknown,High Needs Geographic HPSA,Designated,9,60766,N,rural,native_american
+Unknown,High Needs Geographic HPSA,Designated,9,60766,N,non_rural,native_american
+Unknown,HPSA Population,Designated,10,85390,N,non_rural,migrant_population
+Unknown,Geographic HPSA,Designated,16,4419,N,rural,native_american
+Unknown,HPSA Population,Designated,17,45359,N,non_rural,migrant_population
+Metropolitan,Geographic HPSA,Withdrawn,0,121380,N,non_rural,native_american
+Frontier,Geographic HPSA,Withdrawn,13,2706,N,rural,native_american
+Frontier,HPSA Population,Withdrawn,0,1309,N,rural,migrant_population
+Metropolitan,Geographic HPSA,Withdrawn,0,100893,Y,non_rural,native_american
+Metropolitan,HPSA Population,Withdrawn,14,5821,N,rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,14,5821,N,non_rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,0,12107,N,non_rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,0,12107,N,rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,13,7137,N,rural,migrant_population
+Unknown,HPSA Population,Withdrawn,11,8177,N,rural,migrant_population
+Unknown,HPSA Population,Withdrawn,11,8177,N,non_rural,migrant_population
+Unknown,HPSA Population,Withdrawn,9,3312,N,rural,migrant_population
+Unknown,HPSA Population,Withdrawn,10,21412,N,non_rural,migrant_population
+Unknown,HPSA Population,Designated,18,1280,N,rural,migrant_population
+Unknown,High Needs Geographic HPSA,Designated,15,49485,N,rural,native_american
+Unknown,High Needs Geographic HPSA,Designated,14,24338,N,non_rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,0,Y,non_rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,0,Y,rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,6060,Y,non_rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,13156,N,non_rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,0,5330,N,rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,0,N,rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,2706,N,rural,native_american
+Unknown,High Needs Geographic HPSA,Withdrawn,9,105961,N,non_rural,native_american
+Unknown,High Needs Geographic HPSA,Withdrawn,9,105961,N,rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,5431,N,rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,5431,N,non_rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,3659,N,rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,3659,N,non_rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,22404,N,non_rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,22404,N,rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,22404,N,partially_rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,6424,N,rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,11700,N,non_rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,11700,N,rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,1300,N,non_rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,0,N,non_rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,46697,N,non_rural,migrant_population
+Metropolitan,Geographic HPSA,Withdrawn,0,12141,N,partially_rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,12141,N,rural,native_american
+Non-Metropolitan,HPSA Population,Withdrawn,11,30354,N,rural,migrant_population
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,2326,N,rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,3788,N,unknown,migrant_population
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,0,Y,non_rural,native_american
+Metropolitan,HPSA Population,Withdrawn,6,46340,Y,non_rural,migrant_population
+Metropolitan,Geographic HPSA,Withdrawn,0,83534,N,non_rural,native_american
+Metropolitan,HPSA Population,Withdrawn,17,237476,N,non_rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,13,22789,N,non_rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,13,22789,N,rural,migrant_population
+Metropolitan,Geographic HPSA,Withdrawn,0,95649,N,non_rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,95649,N,rural,native_american
+Non-Metropolitan,HPSA Population,Withdrawn,0,18839,N,non_rural,migrant_population
+Metropolitan,Geographic HPSA,Withdrawn,0,125119,N,non_rural,native_american
+Unknown,Geographic HPSA,Withdrawn,9,125390,N,non_rural,native_american
+Unknown,HPSA Population,Withdrawn,10,356,N,rural,migrant_population
+Unknown,HPSA Population,Withdrawn,4,80912,N,non_rural,migrant_population
+Unknown,Geographic HPSA,Withdrawn,11,14990,N,non_rural,native_american
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,7741,N,rural,native_american
+Unknown,HPSA Population,Withdrawn,9,31291,N,non_rural,migrant_population
+Unknown,HPSA Population,Withdrawn,9,31291,N,rural,migrant_population
+Unknown,HPSA Population,Withdrawn,13,54320,N,non_rural,migrant_population
+Unknown,HPSA Population,Withdrawn,13,54320,N,rural,migrant_population
+Unknown,HPSA Population,Withdrawn,15,41605,N,non_rural,migrant_population
+Unknown,HPSA Population,Withdrawn,12,55279,N,rural,migrant_population
+Unknown,HPSA Population,Withdrawn,12,55279,N,non_rural,migrant_population
+Unknown,HPSA Population,Withdrawn,11,35589,N,non_rural,migrant_population
+Metropolitan,Geographic HPSA,Withdrawn,0,84680,N,non_rural,native_american
+Unknown,High Needs Geographic HPSA,Designated,11,92487,N,non_rural,native_american
+Unknown,High Needs Geographic HPSA,Designated,11,92487,N,rural,native_american
+Unknown,Geographic HPSA,Designated,17,18283,N,non_rural,native_american
+Unknown,Geographic HPSA,Designated,17,18283,N,rural,native_american
+Unknown,Geographic HPSA,Designated,15,40625,N,rural,native_american
+Unknown,HPSA Population,Designated,14,11080,N,non_rural,migrant_population
+Unknown,HPSA Population,Designated,14,11080,N,unknown,migrant_population
+Unknown,HPSA Population,Designated,12,65254,N,non_rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,112539,N,non_rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,112539,N,rural,native_american
+Unknown,HPSA Population,Withdrawn,11,118159,N,non_rural,migrant_population
+Unknown,HPSA Population,Designated,16,60229,N,non_rural,migrant_population
+Unknown,Geographic HPSA,Designated,11,4629,N,non_rural,native_american
+Unknown,High Needs Geographic HPSA,Designated,16,25539,N,rural,native_american
+Unknown,High Needs Geographic HPSA,Designated,14,1711,N,rural,native_american
+Unknown,HPSA Population,Designated,17,3166,Y,rural,native_american
+Unknown,High Needs Geographic HPSA,Designated,15,53940,N,rural,native_american
+Unknown,High Needs Geographic HPSA,Designated,15,53940,N,non_rural,native_american
+Unknown,High Needs Geographic HPSA,Designated,9,94800,N,rural,native_american
+Non-Metropolitan,HPSA Population,Withdrawn,10,72077,N,non_rural,migrant_population
+Non-Metropolitan,Geographic HPSA,Withdrawn,11,4018,N,non_rural,native_american
+Metropolitan,High Needs Geographic HPSA,Withdrawn,14,90943,N,non_rural,native_american
+Non-Metropolitan,HPSA Population,Withdrawn,15,16961,N,non_rural,native_american
+Non-Metropolitan,HPSA Population,Withdrawn,0,8721,N,rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,19,97630,N,non_rural,migrant_population
+Unknown,HPSA Population,Withdrawn,15,10921,N,rural,migrant_population
+Unknown,Geographic HPSA,Designated,7,59218,N,rural,native_american
+Unknown,HPSA Population,Designated,13,47369,N,unknown,migrant_population
+Unknown,HPSA Population,Designated,13,47369,N,non_rural,migrant_population
+Unknown,High Needs Geographic HPSA,Withdrawn,5,50566,N,non_rural,native_american
+Unknown,High Needs Geographic HPSA,Designated,17,15346,N,rural,native_american
+Unknown,HPSA Population,Designated,15,6767,N,rural,migrant_population
+Unknown,Geographic HPSA,Designated,16,4660,N,rural,native_american
+Unknown,Geographic HPSA,Designated,6,31036,N,rural,native_american
+Unknown,High Needs Geographic HPSA,Designated,16,16283,N,non_rural,native_american
+Unknown,HPSA Population,Designated,16,20117,N,non_rural,migrant_population
+Unknown,HPSA Population,Designated,16,20117,N,rural,migrant_population
+Unknown,Geographic HPSA,Designated,10,3013,N,rural,native_american
+Unknown,High Needs Geographic HPSA,Designated,9,23144,N,rural,native_american
+Unknown,HPSA Population,Designated,8,29753,N,non_rural,migrant_population
+Unknown,High Needs Geographic HPSA,Designated,10,42420,Y,rural,native_american
+Unknown,High Needs Geographic HPSA,Designated,10,42420,Y,non_rural,native_american
+Unknown,Geographic HPSA,Withdrawn,11,54777,N,rural,native_american
+Unknown,HPSA Population,Withdrawn,17,4875,N,rural,migrant_population
+Unknown,HPSA Population,Withdrawn,17,4875,N,non_rural,migrant_population
+Unknown,HPSA Population,Withdrawn,16,87711,N,non_rural,migrant_population
+Unknown,HPSA Population,Designated,19,57417,N,non_rural,migrant_population
+Unknown,High Needs Geographic HPSA,Withdrawn,10,10939,N,rural,native_american
+Unknown,HPSA Population,Designated,17,42336,N,non_rural,migrant_population
+Unknown,HPSA Population,Designated,17,42336,N,unknown,migrant_population
+Unknown,High Needs Geographic HPSA,Designated,15,17795,N,rural,native_american
+Frontier,Geographic HPSA,Withdrawn,0,3400,N,rural,native_american
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,24799,N,rural,native_american
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,27531,N,rural,native_american
+Unknown,High Needs Geographic HPSA,Withdrawn,12,28301,N,rural,native_american
+Unknown,HPSA Population,Designated,9,73534,N,non_rural,native_american
+Unknown,High Needs Geographic HPSA,Designated,10,99650,N,non_rural,native_american
+Unknown,High Needs Geographic HPSA,Designated,13,138940,N,non_rural,native_american
+Unknown,HPSA Population,Designated,17,4916,N,rural,migrant_population
+Unknown,HPSA Population,Withdrawn,12,46575,Y,non_rural,migrant_population
+Unknown,Geographic HPSA,Designated,15,3182,N,rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,41444,N,non_rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,27667,N,non_rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,0,12257,N,rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,0,15335,N,rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,0,15335,N,non_rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,58281,N,non_rural,migrant_population
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,24336,N,rural,native_american
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,24336,N,non_rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,27889,Y,non_rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,3627,N,rural,migrant_population
+Non-Metropolitan,High Needs Geographic HPSA,Withdrawn,7,92258,N,rural,native_american
+Non-Metropolitan,High Needs Geographic HPSA,Withdrawn,7,92258,N,non_rural,native_american
+Unknown,Geographic HPSA,Withdrawn,15,7153,N,rural,native_american
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,3468,N,rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,9480,N,rural,native_american
+Unknown,Geographic HPSA,Withdrawn,16,9467,N,rural,native_american
+Non-Metropolitan,HPSA Population,Withdrawn,0,43389,N,rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,0,14561,N,rural,migrant_population
+Unknown,HPSA Population,Withdrawn,16,10741,N,rural,migrant_population
+Unknown,HPSA Population,Withdrawn,9,617,N,rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,0,5846,N,rural,migrant_population
+Unknown,High Needs Geographic HPSA,Withdrawn,14,128762,N,non_rural,native_american
+Metropolitan,High Needs Geographic HPSA,Withdrawn,7,82431,N,non_rural,native_american
+Non-Metropolitan,HPSA Population,Withdrawn,0,13609,N,non_rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,0,13609,N,rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,0,1341,N,rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,0,5894,N,rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,0,5894,N,non_rural,migrant_population
+Metropolitan,Geographic HPSA,Withdrawn,0,93367,N,non_rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,115999,N,non_rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,10884,N,non_rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,10884,N,rural,migrant_population
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,3121,N,rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,15006,N,rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,15006,N,non_rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,31000,N,non_rural,native_american
+Non-Metropolitan,HPSA Population,Withdrawn,0,43712,N,rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,0,2885,N,rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,0,2885,N,non_rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,0,1355,N,rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,16766,N,non_rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,4234,N,rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,14990,N,non_rural,migrant_population
+Unknown,HPSA Population,Withdrawn,6,26639,N,non_rural,migrant_population
+Unknown,HPSA Population,Withdrawn,6,26639,N,unknown,migrant_population
+Metropolitan,High Needs Geographic HPSA,Withdrawn,12,97695,N,non_rural,native_american
+Non-Metropolitan,HPSA Population,Withdrawn,0,7511,N,rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,17848,N,non_rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,17848,N,rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,8680,N,non_rural,migrant_population
+Unknown,HPSA Population,Withdrawn,10,35509,N,non_rural,migrant_population
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,2502,N,rural,native_american
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,5058,N,rural,native_american
+Unknown,High Needs Geographic HPSA,Withdrawn,17,24124,N,rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,152055,N,non_rural,native_american
+Non-Metropolitan,HPSA Population,Withdrawn,0,26857,N,non_rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,0,26857,N,rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,0,1980,N,rural,migrant_population
+Unknown,HPSA Population,Withdrawn,9,11707,N,rural,migrant_population
+Unknown,HPSA Population,Designated,12,51869,N,non_rural,migrant_population
+Unknown,HPSA Population,Designated,12,51869,N,unknown,migrant_population
+Unknown,Geographic HPSA,Designated,17,7676,N,rural,native_american
+Unknown,Geographic HPSA,Designated,17,7676,N,non_rural,native_american
+Unknown,High Needs Geographic HPSA,Designated,11,87253,Y,non_rural,native_american
+Unknown,HPSA Population,Withdrawn,12,56853,Y,non_rural,migrant_population
+Unknown,HPSA Population,Withdrawn,16,47533,N,non_rural,migrant_population
+Unknown,HPSA Population,Designated,16,96399,N,non_rural,native_american
+Unknown,HPSA Population,Designated,19,28164,N,non_rural,migrant_population
+Unknown,HPSA Population,Designated,19,28164,N,rural,migrant_population
+Unknown,Geographic HPSA,Designated,16,5173,N,rural,native_american
+Unknown,Geographic HPSA,Designated,14,23150,N,rural,native_american
+Unknown,HPSA Population,Withdrawn,13,73838,N,non_rural,migrant_population
+Unknown,HPSA Population,Designated,17,7241,N,rural,migrant_population
+Unknown,HPSA Population,Designated,13,43084,N,non_rural,native_american
+Unknown,HPSA Population,Designated,16,55581,N,non_rural,migrant_population
+Metropolitan,Geographic HPSA,Withdrawn,0,59841,N,non_rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,178736,N,non_rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,178736,N,rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,2239,N,rural,native_american
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,8447,N,rural,native_american
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,16993,N,rural,native_american
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,1905,N,rural,native_american
+Unknown,Geographic HPSA,Withdrawn,14,2746,N,rural,native_american
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,694,Y,rural,native_american
+Unknown,Geographic HPSA,Withdrawn,9,1678,N,rural,native_american
+Unknown,HPSA Population,Withdrawn,6,39437,N,non_rural,migrant_population
+Unknown,HPSA Population,Withdrawn,6,39437,N,rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,0,24755,N,non_rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,0,24755,N,rural,migrant_population
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,3177,N,non_rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,22075,N,non_rural,native_american
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,5819,Y,non_rural,native_american
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,5819,N,rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,32757,N,non_rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,3024,N,non_rural,native_american
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,12347,N,rural,native_american
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,7280,N,rural,native_american
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,10340,N,rural,native_american
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,5953,N,rural,native_american
+Unknown,Geographic HPSA,Withdrawn,14,17361,N,rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,5271,N,non_rural,native_american
+Metropolitan,High Needs Geographic HPSA,Withdrawn,12,144306,N,non_rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,1880,N,non_rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,0,21403,N,rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,5764,N,rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,5764,N,non_rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,25249,N,rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,25249,N,non_rural,migrant_population
+Unknown,HPSA Population,Withdrawn,5,14821,N,non_rural,migrant_population
+Unknown,HPSA Population,Withdrawn,5,14821,N,rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,52604,N,non_rural,migrant_population
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,14345,N,rural,native_american
+Non-Metropolitan,HPSA Population,Withdrawn,0,11942,N,non_rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,0,11942,N,rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,0,3978,N,rural,native_american
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,31507,N,non_rural,native_american
+Non-Metropolitan,HPSA Population,Withdrawn,0,10000,N,non_rural,native_american
+Frontier,Geographic HPSA,Withdrawn,15,1244,N,rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,15000,N,partially_rural,native_american
+Unknown,High Needs Geographic HPSA,Withdrawn,9,31841,N,non_rural,native_american
+Unknown,High Needs Geographic HPSA,Withdrawn,9,31841,N,rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,4234,N,non_rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,20370,N,non_rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,32532,N,non_rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,32532,N,rural,migrant_population
+Metropolitan,Geographic HPSA,Withdrawn,0,88919,Y,non_rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,40740,N,non_rural,migrant_population
+Metropolitan,Geographic HPSA,Withdrawn,0,6444,N,non_rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,6444,N,rural,native_american
+Frontier,Geographic HPSA,Withdrawn,13,2217,N,rural,native_american
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,369,N,rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,13699,N,rural,native_american
+Unknown,High Needs Geographic HPSA,Withdrawn,18,20521,N,rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,0,N,rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,7000,N,non_rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,7000,N,rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,6916,N,partially_rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,6916,N,rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,10000,N,non_rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,10000,N,rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,10000,N,partially_rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,10,77498,N,non_rural,migrant_population
+Metropolitan,Geographic HPSA,Withdrawn,0,39032,N,non_rural,native_american
+Unknown,Geographic HPSA,Withdrawn,12,59390,N,rural,native_american
+Unknown,Geographic HPSA,Withdrawn,12,59390,N,non_rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,121086,N,non_rural,native_american
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,0,Y,partially_rural,native_american
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,0,Y,rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,71543,N,non_rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,68540,N,non_rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,68540,N,rural,native_american
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,10173,N,rural,native_american
+Non-Metropolitan,HPSA Population,Withdrawn,0,3101,N,rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,0,2577,N,rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,0,1183,N,rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,0,19818,N,non_rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,0,19818,N,rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,0,14143,N,rural,migrant_population
+Frontier,Geographic HPSA,Withdrawn,0,5030,N,rural,native_american
+Non-Metropolitan,HPSA Population,Withdrawn,0,1288,N,rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,0,4508,N,rural,migrant_population
+Frontier,Geographic HPSA,Withdrawn,0,1691,N,rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,75983,N,non_rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,8487,N,rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,2624,N,rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,6760,Y,non_rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,6760,N,non_rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,3894,N,non_rural,migrant_population
+Metropolitan,HPSA Population,Withdrawn,0,0,Y,non_rural,migrant_population
+Metropolitan,Geographic HPSA,Withdrawn,0,87147,N,non_rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,4177,Y,non_rural,native_american
+Non-Metropolitan,HPSA Population,Withdrawn,0,9204,N,rural,native_american
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,7519,N,rural,native_american
+Non-Metropolitan,HPSA Population,Withdrawn,0,31360,N,non_rural,migrant_population
+Non-Metropolitan,HPSA Population,Withdrawn,0,31360,N,rural,migrant_population
+Unknown,Geographic HPSA,Designated,11,76951,N,non_rural,native_american
+Unknown,HPSA Population,Designated,10,1261,N,unknown,migrant_population
+Unknown,Geographic HPSA,Designated,12,33123,N,rural,native_american
+Unknown,Geographic HPSA,Designated,12,33123,N,non_rural,native_american
+Unknown,HPSA Population,Withdrawn,17,34630,N,rural,migrant_population
+Unknown,HPSA Population,Withdrawn,17,34630,N,non_rural,migrant_population
+Unknown,Geographic HPSA,Designated,16,17112,N,rural,native_american
+Unknown,HPSA Population,Designated,14,11352,N,rural,migrant_population
+Unknown,High Needs Geographic HPSA,Designated,16,52374,N,rural,native_american
+Unknown,High Needs Geographic HPSA,Designated,16,52374,N,non_rural,native_american
+Unknown,Geographic HPSA,Designated,13,26087,N,rural,native_american
+Unknown,Geographic HPSA,Designated,13,26087,N,non_rural,native_american
+Unknown,High Needs Geographic HPSA,Withdrawn,15,23498,N,non_rural,native_american
+Unknown,High Needs Geographic HPSA,Withdrawn,15,23498,N,rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,0,Y,unknown,native_american
+Unknown,HPSA Population,Designated,16,32438,N,non_rural,native_american
+Unknown,HPSA Population,Designated,13,58599,N,non_rural,migrant_population
+Unknown,HPSA Population,Withdrawn,11,53495,N,non_rural,migrant_population
+Unknown,Geographic HPSA,Designated,10,114327,N,rural,native_american
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,1206,N,rural,native_american
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,20966,N,rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,7166,N,rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,7166,N,non_rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,7166,N,partially_rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,2089,N,non_rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,0,N,non_rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,14756,N,non_rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,14756,N,rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,10300,N,partially_rural,native_american
+Metropolitan,HPSA Population,Withdrawn,0,10300,N,non_rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,43843,N,non_rural,native_american
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,3538,N,non_rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,14109,N,rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,76794,N,non_rural,native_american
+Non-Metropolitan,Geographic HPSA,Withdrawn,0,3057,N,rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,23044,N,partially_rural,native_american
+Metropolitan,Geographic HPSA,Withdrawn,0,0,N,partially_rural,native_american
