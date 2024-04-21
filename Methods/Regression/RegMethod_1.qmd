@@ -16,9 +16,9 @@ To start, we will employ a series of multiple regressions to get a better unders
 
 Splitting up the data
 ```{r}
-set.seed(1234)
+set.seed(123)
 
-training_pct <- .75
+training_pct <- .8
 Z <- sample(nrow(reg_data_long), floor(training_pct*nrow(reg_data_long)))
 
 train <- reg_data_long[Z,]
