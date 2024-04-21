@@ -16,32 +16,54 @@ To start, we will employ a series of multiple regressions to get a better unders
 
 Splitting up the data
 ```{r}
+set.seed(1234)
+
+training_pct <- .75
+Z <- sample(nrow(reg_data_long), floor(training_pct*nrow(reg_data_long)))
+
+train <- reg_data_long[Z,]
+dim(train)
+test <- reg_data_long[-Z,]
+dim(test)
+
+test$County <- factor(test$County, levels = levels(train$County))
+
 
 ```
-
+Look at Correlations ...
+```{r}
+names(train)
+```
 
 Training the full model
 ```{r}
-
+full_model <- lm(DeathsperThou ~ TotalPop + MalePop + FemalePop + MedianAge + MaleMedianAge + FemaleMedianAge + Under5yoPop + Under18yoPop + Pop21andOlder + Pop55andOlder + Pop60andOlder + Pop65andOlder + PercFemale +PercUnder18yo + num_desig + amer_indian + black + hispanic + asian + multi_race + pac_island + white + poverty + labor_force + unemployed + median_income + TotalDeaths + TotalCases + prop_hpsa + nonwhite_prop + Rating + Deaths + unempl_prop + poverty_prop + prop55older + Cases + HospNumber + CasesperThou + female_prop , family = "binomial", data = train)
+summary(full_model)
+plot(full_model)
 ```
 
 Testing the full model
 ```{r}
-
+prediction <- predict(full_model, newdata = test)
 ```
 
 Error rate
 ```{r}
+library(caret)
+RMSE(predict, test$DeathsperThou)
 
 ```
 
 Training the reduced model
 ```{r}
-
+reduced_model <- lm(DeathsperThou ~ black + Deaths + Cases + CasesperThou, family = "binomial", data = train)
+summary(reduced_model)
+plot(reduced_model)
 ```
 
 Testing the reduced model
 ```{r}
+prediction_reduced <- predict(reduced_model, newdata = test)
 
 ```
 
