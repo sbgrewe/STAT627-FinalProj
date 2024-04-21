@@ -54,5 +54,5 @@ The random forest model has a prediction MSE of 0.02992, which corresponds to a 
 varImpPlot(model_RF)
 ```
 
-The variable importance plot 
+We find that the dominant predictor, as expected, was the number of heart attack cases per thousand, though now the rating of the hospital again appears tp 
 

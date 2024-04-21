@@ -16,18 +16,19 @@ test <- as.data.frame(reg_data_long[-Z,])
 ### Exploration of Multicollinearity
 
 ```{r}
-reg_data_long[, c("Rating","CasesperThou", "prop_hpsa", "nonwhite_prop", "median_income", "unempl_prop","poverty_prop", "prop55older", "HospNumber")]
+reg_data_long[, c("CasesperThou", "prop_hpsa", "nonwhite_prop", "median_income", "unempl_prop","poverty_prop", "prop55older", "HospNumber")]
 
-ggpairs(reg_data_long[, c("Rating","CasesperThou", "prop_hpsa", "nonwhite_prop", "median_income", "unempl_prop","poverty_prop", "prop55older", "HospNumber")])
+ggpairs(reg_data_long[, c("CasesperThou", "prop_hpsa", "nonwhite_prop", "median_income", "unempl_prop","poverty_prop", "prop55older", "HospNumber")])
+
+car::vif(lm(DeathsperThou ~ Rating + CasesperThou + prop_hpsa + nonwhite_prop + median_income + unempl_prop + poverty_prop + prop55older + HospNumber, data = train))
 ```
 
-There are a few potential sources of multicollinearity within the 
+There are a few notable instances of collinearity within the predictors. `nonwhite_prop` and `prop55older` can be reliably predicted from the rest of the data, and . In this analysis, we will rely on variable selection and shrinkage methods to address this multicollinearity.
 
-### Regression
 
-The goal of this regression is to determine whether deaths per 1000 individuals due to heart disease can be predicted given demographic information, as well as information about the hospitals located within counties in California. 
+### LASSO Regression
 
-In order to investigate the relationship between our predictors and the deaths due to heart disease, we employed a 10-fold LASSO regression to determine predictors with non-zero associations with the outcome, even with a shrinkage penalty. 
+The goal of this regression is to determine whether deaths per 1000 individuals due to heart disease can be predicted given demographic information, as well as information about the hospitals located within counties in California, controlling for the cases within a county. In order to investigate the relationship between our predictors and the deaths due to heart disease, we employed a 10-fold LASSO regression to determine predictors with non-zero associations with the outcome, even with a shrinkage penalty. 
 
 ```{r}
 model_train <- lm(DeathsperThou ~ Rating*CasesperThou + prop_hpsa + nonwhite_prop + median_income + unempl_prop 
@@ -65,15 +66,10 @@ y_hat_min <- predict(LASSO_reg, newx = X_test, type = "response", s = "lambda.mi
 c("MSE 1se" = mean((y_hat_1s - y_test)^2), "MSE min" = mean((y_hat_min - y_test)^2))
 ```
 
-The prediction MSE for the lambda 1se model with one predictors is 0.04798, while the prediction MSE for the lambda min model with seven predictors is 0.01501. The prediction error is expected to decrease by a non-negligible 68.72%. It is clear that these variables are lending predictive power to the model, but 
+The prediction MSE for the lambda 1se model with one predictors is 0.04798, while the prediction MSE for the lambda min model with seven predictors is 0.01501. The prediction error is expected to decrease by a non-negligible 68.72%. It is clear that these variables are lending predictive power to the model, but not enough to outweigh the L1 regularization penalty. The dominant term is the cases per county.
 
+In the lambda min model, we find that additional predictors of deaths due to heart disease include the median income, hospital ratings, number of hospitals, and proportion of residents 55 years old and older. This agrees with common sense: we can imagine that the overall rate of deaths due to heart disease in a given area is due to 
 
-The results of LASSO regression reveal the relationship between hospitals of a particular quality rating and their prediction of heart disease survival. The main predictors of deaths due to heart disease appear to be the cases of heart disease and proportion of the population which is 55 years old or older. This agrees with common sense: we can imagine that the overall rate of deaths due to heart disease in a given area is due to This also provides confidence that their inclusion in the model helps to control for variation in heart disease deaths due to these direct factors.  
-
-Interestingly, we find that the rating of a hospital has no statistically significant effect on heart attack deaths until it interacts with the number of heart attack cases. In general, subgroups of hospitals rated "Worse" tended to , while deaths due to heart disease are expected to *decrease overall* for hospitals with "Better" ratings as cases increased. In general, this means that 
-
-We also find that there is no compelling linear association between heart disease deaths per thousand and 
-
-
+We find that the rating of a hospital on its own has no statistically significant effect on heart attack deaths until it interacts with the number of heart attack cases. In general, subgroups of hospitals rated "Worse" tended to have higher deaths, while deaths were expected to *decrease overall* for hospitals with "Better" ratings with cases remaining the same. In general, this means that 
 
 
