@@ -105,7 +105,7 @@ mse_reduced
 
 However, we see a lower MSE at  0.0539 compared to 0.0742 from the full model. However, `hispanic`, `MedianAge`, `MaleMedianAge`, `FemaleMedianAge`, and `TotalCases` are no longer significant in this model. 
 
-To get an even better understanding of the data, we reduce the model again to just the signifant variables in the reduced model. We are down to just two predictor variables, `CasesperThou` and `HospNumber`. 
+To get an even better understanding of the data, we reduce the model again to just the significant variables in the reduced model. We are down to just two predictor variables, `CasesperThou` and `HospNumber`. 
 
 ```{r}
 small_model <- lm(DeathsperThou ~ CasesperThou + HospNumber, data=train)
