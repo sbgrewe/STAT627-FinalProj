@@ -1,24 +1,42 @@
+---
+title: "Regression Analysis: Linear Models"
+subtitle: "Name:Elise Buellesbach Course: STAT 427"
+number-sections: true
+cache: false
+format:
+  html:
+    code-fold: true
+    code-summary: "Show the code"
+    toc: false
+    toc-depth: 1
+---
 
-Here we are working on a basic multiple linear model with cross validation. 
+Here we are working on a basic multiple linear model with cross validation.
 
-Importing data
+Question: Can mortality rate from heart disease per 1000 people be predicted from demographic conditions within counties in California?
+
+To start, we will employ a series of multiple regressions to get a better understanding of the relationships at play and which variables are most useful in predicting the mortality rate from heart disease.
+
+I begin by importing and setting up the data.
+
 ```{r}
 library(tidyverse); theme_set(theme_bw())
 reg_data_long <- read_csv(".\\..\\..\\Data\\reg_data_long.csv")
-head(reg_data_long)
+# head(reg_data_long)
 reg_data_long$female_prop <- reg_data_long$FemalePop/reg_data_long$TotalPop
 
 ```
+
+When I initially began building this model, I ran into issues in calculating the MSE because of a couple of NA values. To prevent this issue, I checked the data for NA values. Both PercFemale and PercUnder18yo have NA values and were thus removed from the full regression model.
+
 ```{r}
 na_counts <- colSums(is.na(reg_data_long))
 na_counts
+
 ```
 
-Question: Can mortality rate from heart disease per 1000 people be predicted from demographic conditions (such as healthcare funding or median income) within counties in California?
-
-To start, we will employ a series of multiple regressions to get a better understanding of the relationships at play and which variables are most useful in predicting the mortality rate from heart disease. 
-
 Splitting up the data
+
 ```{r}
 set.seed(123)
 
@@ -33,79 +51,73 @@ dim(test)
 test$County <- factor(test$County, levels = levels(train$County))
 
 ```
-Look at Correlations ...
-```{r}
-```
+
+# Full Model 
 
 Training the full model
+
 ```{r}
-full_model <- lm(DeathsperThou ~ TotalPop + MalePop + FemalePop + MedianAge + MaleMedianAge + FemaleMedianAge + Under5yoPop + Under18yoPop + Pop21andOlder + Pop55andOlder + Pop60andOlder + Pop65andOlder + num_desig + amer_indian + black + hispanic + asian + multi_race + pac_island + white + poverty + labor_force + unemployed + median_income + TotalDeaths + TotalCases + prop_hpsa + nonwhite_prop + Rating + Deaths + unempl_prop + poverty_prop + prop55older + Cases + HospNumber + CasesperThou + female_prop , family = "binomial", data = train)
+full_model <- lm(DeathsperThou ~ TotalPop + MalePop + FemalePop + MedianAge + MaleMedianAge + FemaleMedianAge + Under5yoPop + Under18yoPop + Pop21andOlder + Pop55andOlder + Pop60andOlder + Pop65andOlder + num_desig + amer_indian + black + hispanic + asian + multi_race + pac_island + white + poverty + labor_force + unemployed + median_income + TotalDeaths + TotalCases + prop_hpsa + nonwhite_prop + Rating + Deaths + unempl_prop + poverty_prop + prop55older + Cases + HospNumber + CasesperThou + female_prop , data = train)
 summary(full_model)
 plot(full_model)
 ```
+These plots give some insight to the shape of the model. For example, the plotting on the QQ-plot does not demonstrate a strong linear relationship. The edges of the plot deviate from the line suggesting that the model is not perfectly linear. Further, the scattered dots on the Leverage plot show several points on the line of Cook's Distance signifying that they have overstated influence on the model. With these concerns in mind, I want to investigate the linearity of the model further. Does a linear model make sense? To get a better understanding of the data, I created some basic plots to demonstrate the shape of the data and get an idea of if a linear model will make sense here ([source on code](https://www.statology.org/plot-multiple-linear-regression-in-r/))
+
+```{r}
+library(car)
+avPlots(full_model)
+
+```
+Here, we can see that some variables provide a better linear fit than others. For example, variables such as `MaleMedianAge` and `FemaleMedianAge` both are more or less scattered along the regression line. However, other variables such as `MalePop` and `FemalePop` do not fit the line well. Instead, the data is gathered in one spot and has almost no linear shape. These graphs give some reason for concern that the basic full model will not be the strongest. Not all of the variables are linear so a reduced model might be a better fit. 
+
+However, to confirm these concerns, we will go ahead and calculate the Mean Square Error of the full model. 
 
 Testing the full model
 ```{r}
-prediction <- predict(full_model, newdata = test)
-```
-
-Error rate
-```{r}
-
-rmse <- vector(mode = "double", length = 19)
-
-for (k  in seq_along(rmse)) {
-  
-full_model <- lm(DeathsperThou ~ TotalPop + MalePop + FemalePop + MedianAge + MaleMedianAge + FemaleMedianAge + Under5yoPop + Under18yoPop + Pop21andOlder + Pop55andOlder + Pop60andOlder + Pop65andOlder  + num_desig + amer_indian + black + hispanic + asian + multi_race + pac_island + white + poverty + labor_force + unemployed + median_income + TotalDeaths + TotalCases + prop_hpsa + nonwhite_prop + Rating + Deaths + unempl_prop + poverty_prop + prop55older + Cases + HospNumber + CasesperThou + female_prop , data = train)  
-
 Yhat <- predict(full_model, newdata = test)
 
-Ytest <- test$DeathsperThou
-residuals <- Ytest - Yhat
-
-rmse[k] <- sqrt(mean(residuals^2))
-
-
-}
-which.min(rmse)
-min(rmse)
+mse <- mean((test$DeathsperThou - Yhat)^2)
+mse
 ```
+The MSE is .0742. This is a low MSE in general. Next, we can see how a reduced model will work. 
+
+Here, I will take only the significant variables from the above model for the reduced model. This includes variables that are significant up to the p=.1 threshold This was chosen because so few variables are significant and I want to see what this model will yield. Then, we can remove more variables if the results warrant that action.
+
+# Reduced Model 
 
 Training the reduced model
+
 ```{r}
-reduced_model <- lm(DeathsperThou ~ black + Deaths + Cases + CasesperThou, family = "binomial", data = train)
+reduced_model <- lm(DeathsperThou ~ MedianAge + MaleMedianAge + FemaleMedianAge + hispanic + CasesperThou + TotalCases + HospNumber, data = train)
 summary(reduced_model)
 plot(reduced_model)
 ```
 
+These plots of the reduced model yield the same concerns as the plots on the full model. 
+
 Testing the reduced model
+
 ```{r}
 prediction_reduced <- predict(reduced_model, newdata = test)
-
+mse_reduced <- mean((test$DeathsperThou - prediction_reduced)^2)
+mse_reduced
 ```
 
-Error rate
+However, we see a lower MSE at  0.0539 compared to 0.0742 from the full model. However, `hispanic`, `MedianAge`, `MaleMedianAge`, `FemaleMedianAge`, and `TotalCases` are no longer significant in this model. 
+
+To get an even better understanding of the data, we reduce the model again to just the signifant variables in the reduced model. We are down to just two predictor variables, `CasesperThou` and `HospNumber`. 
+
 ```{r}
-rmse_reduced <- vector(mode = "double", length = 19)
-
-for (k  in seq_along(rmse_reduced)) {
-  
-reduced_model <- lm(DeathsperThou ~ black + Deaths + Cases + CasesperThou, data = train)
-
-Yhat <- predict(reduced_model, newdata = test)
-
-Ytest <- test$DeathsperThou
-residuals <- Ytest - Yhat
-
-rmse[k] <- sqrt(mean(residuals^2))
-
-
-}
-which.min(rmse)
-min(rmse)
+small_model <- lm(DeathsperThou ~ CasesperThou + HospNumber, data=train)
+summary(small_model)
+prediction_small <- predict(small_model, newdata = test)
+mse_small <- mean((test$DeathsperThou - prediction_reduced)^2)
+mse_small
 ```
 
-Comparison between the two models and recommendation 
+This small model yields the same MSE as the previous reduced model of 0.0539 and only requires two variables. 
 
-`
+# Comparison Between the Two Models and Recommendation
+
+Between the original two models, the reduced model should be chosen. It offers a more accurate prediction of the rate of deaths due to heart disease per thousand people. The reduced model uses only 7 prediction variables compared to the more than 30 variables that the full model requires. Further, the smallest model with only 2 variables gives the same low MSE value with even fewer predictor variables. This implies that many of those variables are either not useful in prediction or they might have high levels of multi-co linearity This concept will be explored further in the next regression models. 
 
