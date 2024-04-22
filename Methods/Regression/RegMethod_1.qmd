@@ -9,6 +9,10 @@ head(reg_data_long)
 reg_data_long$female_prop <- reg_data_long$FemalePop/reg_data_long$TotalPop
 
 ```
+```{r}
+na_counts <- colSums(is.na(reg_data_long))
+na_counts
+```
 
 Question: Can mortality rate from heart disease per 1000 people be predicted from demographic conditions (such as healthcare funding or median income) within counties in California?
 
@@ -28,16 +32,14 @@ dim(test)
 
 test$County <- factor(test$County, levels = levels(train$County))
 
-
 ```
 Look at Correlations ...
 ```{r}
-names(train)
 ```
 
 Training the full model
 ```{r}
-full_model <- lm(DeathsperThou ~ TotalPop + MalePop + FemalePop + MedianAge + MaleMedianAge + FemaleMedianAge + Under5yoPop + Under18yoPop + Pop21andOlder + Pop55andOlder + Pop60andOlder + Pop65andOlder + PercFemale +PercUnder18yo + num_desig + amer_indian + black + hispanic + asian + multi_race + pac_island + white + poverty + labor_force + unemployed + median_income + TotalDeaths + TotalCases + prop_hpsa + nonwhite_prop + Rating + Deaths + unempl_prop + poverty_prop + prop55older + Cases + HospNumber + CasesperThou + female_prop , family = "binomial", data = train)
+full_model <- lm(DeathsperThou ~ TotalPop + MalePop + FemalePop + MedianAge + MaleMedianAge + FemaleMedianAge + Under5yoPop + Under18yoPop + Pop21andOlder + Pop55andOlder + Pop60andOlder + Pop65andOlder + num_desig + amer_indian + black + hispanic + asian + multi_race + pac_island + white + poverty + labor_force + unemployed + median_income + TotalDeaths + TotalCases + prop_hpsa + nonwhite_prop + Rating + Deaths + unempl_prop + poverty_prop + prop55older + Cases + HospNumber + CasesperThou + female_prop , family = "binomial", data = train)
 summary(full_model)
 plot(full_model)
 ```
@@ -49,9 +51,24 @@ prediction <- predict(full_model, newdata = test)
 
 Error rate
 ```{r}
-library(caret)
-RMSE(predict, test$DeathsperThou)
 
+rmse <- vector(mode = "double", length = 19)
+
+for (k  in seq_along(rmse)) {
+  
+full_model <- lm(DeathsperThou ~ TotalPop + MalePop + FemalePop + MedianAge + MaleMedianAge + FemaleMedianAge + Under5yoPop + Under18yoPop + Pop21andOlder + Pop55andOlder + Pop60andOlder + Pop65andOlder  + num_desig + amer_indian + black + hispanic + asian + multi_race + pac_island + white + poverty + labor_force + unemployed + median_income + TotalDeaths + TotalCases + prop_hpsa + nonwhite_prop + Rating + Deaths + unempl_prop + poverty_prop + prop55older + Cases + HospNumber + CasesperThou + female_prop , data = train)  
+
+Yhat <- predict(full_model, newdata = test)
+
+Ytest <- test$DeathsperThou
+residuals <- Ytest - Yhat
+
+rmse[k] <- sqrt(mean(residuals^2))
+
+
+}
+which.min(rmse)
+min(rmse)
 ```
 
 Training the reduced model
@@ -69,8 +86,26 @@ prediction_reduced <- predict(reduced_model, newdata = test)
 
 Error rate
 ```{r}
+rmse_reduced <- vector(mode = "double", length = 19)
 
+for (k  in seq_along(rmse_reduced)) {
+  
+reduced_model <- lm(DeathsperThou ~ black + Deaths + Cases + CasesperThou, data = train)
+
+Yhat <- predict(reduced_model, newdata = test)
+
+Ytest <- test$DeathsperThou
+residuals <- Ytest - Yhat
+
+rmse[k] <- sqrt(mean(residuals^2))
+
+
+}
+which.min(rmse)
+min(rmse)
 ```
 
-Comparison between the two models and reccomednation 
+Comparison between the two models and recommendation 
+
+`
 
