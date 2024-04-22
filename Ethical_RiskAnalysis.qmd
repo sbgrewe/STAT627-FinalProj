@@ -2,4 +2,16 @@
 bibliography: references.bib
 ---
 
-Ethical Analysis Text
+# Ethical Analysis
+
+Managing health related data and models comes with a wide variety of serious ethical concerns. Understanding the risks of  biased data or an inaccurate model is critical to safeguarding against these. As such, as we work on these models, we must keep in mind the privacy of patients, the quality of our data and its ability to accurately represent the demographics of the whole population, and we must be mindful of the variables that are included or excluded. 
+
+1) Managing data:
+2) Biases and Representation:
+3) Inclusion of Variables:
+
+
+Conversely, good data and strong models can serve as guidance to hospitals and be accountability measures. For example, the NIH has found a 10% increase of in-hospital mortality rates due to unsafe practices while increased staffing is correlated with a 12% decrease in deaths. Accurate data reporting can provide accountability about hospitals practices. This give community members insight into the medical system and the needed improvements in their locality. 
+
+Further, better public policy can stem from accurate reporting. For example, when considering our models, overlaying deaths and demographic information can highlight at risk groups that need further support. We find in our LASSO analysis that patients over the age of 55 are at a higher risk of death. As such, policy makers know that they need to further focus on resources for this community. Continued monitoring of the death rate can demonstrate if policy changes yield a change in mortality rates. Good policy is based in good data and models. 
+

@@ -1,28 +1,57 @@
 
-
 ```{r}
-library(tree)
-library(rpart)
-library(rpart.plot)
+#| output: false
+library(randomForest)
+library(tidyverse); theme_set(theme_bw())
+reg_data_long <- read_csv(".\\..\\..\\Data\\reg_data_long.csv")
+# head(reg_data_long)
+reg_data_long$Rating <- as.factor(reg_data_long$Rating)
+reg_data_long$female_prop <- reg_data_long$FemalePop/reg_data_long$TotalPop
+
+set.seed(123)
+Z <- sample(1:nrow(reg_data_long), 0.8*nrow(reg_data_long), replace = FALSE)
+train <- as.data.frame(reg_data_long[Z,])
+test <- as.data.frame(reg_data_long[-Z,])
 ```
 
+```{r}
+p <- 9 
+RF <- OptimalTrees <- Yhat <- RMSEP <- vector(mode = "double", length = p)
 
-Goals: 
+set.seed(123)
+for (k in 1:p) {
+  RF <- randomForest(DeathsperThou ~ Rating*CasesperThou + prop_hpsa + nonwhite_prop + median_income + unempl_prop 
+								 + poverty_prop + Rating*prop55older + Rating*HospNumber,
+								 data = train, mtry = k)
+  OptimalTrees[k] <- which.min(RF$mse)
+  RF <- randomForest(DeathsperThou ~ Rating*CasesperThou + prop_hpsa + nonwhite_prop + median_income + unempl_prop 
+								 + poverty_prop + Rating*prop55older + Rating*HospNumber,
+								 data = train, mtry = k, ntree = OptimalTrees[k])
+  Yhat <- predict(RF, newdata = test)
+  RMSEP[k] <- sqrt(mean((Yhat - test$DeathsperThou)^2) )
+}
 
-- Regression Tree
-	- Cross validate using cv.tree
-- Gradient Boosted Reg Tree
+which.min(RMSEP)
+OptimalTrees[7]
+```
 
-Report:
-- variables actually used
-- tree plots
-- Find prediction MSE
+There are nine unique predictors in the data. An exhaustive search using cross validation produces the optimal number of predictors and number of trees to use for the training data: 7 predictors and 398 trees respectively. 
 
 ```{r}
-tree(DeathsperThou ~ TotalPop + nonwhite_pop + prop_hpsa + median_income + poverty_prop + unempl_prop, data = reg_data_long)
-# trp <- rpart(survived ~ ., data = titanic)
-# rpart.plot(trp)
+set.seed(123)
+model_RF <- randomForest(DeathsperThou ~ Rating*CasesperThou + prop_hpsa + nonwhite_prop + median_income + unempl_prop + poverty_prop + Rating*prop55older + Rating*HospNumber, data = train, mtry = 7, ntree = 398)
+model_RF
+plot(model_RF)
 
-# plotcp(trp)
+Y_hat <- predict(model_RF, newdata = test)
+mean((test$DeathsperThou-Y_hat)^2)
 ```
+
+The random forest model has a prediction MSE of 0.02992, which corresponds to a 37.64% decrease in prediction MSE with respect to the lambda 1se LASSO regression model. We find that 81.33% of the variation in deaths due to heart disease per 1000 individuals is explained by the combination of 7 variables, and it is again clear that hospital and demographic variables are lending predictive power to the model.
+
+```{r}
+varImpPlot(model_RF)
+```
+
+We find that the dominant predictor, as expected, was the number of heart attack cases per thousand residents, though the rating of the hospital has a considerable effect on predicting deaths as we explored with the lambda min LASSO regression model. Rating far outweighs the effect of the demographic factors, including the proportion of residents aged 55 years and older.
 

@@ -91,7 +91,7 @@ format:
 
 # Appendix {#sec-appendix}
 
-{{< include ./Appendix >}}
+{{< include ./Appendix.qmd >}}
 
 # References
 
