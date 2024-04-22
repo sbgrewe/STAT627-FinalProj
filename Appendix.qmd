@@ -8,7 +8,7 @@ bibliography: references.bib
 
 
 *Elise Buellesbach*
-
+Found and proposed the original CA data set (`California Hospital Inpatient Mortality Rates and Quality Ratings`). Completed the linear regression models (both full and reduced). Wrote the executive summary and ethical analysis. 
 
 *Amanda Concepcion*
 
