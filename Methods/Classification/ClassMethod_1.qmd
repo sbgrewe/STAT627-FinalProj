@@ -1,6 +1,5 @@
 ```{r}
-#| echo: true
-
+#| echo: false
 library(tidyverse)
 ```
 
@@ -19,7 +18,7 @@ Here we will be using 60% of our dataset for training and 40% for testing
 ```{r}
 set.seed(123)
 
-training_pct <- .50 
+training_pct <- .60 
 Z <- sample(nrow(hpsa), training_pct*nrow(hpsa))
 
 hpsa_train <- hpsa[Z, ]
@@ -33,7 +32,7 @@ nrow(hpsa_train)
 
 ```{r}
 set.seed(123)
-log_full <- glm(as.factor(hpsa_status) ~. -metropolitan_indicator, data = hpsa_train, 
+log_full <- glm(as.factor(hpsa_status) ~., data = hpsa_train, 
                 family = "binomial")
 
 summary(log_full)
@@ -94,7 +93,8 @@ error_full <- mean(Yhat != hpsa_test$hpsa_status)
 error_full
 ```
 
-Accuracy of full model was slightly higher than the reduced model, with the full model also having the lowest test error rate.
+The reduced model has an accuracy of 0.8095238 and a mean prediction error rate of 0.1904762 while the full model has an accuracy of 0.7993197 and a prediction error rate of 0.2006803.
+This reveals an increased accuracy in the reduced model and a decrease in the prediction error rate as compared to the full model.
 
 ### Using K-fold cross validation to find prediction mean squared error
 
@@ -129,7 +129,7 @@ Kfold_full <- cv.glm(hpsa, log_full, cost = Lossfn, K=10)$delta
 Kfold_full
 ```
 
-While the full and reduced model had similar prediction mean squared error, the full model had a slightly lower prediction mean squared error.
+While the full and reduced model had similar prediction mean squared error, the reduced model had a slightly lower prediction mean squared error using the k-10 cross validation approach.
 
 ### Compare models
 
@@ -139,3 +139,14 @@ anova(log_reduced, log_full, test = "Chisq")
 
 Giving the results obtained and from this approaches and the results of model comparison we lack sufficient evidence (p = 0.3744) to conclude that logistic regression (full) model is better than the logistic regression (reduced) model.
 Consequently, we will recommend the reduced logistic regression model as the better model.
+
+```{r}
+library(gt)
+tibble(
+  models = c("Reduced", "Full"),
+  Accuracy = c(accuracy_reduced, accuracy),
+  Error = c(error_reduced, error_full)
+) |>
+  gt() |>
+  tab_header(title = "Accuracy and Prediction Error Estimates Logistic regression models")
+```
