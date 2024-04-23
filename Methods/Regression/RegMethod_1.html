@@ -102,46 +102,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse); <span class="fu">theme_set</span>(<span class="fu">theme_bw</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.0     ✔ tibble    3.2.1
-✔ lubridate 1.9.3     ✔ tidyr     1.3.0
-✔ purrr     1.0.2     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>reg_data_long <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">".</span><span class="sc">\\</span><span class="st">..</span><span class="sc">\\</span><span class="st">..</span><span class="sc">\\</span><span class="st">Data</span><span class="sc">\\</span><span class="st">reg_data_long.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 99 Columns: 40
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr  (2): County, Rating
-dbl (38): TotalPop, MalePop, FemalePop, MedianAge, MaleMedianAge, FemaleMedi...
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-</div>
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># head(reg_data_long)</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>reg_data_long<span class="sc">$</span>female_prop <span class="ot">&lt;-</span> reg_data_long<span class="sc">$</span>FemalePop<span class="sc">/</span>reg_data_long<span class="sc">$</span>TotalPop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse); <span class="fu">theme_set</span>(<span class="fu">theme_bw</span>())</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>reg_data_long <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">".</span><span class="sc">\\</span><span class="st">..</span><span class="sc">\\</span><span class="st">..</span><span class="sc">\\</span><span class="st">Data</span><span class="sc">\\</span><span class="st">reg_data_long.csv"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># head(reg_data_long)</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>reg_data_long<span class="sc">$</span>female_prop <span class="ot">&lt;-</span> reg_data_long<span class="sc">$</span>FemalePop<span class="sc">/</span>reg_data_long<span class="sc">$</span>TotalPop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>When I initially began building this model, I ran into issues in calculating the MSE because of a couple of NA values. To prevent this issue, I checked the data for NA values. Both PercFemale and PercUnder18yo have NA values and were thus removed from the full regression model.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>na_counts <span class="ot">&lt;-</span> <span class="fu">colSums</span>(<span class="fu">is.na</span>(reg_data_long))</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>na_counts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>na_counts <span class="ot">&lt;-</span> <span class="fu">colSums</span>(<span class="fu">is.na</span>(reg_data_long))</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>na_counts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>         County        TotalPop         MalePop       FemalePop       MedianAge 
@@ -168,28 +140,17 @@ dbl (38): TotalPop, MalePop, FemalePop, MedianAge, MaleMedianAge, FemaleMedi...
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>training_pct <span class="ot">&lt;-</span> .<span class="dv">8</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>Z <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">nrow</span>(reg_data_long), <span class="fu">floor</span>(training_pct<span class="sc">*</span><span class="fu">nrow</span>(reg_data_long)))</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>train <span class="ot">&lt;-</span> reg_data_long[Z,]</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 79 41</code></pre>
-</div>
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> reg_data_long[<span class="sc">-</span>Z,]</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 20 41</code></pre>
-</div>
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>test<span class="sc">$</span>County <span class="ot">&lt;-</span> <span class="fu">factor</span>(test<span class="sc">$</span>County, <span class="at">levels =</span> <span class="fu">levels</span>(train<span class="sc">$</span>County))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>training_pct <span class="ot">&lt;-</span> .<span class="dv">8</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>Z <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">nrow</span>(reg_data_long), <span class="fu">floor</span>(training_pct<span class="sc">*</span><span class="fu">nrow</span>(reg_data_long)))</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>train <span class="ot">&lt;-</span> reg_data_long[Z,]</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># dim(train)</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> reg_data_long[<span class="sc">-</span>Z,]</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># dim(test)</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>test<span class="sc">$</span>County <span class="ot">&lt;-</span> <span class="fu">factor</span>(test<span class="sc">$</span>County, <span class="at">levels =</span> <span class="fu">levels</span>(train<span class="sc">$</span>County))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <section id="full-model" class="level1" data-number="1">
@@ -198,8 +159,14 @@ dbl (38): TotalPop, MalePop, FemalePop, MedianAge, MaleMedianAge, FemaleMedi...
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>full_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(DeathsperThou <span class="sc">~</span> TotalPop <span class="sc">+</span> MalePop <span class="sc">+</span> FemalePop <span class="sc">+</span> MedianAge <span class="sc">+</span> MaleMedianAge <span class="sc">+</span> FemaleMedianAge <span class="sc">+</span> Under5yoPop <span class="sc">+</span> Under18yoPop <span class="sc">+</span> Pop21andOlder <span class="sc">+</span> Pop55andOlder <span class="sc">+</span> Pop60andOlder <span class="sc">+</span> Pop65andOlder <span class="sc">+</span> num_desig <span class="sc">+</span> amer_indian <span class="sc">+</span> black <span class="sc">+</span> hispanic <span class="sc">+</span> asian <span class="sc">+</span> multi_race <span class="sc">+</span> pac_island <span class="sc">+</span> white <span class="sc">+</span> poverty <span class="sc">+</span> labor_force <span class="sc">+</span> unemployed <span class="sc">+</span> median_income <span class="sc">+</span> TotalDeaths <span class="sc">+</span> TotalCases <span class="sc">+</span> prop_hpsa <span class="sc">+</span> nonwhite_prop <span class="sc">+</span> Rating <span class="sc">+</span> Deaths <span class="sc">+</span> unempl_prop <span class="sc">+</span> poverty_prop <span class="sc">+</span> prop55older <span class="sc">+</span> Cases <span class="sc">+</span> HospNumber <span class="sc">+</span> CasesperThou <span class="sc">+</span> female_prop , <span class="at">data =</span> train)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(full_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>full_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(DeathsperThou <span class="sc">~</span> TotalPop <span class="sc">+</span> MalePop <span class="sc">+</span> FemalePop <span class="sc">+</span> MedianAge <span class="sc">+</span> MaleMedianAge <span class="sc">+</span> FemaleMedianAge <span class="sc">+</span> Under5yoPop <span class="sc">+</span> Under18yoPop <span class="sc">+</span> Pop21andOlder <span class="sc">+</span> Pop55andOlder <span class="sc">+</span> Pop60andOlder <span class="sc">+</span> Pop65andOlder <span class="sc">+</span> num_desig <span class="sc">+</span> amer_indian <span class="sc">+</span> black <span class="sc">+</span> hispanic <span class="sc">+</span> asian <span class="sc">+</span> multi_race <span class="sc">+</span> pac_island <span class="sc">+</span> white <span class="sc">+</span> poverty <span class="sc">+</span> labor_force <span class="sc">+</span> unemployed <span class="sc">+</span> median_income <span class="sc">+</span> TotalDeaths <span class="sc">+</span> TotalCases <span class="sc">+</span> prop_hpsa <span class="sc">+</span> nonwhite_prop <span class="sc">+</span> Rating <span class="sc">+</span> Deaths <span class="sc">+</span> unempl_prop <span class="sc">+</span> poverty_prop <span class="sc">+</span> prop55older <span class="sc">+</span> Cases <span class="sc">+</span> HospNumber <span class="sc">+</span> CasesperThou <span class="sc">+</span> female_prop , <span class="at">data =</span> train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Looking at the full model, we see that the full model is statistically significant with a p-value of almost zero. Further, it has an adjusted R^2 value of 0.9345 telling us that the model explains 93.45% of the variation in the results. This is a strong result. But, only a handful of the variables are significant in the model.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(full_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -266,166 +233,64 @@ Residual standard error: 0.102 on 41 degrees of freedom
 Multiple R-squared:  0.9655,    Adjusted R-squared:  0.9345 
 F-statistic: 31.06 on 37 and 41 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(full_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<p><img src="RegMethod_1_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
-</div>
-<div class="cell-output-display">
-<p><img src="RegMethod_1_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid" width="672"></p>
-</div>
-<div class="cell-output-display">
-<p><img src="RegMethod_1_files/figure-html/unnamed-chunk-4-3.png" class="img-fluid" width="672"></p>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in sqrt(crit * p * (1 - hh)/hh): NaNs produced
-Warning in sqrt(crit * p * (1 - hh)/hh): NaNs produced</code></pre>
-</div>
-<div class="cell-output-display">
-<p><img src="RegMethod_1_files/figure-html/unnamed-chunk-4-4.png" class="img-fluid" width="672"></p>
-</div>
 </div>
 <p>These plots give some insight to the shape of the model. For example, the plotting on the QQ-plot does not demonstrate a strong linear relationship. The edges of the plot deviate from the line suggesting that the model is not perfectly linear. Further, the scattered dots on the Leverage plot show several points on the line of Cook’s Distance signifying that they have overstated influence on the model. With these concerns in mind, I want to investigate the linearity of the model further. Does a linear model make sense? To get a better understanding of the data, I created some basic plots to demonstrate the shape of the data and get an idea of if a linear model will make sense here (<a href="https://www.statology.org/plot-multiple-linear-regression-in-r/">source on code</a>)</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(full_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: carData</code></pre>
+<div class="cell-output-display">
+<p><img src="RegMethod_1_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'car'</code></pre>
+<div class="cell-output-display">
+<p><img src="RegMethod_1_files/figure-html/unnamed-chunk-6-2.png" class="img-fluid" width="672"></p>
 </div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:dplyr':
-
-    recode</code></pre>
+<div class="cell-output-display">
+<p><img src="RegMethod_1_files/figure-html/unnamed-chunk-6-3.png" class="img-fluid" width="672"></p>
 </div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:purrr':
-
-    some</code></pre>
+<div class="cell-output-display">
+<p><img src="RegMethod_1_files/figure-html/unnamed-chunk-6-4.png" class="img-fluid" width="672"></p>
 </div>
+</div>
+<div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">avPlots</span>(full_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">avPlots</span>(full_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in lsfit(mod.mat[, -var], cbind(mod.mat[, var], response), wt = wt, :
-'X' matrix was collinear
-Warning in lsfit(mod.mat[, -var], cbind(mod.mat[, var], response), wt = wt, :
-'X' matrix was collinear
-Warning in lsfit(mod.mat[, -var], cbind(mod.mat[, var], response), wt = wt, :
-'X' matrix was collinear
-Warning in lsfit(mod.mat[, -var], cbind(mod.mat[, var], response), wt = wt, :
-'X' matrix was collinear
-Warning in lsfit(mod.mat[, -var], cbind(mod.mat[, var], response), wt = wt, :
-'X' matrix was collinear
-Warning in lsfit(mod.mat[, -var], cbind(mod.mat[, var], response), wt = wt, :
-'X' matrix was collinear
-Warning in lsfit(mod.mat[, -var], cbind(mod.mat[, var], response), wt = wt, :
-'X' matrix was collinear</code></pre>
+<div class="cell-output-display">
+<p><img src="RegMethod_1_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 <div class="cell-output-display">
-<p><img src="RegMethod_1_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in lsfit(mod.mat[, -var], cbind(mod.mat[, var], response), wt = wt, :
-'X' matrix was collinear
-Warning in lsfit(mod.mat[, -var], cbind(mod.mat[, var], response), wt = wt, :
-'X' matrix was collinear
-Warning in lsfit(mod.mat[, -var], cbind(mod.mat[, var], response), wt = wt, :
-'X' matrix was collinear
-Warning in lsfit(mod.mat[, -var], cbind(mod.mat[, var], response), wt = wt, :
-'X' matrix was collinear
-Warning in lsfit(mod.mat[, -var], cbind(mod.mat[, var], response), wt = wt, :
-'X' matrix was collinear
-Warning in lsfit(mod.mat[, -var], cbind(mod.mat[, var], response), wt = wt, :
-'X' matrix was collinear
-Warning in lsfit(mod.mat[, -var], cbind(mod.mat[, var], response), wt = wt, :
-'X' matrix was collinear
-Warning in lsfit(mod.mat[, -var], cbind(mod.mat[, var], response), wt = wt, :
-'X' matrix was collinear
-Warning in lsfit(mod.mat[, -var], cbind(mod.mat[, var], response), wt = wt, :
-'X' matrix was collinear</code></pre>
+<p><img src="RegMethod_1_files/figure-html/unnamed-chunk-7-2.png" class="img-fluid" width="672"></p>
 </div>
 <div class="cell-output-display">
-<p><img src="RegMethod_1_files/figure-html/unnamed-chunk-5-2.png" class="img-fluid" width="672"></p>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in lsfit(mod.mat[, -var], cbind(mod.mat[, var], response), wt = wt, :
-'X' matrix was collinear
-Warning in lsfit(mod.mat[, -var], cbind(mod.mat[, var], response), wt = wt, :
-'X' matrix was collinear
-Warning in lsfit(mod.mat[, -var], cbind(mod.mat[, var], response), wt = wt, :
-'X' matrix was collinear
-Warning in lsfit(mod.mat[, -var], cbind(mod.mat[, var], response), wt = wt, :
-'X' matrix was collinear
-Warning in lsfit(mod.mat[, -var], cbind(mod.mat[, var], response), wt = wt, :
-'X' matrix was collinear
-Warning in lsfit(mod.mat[, -var], cbind(mod.mat[, var], response), wt = wt, :
-'X' matrix was collinear
-Warning in lsfit(mod.mat[, -var], cbind(mod.mat[, var], response), wt = wt, :
-'X' matrix was collinear
-Warning in lsfit(mod.mat[, -var], cbind(mod.mat[, var], response), wt = wt, :
-'X' matrix was collinear
-Warning in lsfit(mod.mat[, -var], cbind(mod.mat[, var], response), wt = wt, :
-'X' matrix was collinear</code></pre>
+<p><img src="RegMethod_1_files/figure-html/unnamed-chunk-7-3.png" class="img-fluid" width="672"></p>
 </div>
 <div class="cell-output-display">
-<p><img src="RegMethod_1_files/figure-html/unnamed-chunk-5-3.png" class="img-fluid" width="672"></p>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in lsfit(mod.mat[, -var], cbind(mod.mat[, var], response), wt = wt, :
-'X' matrix was collinear
-Warning in lsfit(mod.mat[, -var], cbind(mod.mat[, var], response), wt = wt, :
-'X' matrix was collinear
-Warning in lsfit(mod.mat[, -var], cbind(mod.mat[, var], response), wt = wt, :
-'X' matrix was collinear
-Warning in lsfit(mod.mat[, -var], cbind(mod.mat[, var], response), wt = wt, :
-'X' matrix was collinear
-Warning in lsfit(mod.mat[, -var], cbind(mod.mat[, var], response), wt = wt, :
-'X' matrix was collinear
-Warning in lsfit(mod.mat[, -var], cbind(mod.mat[, var], response), wt = wt, :
-'X' matrix was collinear
-Warning in lsfit(mod.mat[, -var], cbind(mod.mat[, var], response), wt = wt, :
-'X' matrix was collinear
-Warning in lsfit(mod.mat[, -var], cbind(mod.mat[, var], response), wt = wt, :
-'X' matrix was collinear
-Warning in lsfit(mod.mat[, -var], cbind(mod.mat[, var], response), wt = wt, :
-'X' matrix was collinear</code></pre>
+<p><img src="RegMethod_1_files/figure-html/unnamed-chunk-7-4.png" class="img-fluid" width="672"></p>
 </div>
 <div class="cell-output-display">
-<p><img src="RegMethod_1_files/figure-html/unnamed-chunk-5-4.png" class="img-fluid" width="672"></p>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in lsfit(mod.mat[, -var], cbind(mod.mat[, var], response), wt = wt, :
-'X' matrix was collinear</code></pre>
-</div>
-<div class="cell-output-display">
-<p><img src="RegMethod_1_files/figure-html/unnamed-chunk-5-5.png" class="img-fluid" width="672"></p>
+<p><img src="RegMethod_1_files/figure-html/unnamed-chunk-7-5.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Here, we can see that some variables provide a better linear fit than others. For example, variables such as <code>MaleMedianAge</code> and <code>FemaleMedianAge</code> both are more or less scattered along the regression line. However, other variables such as <code>MalePop</code> and <code>FemalePop</code> do not fit the line well. Instead, the data is gathered in one spot and has almost no linear shape. These graphs give some reason for concern that the basic full model will not be the strongest. Not all of the variables are linear so a reduced model might be a better fit.</p>
-<p>However, to confirm these concerns, we will go ahead and calculate the Mean Square Error of the full model.</p>
+<p>Next, we will go ahead and calculate the Mean Square Error of the full model.</p>
 <p>Testing the full model</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>Yhat <span class="ot">&lt;-</span> <span class="fu">predict</span>(full_model, <span class="at">newdata =</span> test)</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>mse <span class="ot">&lt;-</span> <span class="fu">mean</span>((test<span class="sc">$</span>DeathsperThou <span class="sc">-</span> Yhat)<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>mse</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>Yhat <span class="ot">&lt;-</span> <span class="fu">predict</span>(full_model, <span class="at">newdata =</span> test)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>mse <span class="ot">&lt;-</span> <span class="fu">mean</span>((test<span class="sc">$</span>DeathsperThou <span class="sc">-</span> Yhat)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>mse</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.07419842</code></pre>
 </div>
 </div>
-<p>The MSE is .0742. This is a low MSE in general. Next, we can see how a reduced model will work.</p>
+<p>The MSE is .0742. This is a low MSE in general. Next, we can see how a reduced model will work and then we will have a good point of comparison between the two models.</p>
 <p>Here, I will take only the significant variables from the above model for the reduced model. This includes variables that are significant up to the p=.1 threshold This was chosen because so few variables are significant and I want to see what this model will yield. Then, we can remove more variables if the results warrant that action.</p>
 </section>
 <section id="reduced-model" class="level1" data-number="2">
@@ -434,8 +299,13 @@ Warning in lsfit(mod.mat[, -var], cbind(mod.mat[, var], response), wt = wt, :
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>reduced_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(DeathsperThou <span class="sc">~</span> MedianAge <span class="sc">+</span> MaleMedianAge <span class="sc">+</span> FemaleMedianAge <span class="sc">+</span> hispanic <span class="sc">+</span> CasesperThou <span class="sc">+</span> TotalCases <span class="sc">+</span> HospNumber, <span class="at">data =</span> train)</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(reduced_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>reduced_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(DeathsperThou <span class="sc">~</span> MedianAge <span class="sc">+</span> MaleMedianAge <span class="sc">+</span> FemaleMedianAge <span class="sc">+</span> hispanic <span class="sc">+</span> CasesperThou <span class="sc">+</span> TotalCases <span class="sc">+</span> HospNumber, <span class="at">data =</span> train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(reduced_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -464,43 +334,27 @@ Residual standard error: 0.1192 on 71 degrees of freedom
 Multiple R-squared:  0.9185,    Adjusted R-squared:  0.9104 
 F-statistic: 114.3 on 7 and 71 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
-<details>
-<summary>Code</summary>
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(reduced_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-<div class="cell-output-display">
-<p><img src="RegMethod_1_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
-<div class="cell-output-display">
-<p><img src="RegMethod_1_files/figure-html/unnamed-chunk-7-2.png" class="img-fluid" width="672"></p>
-</div>
-<div class="cell-output-display">
-<p><img src="RegMethod_1_files/figure-html/unnamed-chunk-7-3.png" class="img-fluid" width="672"></p>
-</div>
-<div class="cell-output-display">
-<p><img src="RegMethod_1_files/figure-html/unnamed-chunk-7-4.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>These plots of the reduced model yield the same concerns as the plots on the full model.</p>
+<p>This model yields a p-value of almost zero. It has an adjusted R^2 value of 0.9104 which is lower than the previous value from the full model of 0.9345. However, the decrease in the number of variables might be worth the slightly lower R^2 value.</p>
 <p>Testing the reduced model</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>prediction_reduced <span class="ot">&lt;-</span> <span class="fu">predict</span>(reduced_model, <span class="at">newdata =</span> test)</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>mse_reduced <span class="ot">&lt;-</span> <span class="fu">mean</span>((test<span class="sc">$</span>DeathsperThou <span class="sc">-</span> prediction_reduced)<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>mse_reduced</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>prediction_reduced <span class="ot">&lt;-</span> <span class="fu">predict</span>(reduced_model, <span class="at">newdata =</span> test)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>mse_reduced <span class="ot">&lt;-</span> <span class="fu">mean</span>((test<span class="sc">$</span>DeathsperThou <span class="sc">-</span> prediction_reduced)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>mse_reduced</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.05392615</code></pre>
 </div>
 </div>
 <p>However, we see a lower MSE at 0.0539 compared to 0.0742 from the full model. However, <code>hispanic</code>, <code>MedianAge</code>, <code>MaleMedianAge</code>, <code>FemaleMedianAge</code>, and <code>TotalCases</code> are no longer significant in this model.</p>
-<p>To get an even better understanding of the data, we reduce the model again to just the signifant variables in the reduced model. We are down to just two predictor variables, <code>CasesperThou</code> and <code>HospNumber</code>.</p>
+<p>To get an even better understanding of the data, we reduce the model again to just the significant variables in the reduced model. We are down to just two predictor variables, <code>CasesperThou</code> and <code>HospNumber</code>. This makes logical sense that the number of cases per thousand and the ranking of the hospital would be good predictor variables of the deaths per thousand.</p>
 <div class="cell">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>small_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(DeathsperThou <span class="sc">~</span> CasesperThou <span class="sc">+</span> HospNumber, <span class="at">data=</span>train)</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(small_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>small_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(DeathsperThou <span class="sc">~</span> CasesperThou <span class="sc">+</span> HospNumber, <span class="at">data=</span>train)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(small_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
@@ -525,15 +379,15 @@ F-statistic: 378.1 on 2 and 76 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>prediction_small <span class="ot">&lt;-</span> <span class="fu">predict</span>(small_model, <span class="at">newdata =</span> test)</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>mse_small <span class="ot">&lt;-</span> <span class="fu">mean</span>((test<span class="sc">$</span>DeathsperThou <span class="sc">-</span> prediction_reduced)<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>mse_small</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>prediction_small <span class="ot">&lt;-</span> <span class="fu">predict</span>(small_model, <span class="at">newdata =</span> test)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>mse_small <span class="ot">&lt;-</span> <span class="fu">mean</span>((test<span class="sc">$</span>DeathsperThou <span class="sc">-</span> prediction_reduced)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>mse_small</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.05392615</code></pre>
 </div>
 </div>
-<p>This small model yields the same MSE as the previous reduced model of 0.0539 and only requires two variables.</p>
+<p>This small model yields the same MSE as the previous reduced model of 0.0539 and only requires two variables. We still have a p-value of almost zero. However, we continue to lose some power in the adjusted R-squared with a value of 0.9063 compared to 0.9104 in the reduced model and 0.9345 in the full model.</p>
 </section>
 <section id="comparison-between-the-two-models-and-recommendation" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Comparison Between the Two Models and Recommendation</h1>

@@ -19,6 +19,10 @@ To start, we will employ a series of multiple regressions to get a better unders
 
 I begin by importing and setting up the data.
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
 ```{r}
 library(tidyverse); theme_set(theme_bw())
 reg_data_long <- read_csv(".\\..\\..\\Data\\reg_data_long.csv")
@@ -44,9 +48,9 @@ training_pct <- .8
 Z <- sample(nrow(reg_data_long), floor(training_pct*nrow(reg_data_long)))
 
 train <- reg_data_long[Z,]
-dim(train)
+# dim(train)
 test <- reg_data_long[-Z,]
-dim(test)
+# dim(test)
 
 test$County <- factor(test$County, levels = levels(train$County))
 
@@ -58,19 +62,30 @@ Training the full model
 
 ```{r}
 full_model <- lm(DeathsperThou ~ TotalPop + MalePop + FemalePop + MedianAge + MaleMedianAge + FemaleMedianAge + Under5yoPop + Under18yoPop + Pop21andOlder + Pop55andOlder + Pop60andOlder + Pop65andOlder + num_desig + amer_indian + black + hispanic + asian + multi_race + pac_island + white + poverty + labor_force + unemployed + median_income + TotalDeaths + TotalCases + prop_hpsa + nonwhite_prop + Rating + Deaths + unempl_prop + poverty_prop + prop55older + Cases + HospNumber + CasesperThou + female_prop , data = train)
+
+```
+
+Looking at the full model, we see that the full model is statistically significant with a p-value of almost zero. Further, it has an adjusted R^2 value of 0.9345 telling us that the model explains 93.45% of the variation in the results. This is a strong result. But, only a handful of the variables are significant in the model. 
+```{r}
 summary(full_model)
+```
+
+These plots give some insight to the shape of the model. For example, the plotting on the QQ-plot does not demonstrate a strong linear relationship. The edges of the plot deviate from the line suggesting that the model is not perfectly linear. Further, the scattered dots on the Leverage plot show several points on the line of Cook's Distance signifying that they have overstated influence on the model. With these concerns in mind, I want to investigate the linearity of the model further. Does a linear model make sense? To get a better understanding of the data, I created some basic plots to demonstrate the shape of the data and get an idea of if a linear model will make sense here ([source on code](https://www.statology.org/plot-multiple-linear-regression-in-r/))
+```{r}
 plot(full_model)
 ```
-These plots give some insight to the shape of the model. For example, the plotting on the QQ-plot does not demonstrate a strong linear relationship. The edges of the plot deviate from the line suggesting that the model is not perfectly linear. Further, the scattered dots on the Leverage plot show several points on the line of Cook's Distance signifying that they have overstated influence on the model. With these concerns in mind, I want to investigate the linearity of the model further. Does a linear model make sense? To get a better understanding of the data, I created some basic plots to demonstrate the shape of the data and get an idea of if a linear model will make sense here ([source on code](https://www.statology.org/plot-multiple-linear-regression-in-r/))
+
 
 ```{r}
+
 library(car)
 avPlots(full_model)
 
 ```
 Here, we can see that some variables provide a better linear fit than others. For example, variables such as `MaleMedianAge` and `FemaleMedianAge` both are more or less scattered along the regression line. However, other variables such as `MalePop` and `FemalePop` do not fit the line well. Instead, the data is gathered in one spot and has almost no linear shape. These graphs give some reason for concern that the basic full model will not be the strongest. Not all of the variables are linear so a reduced model might be a better fit. 
 
-However, to confirm these concerns, we will go ahead and calculate the Mean Square Error of the full model. 
+
+Next, we will go ahead and calculate the Mean Square Error of the full model. 
 
 Testing the full model
 ```{r}
@@ -79,7 +94,7 @@ Yhat <- predict(full_model, newdata = test)
 mse <- mean((test$DeathsperThou - Yhat)^2)
 mse
 ```
-The MSE is .0742. This is a low MSE in general. Next, we can see how a reduced model will work. 
+The MSE is .0742. This is a low MSE in general. Next, we can see how a reduced model will work and then we will have a good point of comparison between the two models. 
 
 Here, I will take only the significant variables from the above model for the reduced model. This includes variables that are significant up to the p=.1 threshold This was chosen because so few variables are significant and I want to see what this model will yield. Then, we can remove more variables if the results warrant that action.
 
@@ -89,14 +104,14 @@ Training the reduced model
 
 ```{r}
 reduced_model <- lm(DeathsperThou ~ MedianAge + MaleMedianAge + FemaleMedianAge + hispanic + CasesperThou + TotalCases + HospNumber, data = train)
-summary(reduced_model)
-plot(reduced_model)
 ```
 
-These plots of the reduced model yield the same concerns as the plots on the full model. 
+```{r}
+summary(reduced_model)
+```
+This model yields a p-value of almost zero. It has an adjusted R^2 value of 0.9104 which is lower than the previous value from the full model of  0.9345. However, the decrease in the number of variables might be worth the slightly lower R^2 value. 
 
 Testing the reduced model
-
 ```{r}
 prediction_reduced <- predict(reduced_model, newdata = test)
 mse_reduced <- mean((test$DeathsperThou - prediction_reduced)^2)
@@ -115,7 +130,7 @@ mse_small <- mean((test$DeathsperThou - prediction_reduced)^2)
 mse_small
 ```
 
-This small model yields the same MSE as the previous reduced model of 0.0539 and only requires two variables. 
+This small model yields the same MSE as the previous reduced model of 0.0539 and only requires two variables. We still have a p-value of almost zero. However, we continue to lose some power in the adjusted R-squared with a value of 0.9063 compared to  0.9104 in the reduced model and 0.9345 in the full model. 
 
 # Comparison Between the Two Models and Recommendation
 
