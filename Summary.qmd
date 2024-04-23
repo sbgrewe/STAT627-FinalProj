@@ -2,4 +2,6 @@
 bibliography: references.bib
 ---
 
-Summary Text
+After three regression models, a couple of trends stand out. First, the best model is the random forests model. It provides the lowest MSE value of 0.02992 while still explaining more than 80% of the variation in the model. To decrease the MSE, we had to sacrifice some of the power of the model. For example, the multiple linear regression model offered more than a 90% explanation of the variance, however, because we are handling medical data, accuracy is of the utmost importance. Further, all three models demonstrate the importance of the number of cases of heart disease as a predictor of the number of deaths. The next more significant factor was hospital ranking. Other demographic variables proved less insightful which was surprising to the researchers and would be a good opportunity for further research. Understanding why demographic information did not make a difference, which was an assumption of the research team, would be pressing for future medical studies. 
+
+The classification models ...
