@@ -1,0 +1,21 @@
+
+
+```{r}
+#| fig-cap: "Pairs plot of predictors selected for regression."
+#| label: fig-reg-multicoll
+
+# reg_data_long[, c("CasesperThou", "prop_hpsa", "nonwhite_prop", "median_income", "unempl_prop","poverty_prop", "prop55older", "HospNumber")]
+
+ggpairs(reg_data_long[, c("CasesperThou", "prop_hpsa", "nonwhite_prop", "median_income", "unempl_prop","poverty_prop", "prop55older", "HospNumber")])
+
+# car::vif(lm(DeathsperThou ~ Rating + CasesperThou + prop_hpsa + nonwhite_prop + median_income + unempl_prop + poverty_prop + prop55older + HospNumber, data = train))
+```
+
+
+```{r}
+#| tbl-cap: "Coefficients and estimates obtained after LASSO regression at two different L1 penalty strengths."
+#| label: tbl-lasso-ests
+
+LASSO_estimates_SI %>% knitr::kable(digits = 4)
+```
+

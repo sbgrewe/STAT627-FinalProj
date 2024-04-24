@@ -1,6 +1,6 @@
 ---
 title: "Investigating Relationships between Demographics and Patient Outcomes in Californian Hospitals"
-subtitle: "Final Project: STAT-427/627 Spring 2024"
+subtitle: "STAT-427/627 Spring 2024 Final Project"
 author: 
 - name: Roland Abi
   affiliations: 
@@ -16,26 +16,24 @@ author:
     - STAT-627
 date: today
 number-sections: true
+echo: false
+message: false
 cache: false
-toc: true
-toc-depth: 2
 bibliography: references.bib
 format:
-  html:
-    code-fold: true
-    code-summary: "Show the code"
-    embed-resources: true
-    theme: 
-      light: [cerulean, my_css.scss]
-      dark: [solar, my_css.scss]
+  pdf:
+    toc: true
+    toc-depth: 1
+    toc-title: Table of Contents
 ---
+
+{{< pagebreak >}}
 
 # Executive Summary {#sec-exec}
 
 {{< include ./Executive_Summary.qmd >}}
 
-
-# Introduction, Data Overview {#sec-introduction}
+# Data Overview {#sec-introduction}
 
 Data preparation code and documentation was omitted from this report, but can be found within the source code in the GitHub repository under `Data_Clean.qmd`.
 
@@ -86,6 +84,7 @@ Data preparation code and documentation was omitted from this report, but can be
 
 {{< include ./FutureDirs.qmd >}}
 
+{{< pagebreak >}}
 
 # Appendix {#sec-appendix}
 
@@ -98,5 +97,4 @@ Data preparation code and documentation was omitted from this report, but can be
 # Supplemental Information
 
 {{< include ./Supplemental.qmd >}}
-
 
