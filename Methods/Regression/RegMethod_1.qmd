@@ -17,8 +17,6 @@ Question: Can mortality rate from heart disease per 1000 people be predicted fro
 
 To start, we will employ a series of multiple regressions to get a better understanding of the relationships at play and which variables are most useful in predicting the mortality rate from heart disease.
 
-I begin by importing and setting up the data.
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 ```
@@ -32,14 +30,6 @@ reg_data_long$female_prop <- reg_data_long$FemalePop/reg_data_long$TotalPop
 ```
 
 When I initially began building this model, I ran into issues in calculating the MSE because of a couple of NA values. To prevent this issue, I checked the data for NA values. Both PercFemale and PercUnder18yo have NA values and were thus removed from the full regression model.
-
-```{r}
-na_counts <- colSums(is.na(reg_data_long))
-na_counts
-
-```
-
-Splitting up the data
 
 ```{r}
 set.seed(123)
@@ -58,8 +48,6 @@ test$County <- factor(test$County, levels = levels(train$County))
 
 ### Full Model 
 
-Training the full model
-
 ```{r}
 full_model <- lm(DeathsperThou ~ TotalPop + MalePop + FemalePop + MedianAge + MaleMedianAge + FemaleMedianAge + Under5yoPop + Under18yoPop + Pop21andOlder + Pop55andOlder + Pop60andOlder + Pop65andOlder + num_desig + amer_indian + black + hispanic + asian + multi_race + pac_island + white + poverty + labor_force + unemployed + median_income + TotalDeaths + TotalCases + prop_hpsa + nonwhite_prop + Rating + Deaths + unempl_prop + poverty_prop + prop55older + Cases + HospNumber + CasesperThou + female_prop , data = train)
 
@@ -75,19 +63,6 @@ These plots give some insight to the shape of the model. For example, the plotti
 plot(full_model)
 ```
 
-
-```{r}
-
-library(car)
-avPlots(full_model)
-
-```
-Here, we can see that some variables provide a better linear fit than others. For example, variables such as `MaleMedianAge` and `FemaleMedianAge` both are more or less scattered along the regression line. However, other variables such as `MalePop` and `FemalePop` do not fit the line well. Instead, the data is gathered in one spot and has almost no linear shape. These graphs give some reason for concern that the basic full model will not be the strongest. Not all of the variables are linear so a reduced model might be a better fit. 
-
-
-Next, we will go ahead and calculate the Mean Square Error of the full model. 
-
-Testing the full model
 ```{r}
 Yhat <- predict(full_model, newdata = test)
 
@@ -100,24 +75,19 @@ Here, I will take only the significant variables from the above model for the re
 
 ### Reduced Model 
 
-Training the reduced model
-
 ```{r}
 reduced_model <- lm(DeathsperThou ~ MedianAge + MaleMedianAge + FemaleMedianAge + hispanic + CasesperThou + TotalCases + HospNumber, data = train)
+summary(reduced_model)
+
 ```
 
-```{r}
-summary(reduced_model)
-```
 This model yields a p-value of almost zero. It has an adjusted R^2 value of 0.9104 which is lower than the previous value from the full model of  0.9345. However, the decrease in the number of variables might be worth the slightly lower R^2 value. 
 
-Testing the reduced model
 ```{r}
 prediction_reduced <- predict(reduced_model, newdata = test)
 mse_reduced <- mean((test$DeathsperThou - prediction_reduced)^2)
 mse_reduced
 ```
-
 However, we see a lower MSE at  0.0539 compared to 0.0742 from the full model. However, `hispanic`, `MedianAge`, `MaleMedianAge`, `FemaleMedianAge`, and `TotalCases` are no longer significant in this model. 
 
 To get an even better understanding of the data, we reduce the model again to just the significant variables in the reduced model. We are down to just two predictor variables, `CasesperThou` and `HospNumber`. This makes logical sense that the number of cases per thousand and the ranking of the hospital would be good predictor variables of the deaths per thousand. 
