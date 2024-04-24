@@ -58,10 +58,7 @@ Looking at the full model, we see that the full model is statistically significa
 summary(full_model)
 ```
 
-These plots give some insight to the shape of the model. For example, the plotting on the QQ-plot does not demonstrate a strong linear relationship. The edges of the plot deviate from the line suggesting that the model is not perfectly linear. Further, the scattered dots on the Leverage plot show several points on the line of Cook's Distance signifying that they have overstated influence on the model. With these concerns in mind, I want to investigate the linearity of the model further. Does a linear model make sense? To get a better understanding of the data, I created some basic plots to demonstrate the shape of the data and get an idea of if a linear model will make sense here ([source on code](https://www.statology.org/plot-multiple-linear-regression-in-r/))
-```{r}
-plot(full_model)
-```
+When looking at plots for this model, some concerns arise. For example, the plotting on the QQ-plot does not demonstrate a strong linear relationship. The edges of the plot deviate from the line suggesting that the model is not perfectly linear. Further, the scattered dots on the Leverage plot show several points on the line of Cook's Distance signifying that they have overstated influence on the model. Further attentions is paid to these plots in the appendix.
 
 ```{r}
 Yhat <- predict(full_model, newdata = test)
