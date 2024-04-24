@@ -1,6 +1,6 @@
 ---
 title: "Investigating Relationships between Demographics and Patient Outcomes in Californian Hospitals"
-subtitle: "Final Project: STAT-427/627 Spring 2024"
+subtitle: "STAT-427/627 Spring 2024 Final Project"
 author: 
 - name: Roland Abi
   affiliations: 
@@ -17,15 +17,14 @@ author:
 date: today
 number-sections: true
 cache: false
-toc: true
-toc-depth: 2
 bibliography: references.bib
 format:
-  html:
-    embed-resources: true
-    theme: 
-      light: [cerulean, my_css.scss]
-      dark: [solar, my_css.scss]
+  pdf:
+    fig-height: 2.5
+    fig-width: 5
+    toc: true
+    toc-depth: 2
+    toc-title: Table of Contents
 ---
 
 # Executive Summary {#sec-exec}

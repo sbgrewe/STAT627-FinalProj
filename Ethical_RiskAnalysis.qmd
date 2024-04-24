@@ -2,8 +2,6 @@
 bibliography: references.bib
 ---
 
-# Ethical Analysis
-
 Managing health-related data and models comes with a wide variety of serious ethical concerns. Understanding the risks of biased data or an inaccurate model is critical to safeguarding against these. As such, as we work on these models, we must keep in mind the privacy of patients, the quality of our data, and its ability to accurately represent the demographics of the whole population, and we must be mindful of the variables that are included or excluded.
 
 1)  Managing data: Collecting medical data is a delicate challenge. First and foremost, health data is personal and sensitive. It must be handled with the utmost respect and caution as it contains sensitive and personal information. The US legal system, through The Health Insurance Portability and Accountability Act of 1996 (HIPAA), protects sensitive patient information. However, to study the health system and understand the weaknesses and strengths of the current hospital system, we need data. As such, as data scientists, we must be sure to handle data in a careful manner that ensures that individual and identifiable information is not connected with the data used to build the model. Protecting privacy creates challenges in collecting the data and ensuring that the data is representative. ([NIH](https://www.ncbi.nlm.nih.gov/books/NBK9579/))

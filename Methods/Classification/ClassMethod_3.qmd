@@ -38,8 +38,8 @@ summary(boosth, cBars = 6)
 
 ```{r}
 #To see the tree structure
-pretty.gbm.tree(boosth)
-pretty.gbm.tree(boosth, i.tree = 3000)
+gbm::pretty.gbm.tree(boosth)
+gbm::pretty.gbm.tree(boosth, i.tree = 3000)
 ```
 
 ```{r}

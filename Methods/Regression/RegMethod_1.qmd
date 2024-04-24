@@ -25,7 +25,7 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 
 ```{r}
 library(tidyverse); theme_set(theme_bw())
-reg_data_long <- read_csv(".\\..\\..\\Data\\reg_data_long.csv")
+reg_data_long <- read_csv(".\\Data\\reg_data_long.csv")
 # head(reg_data_long)
 reg_data_long$female_prop <- reg_data_long$FemalePop/reg_data_long$TotalPop
 
@@ -56,7 +56,7 @@ test$County <- factor(test$County, levels = levels(train$County))
 
 ```
 
-# Full Model 
+### Full Model 
 
 Training the full model
 
@@ -98,7 +98,7 @@ The MSE is .0742. This is a low MSE in general. Next, we can see how a reduced m
 
 Here, I will take only the significant variables from the above model for the reduced model. This includes variables that are significant up to the p=.1 threshold This was chosen because so few variables are significant and I want to see what this model will yield. Then, we can remove more variables if the results warrant that action.
 
-# Reduced Model 
+### Reduced Model 
 
 Training the reduced model
 
@@ -132,7 +132,7 @@ mse_small
 
 This small model yields the same MSE as the previous reduced model of 0.0539 and only requires two variables. We still have a p-value of almost zero. However, we continue to lose some power in the adjusted R-squared with a value of 0.9063 compared to  0.9104 in the reduced model and 0.9345 in the full model. 
 
-# Comparison Between the Two Models and Recommendation
+### Comparison Between the Two Models and Recommendation
 
 Between the original two models, the reduced model should be chosen. It offers a more accurate prediction of the rate of deaths due to heart disease per thousand people. The reduced model uses only 7 prediction variables compared to the more than 30 variables that the full model requires. Further, the smallest model with only 2 variables gives the same low MSE value with even fewer predictor variables. This implies that many of those variables are either not useful in prediction or they might have high levels of multi-co linearity This concept will be explored further in the next regression models. 
 

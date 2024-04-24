@@ -7,7 +7,7 @@
 #| output: false
 library(randomForest)
 library(tidyverse); theme_set(theme_bw())
-reg_data_long <- read_csv(".\\..\\..\\Data\\reg_data_long.csv")
+reg_data_long <- read_csv(".\\Data\\reg_data_long.csv")
 # head(reg_data_long)
 reg_data_long$Rating <- as.factor(reg_data_long$Rating)
 reg_data_long$female_prop <- reg_data_long$FemalePop/reg_data_long$TotalPop
@@ -41,7 +41,7 @@ for (k in 1:p) {
 
 ```
 
-WHile there are nine unique predictors in the data, an exhaustive search using cross validation produced the optimal number of predictors and number of trees to use for the training data: 7 predictors and 398 trees respectively. 
+While there are nine unique predictors in the data, an exhaustive search using cross validation produced the optimal number of predictors and number of trees to use for the training data: 7 predictors and 398 trees respectively. 
 
 ```{r}
 #| echo: false
@@ -70,6 +70,6 @@ model_RF <- randomForest(DeathsperThou ~ Rating*CasesperThou + prop_hpsa + nonwh
 varImpPlot(model_RF, type = 1)
 ```
 
-We find that the dominant predictor, as expected, was the number of heart attack cases per thousand residents, but unlike LASSO, the random forest model routinely employs other predictors to keep the prediction error low. We find that hospital  rating and amount are significantly used predictors in the random forest, and likely reflect the quality and accessibility of care in different counties. The effect of hospital rating and the number of hospitals far outweigh the effect of demographic factors, including the proportion of residents aged 55 years and older. In general, the random forest model performs with the second lowest error of all regression models explored, and strikes a reasonable balance between bias and complexity in the number of predictors. We fail to find strong evidence of demographic factors, but these regression models illustrate that that hospital quality and number in counties in the state of California are associated with deaths due to heart disease when controlling for variation in the number of heart disease cases.
+We find that the dominant predictor, as expected, was the number of heart attack cases per thousand residents, but unlike LASSO, the random forest model routinely employs other predictors to keep the prediction error low. We find that hospital  rating and amount are significantly used predictors in the random forest, and likely reflect the quality and accessibility of care in different counties. The effect of hospital rating and the number of hospitals far outweigh the effect of demographic factors, including the proportion of residents aged 55 years and older. In general, the random forest model performs with the second lowest prediction error of all regression models explored, and strikes a reasonable balance between bias and complexity in the number of predictors. We fail to find strong evidence of demographic factors, but these regression models illustrate that that hospital quality and number in counties in the state of California are associated with deaths due to heart disease when controlling for variation in the number of heart disease cases.
 
 

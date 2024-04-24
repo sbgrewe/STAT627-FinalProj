@@ -5,7 +5,7 @@
 library(glmnet)
 library(GGally)
 library(tidyverse); theme_set(theme_bw())
-reg_data_long <- read_csv(".\\..\\..\\Data\\reg_data_long.csv")
+reg_data_long <- read_csv(".\\Data\\reg_data_long.csv")
 # head(reg_data_long)
 reg_data_long$female_prop <- reg_data_long$FemalePop/reg_data_long$TotalPop
 
@@ -15,7 +15,7 @@ train <- as.data.frame(reg_data_long[Z,])
 test <- as.data.frame(reg_data_long[-Z,])
 ```
 
-### Exploration of Multicollinearity
+### Further Exploration of Multicollinearity
 
 ```{r}
 #| echo: false
@@ -28,7 +28,9 @@ ggpairs(reg_data_long[, c("CasesperThou", "prop_hpsa", "nonwhite_prop", "median_
 # car::vif(lm(DeathsperThou ~ Rating + CasesperThou + prop_hpsa + nonwhite_prop + median_income + unempl_prop + poverty_prop + prop55older + HospNumber, data = train))
 ```
 
-In social science and health data, multicollinearity has complex causes and is generally unavoidable. There are a few notable instances of collinearity within the regression predictors. The non-white racial population proportion and the population proportion aged 55 years and older can be reliably predicted from the rest of the data, and certain pairs, such as poverty and unemployment, show evidence of an intuitively strong linear association. While the cause of these co-correlations is outside of the scope of our analysis, we chose to explore two regression methods, LASSO and random forest, which use shrinkage or bagging to reduce the variance in the prediction while allowing for unbiased searches across the predictors.
+In social science and health data, multicollinearity has complex causes and is generally unavoidable. There are a few notable instances of collinearity within the regression predictors. The non-white racial population proportion and the population proportion aged 55 years and older can be reliably predicted from the rest of the data, and certain pairs, such as poverty and unemployment, show evidence of an intuitively strong linear association. 
+
+While the cause of these co-correlations is outside of the scope of our analysis, we will now explore two additional regression methods, LASSO and random forest, which use shrinkage or bagging to reduce the variance in the prediction. Unlike simply removing predictors from the analysis, these two methods also allow for unbiased searches across all predictors to construct the best final model.
 
 ### LASSO Regression
 
