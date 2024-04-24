@@ -17,18 +17,7 @@ test <- as.data.frame(reg_data_long[-Z,])
 
 ### Further Exploration of Multicollinearity
 
-```{r}
-#| echo: false
-#| fig-cap: "Pairs plot of predictors selected for regression."
-
-# reg_data_long[, c("CasesperThou", "prop_hpsa", "nonwhite_prop", "median_income", "unempl_prop","poverty_prop", "prop55older", "HospNumber")]
-
-ggpairs(reg_data_long[, c("CasesperThou", "prop_hpsa", "nonwhite_prop", "median_income", "unempl_prop","poverty_prop", "prop55older", "HospNumber")])
-
-# car::vif(lm(DeathsperThou ~ Rating + CasesperThou + prop_hpsa + nonwhite_prop + median_income + unempl_prop + poverty_prop + prop55older + HospNumber, data = train))
-```
-
-In social science and health data, multicollinearity has complex causes and is generally unavoidable. There are a few notable instances of collinearity within the regression predictors. The non-white racial population proportion and the population proportion aged 55 years and older can be reliably predicted from the rest of the data, and certain pairs, such as poverty and unemployment, show evidence of an intuitively strong linear association. 
+In social science and health data, multicollinearity has complex causes and is generally unavoidable. There are a few notable instances of collinearity within the regression predictors ([Fig. @fig-reg-multicoll (SI)]). The non-white racial population proportion and the population proportion aged 55 years and older can be reliably predicted from the rest of the data, and certain pairs, such as poverty and unemployment, show evidence of an intuitively strong linear association. 
 
 While the cause of these co-correlations is outside of the scope of our analysis, we will now explore two additional regression methods, LASSO and random forest, which use shrinkage or bagging to reduce the variance in the prediction. Unlike simply removing predictors from the analysis, these two methods also allow for unbiased searches across all predictors to construct the best final model.
 
@@ -37,7 +26,6 @@ While the cause of these co-correlations is outside of the scope of our analysis
 The goal of this regression is to determine whether deaths per 1000 individuals due to heart disease can be predicted given demographic information, as well as information about the hospitals located within counties in California, controlling for the cases within a county. We employed a 10-fold LASSO regression to determine predictors with non-zero associations with the outcome, controlling for heart disease cases and with a shrinkage penalty applied to lower variance. 
 
 ```{r}
-#| echo: false
 model_train <- lm(DeathsperThou ~ Rating*CasesperThou + prop_hpsa + nonwhite_prop + median_income + unempl_prop 
 								 + poverty_prop + Rating*prop55older + Rating*HospNumber,
 								 data = train)
@@ -57,9 +45,7 @@ y_test <- test$DeathsperThou
 
 
 ```{r}
-#| echo: false
 #| tbl-cap: "Coefficients and estimates obtained after LASSO regression at two different L1 penalty strengths."
-
 set.seed(123)
 LASSO_reg <- cv.glmnet(X_model, y_train, alpha = 1)
 
@@ -71,25 +57,25 @@ n <- length(mat[,1])
 
 data.frame(Min    = mat[,2],
            `1se`  = mat[,1]
-           ) %>% knitr::kable(digits = 4)
+           ) -> LASSO_estimates_SI
+# LASSO_estimates_SI %>% knitr::kable(digits = 4)
 ```
 
 ```{r}
-#| echo: false
-#| tbl-cap: "Prediction performance of the LASSO models at two different L1 penalty strengths."
+#| tbl-cap: "Overview and prediction performance of the LASSO models at two different L1 penalty strengths."
+#| label: tbl-lasso-overview
 y_hat_1s <- predict(LASSO_reg, newx = X_test, type = "response", s = "lambda.1se")
 y_hat_min <- predict(LASSO_reg, newx = X_test, type = "response", s = "lambda.min")
 
 tibble(
   Model = c("lambda 1se", "lambda min"),
-  `Prediction MSE` = c(mean((y_hat_1s - y_test)^2), mean((y_hat_min - y_test)^2))
+  `Prediction MSE` = c(mean((y_hat_1s - y_test)^2), mean((y_hat_min - y_test)^2)),
+  `Number of Predictors` = c(1, 3)
 ) %>% knitr::kable()
 ```
 
-The prediction MSE for the lambda 1se model, which had only one significant predictor, is 0.04798, while the prediction MSE for the lambda min model with seven predictors is 0.01501. The sole predictor in the first model was the heart disease case rate, and the difference in prediction error between the two models is a fairly large 68.72%. It is clear that these variables are lending predictive power to the model, but not enough to significantly outweigh a stronger L1 penalty imposed by LASSO. 
+The prediction MSE for the lambda 1se model, which had only one significant predictor, is 0.04798, while the prediction MSE for the lambda min model with three predictors is 0.01501 (@tbl-lasso-overview). The sole predictor in the first model was the heart disease case rate, and the difference in prediction error between the two models is a fairly large 68.72%. It is clear that these variables are lending predictive power to the model, but not enough to significantly outweigh a stronger L1 penalty imposed by LASSO. 
 
-In the lambda min model, we find that additional predictors of deaths due to heart disease include the median income, hospital rating, number of hospitals in the county at that rating level, and proportion of residents 55 years old and older. This agrees with common sense: we can imagine that the overall rate of deaths due to heart disease in a given area is due to demographic effects on the health of the general population and economic effects impeding treatment. 
-
-We also find that the rating of a hospital on its own has no statistically significant effect on heart attack deaths until it interacts with the number of heart attack cases. In general, subgroups of hospitals rated "Worse" tended to have higher deaths, while deaths were expected to *decrease overall* for hospitals with "Better" ratings with cases remaining the same. LASSO demonstrates that, given these data, there is a trade-off between model simplicity and prediction power, and more realistic models tend to employ more demographic and hospital-level variables. 
+In the lambda min model, we find that additional predictors of deaths due to heart disease include the median income, hospital rating, number of hospitals in the county at that rating level, and proportion of residents 55 years old and older ([@tbl-lasso-ests (SI)]). This agrees with common sense: we can imagine that the overall rate of deaths due to heart disease in a given area is due to demographic effects on the health of the general population and economic effects impeding treatment. We also find that the rating of a hospital on its own has no statistically significant effect on heart attack deaths until it interacts with the number of heart attack cases ([@tbl-lasso-ests (SI)]). In general, subgroups of hospitals rated "Worse" tended to have higher deaths, while deaths were expected to *decrease overall* for hospitals with "Better" ratings with cases remaining the same. LASSO demonstrates that, given these data, there is a trade-off between model simplicity and prediction power, and more realistic models tend to employ more demographic and hospital-level variables. 
 
 

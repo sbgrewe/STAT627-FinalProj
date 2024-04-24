@@ -3102,15 +3102,14 @@ vertical-align: -.125em;
   <li><a href="#sec-method-r.2" id="toc-sec-method-r.2" class="nav-link" data-scroll-target="#sec-method-r.2"><span class="header-section-number">4.2</span> Method 2. LASSO Regression</a></li>
   <li><a href="#sec-method-r.3" id="toc-sec-method-r.3" class="nav-link" data-scroll-target="#sec-method-r.3"><span class="header-section-number">4.3</span> Method 3. Regression Trees</a></li>
   </ul></li>
-  <li><a href="#sec-risk" id="toc-sec-risk" class="nav-link" data-scroll-target="#sec-risk"><span class="header-section-number">5</span> Risk Analysis</a></li>
-  <li><a href="#ethical-analysis" id="toc-ethical-analysis" class="nav-link" data-scroll-target="#ethical-analysis"><span class="header-section-number">6</span> Ethical Analysis</a></li>
-  <li><a href="#sec-summary" id="toc-sec-summary" class="nav-link" data-scroll-target="#sec-summary"><span class="header-section-number">7</span> Summary of Findings</a></li>
-  <li><a href="#sec-future" id="toc-sec-future" class="nav-link" data-scroll-target="#sec-future"><span class="header-section-number">8</span> Future Directions</a></li>
-  <li><a href="#sec-appendix" id="toc-sec-appendix" class="nav-link" data-scroll-target="#sec-appendix"><span class="header-section-number">9</span> Appendix</a>
+  <li><a href="#sec-risk" id="toc-sec-risk" class="nav-link" data-scroll-target="#sec-risk"><span class="header-section-number">5</span> Ethical Analysis</a></li>
+  <li><a href="#sec-summary" id="toc-sec-summary" class="nav-link" data-scroll-target="#sec-summary"><span class="header-section-number">6</span> Summary of Findings</a></li>
+  <li><a href="#sec-future" id="toc-sec-future" class="nav-link" data-scroll-target="#sec-future"><span class="header-section-number">7</span> Future Directions</a></li>
+  <li><a href="#sec-appendix" id="toc-sec-appendix" class="nav-link" data-scroll-target="#sec-appendix"><span class="header-section-number">8</span> Appendix</a>
   <ul class="collapse">
-  <li><a href="#group-member-accomplishments" id="toc-group-member-accomplishments" class="nav-link" data-scroll-target="#group-member-accomplishments"><span class="header-section-number">9.1</span> Group Member Accomplishments</a></li>
+  <li><a href="#group-member-accomplishments" id="toc-group-member-accomplishments" class="nav-link" data-scroll-target="#group-member-accomplishments"><span class="header-section-number">8.1</span> Group Member Accomplishments</a></li>
   </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">10</span> References</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">9</span> References</a></li>
   </ul>
 </nav>
 </div>
@@ -3213,8 +3212,11 @@ vertical-align: -.125em;
 <section id="loading-the-dataset" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="loading-the-dataset"><span class="header-section-number">3.2</span> Loading the dataset</h2>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>hpsa <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;./Data/hpsa.csv&quot;</span>) </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(hpsa)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 587
 Columns: 8
@@ -3232,6 +3234,8 @@ $ hpsa_population_type               &lt;chr&gt; &quot;native_american&quot;, &q
 <h3 data-number="3.2.1" class="anchored" data-anchor-id="creating-training-and-testing-sets"><span class="header-section-number">3.2.1</span> Creating training and testing sets</h3>
 <p>Here we will be using 60% of our dataset for training and 40% for testing</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>training_pct <span class="ot">&lt;-</span> .<span class="dv">60</span> </span>
@@ -3241,10 +3245,14 @@ $ hpsa_population_type               &lt;chr&gt; &quot;native_american&quot;, &q
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>hpsa_test <span class="ot">&lt;-</span> hpsa[<span class="sc">-</span>Z, ]</span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(hpsa_test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 235</code></pre>
 </div>
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(hpsa_train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 352</code></pre>
 </div>
@@ -3253,11 +3261,14 @@ $ hpsa_population_type               &lt;chr&gt; &quot;native_american&quot;, &q
 <section id="models" class="level3" data-number="3.2.2">
 <h3 data-number="3.2.2" class="anchored" data-anchor-id="models"><span class="header-section-number">3.2.2</span> Models</h3>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>log_full <span class="ot">&lt;-</span> <span class="fu">glm</span>(<span class="fu">as.factor</span>(hpsa_status) <span class="sc">~</span>., <span class="at">data =</span> hpsa_train, </span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(log_full)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -3306,12 +3317,15 @@ Number of Fisher Scoring iterations: 19</code></pre>
 </div>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>log_reduced <span class="ot">&lt;-</span> <span class="fu">glm</span>(<span class="fu">as.factor</span>(hpsa_status) <span class="sc">~</span> designation_type <span class="sc">+</span> hpsa_score <span class="sc">+</span> </span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                     rural_status <span class="sc">+</span> hpsa_population_type, <span class="at">data =</span> hpsa_train, </span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>)</span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(log_reduced)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -3354,6 +3368,8 @@ Number of Fisher Scoring iterations: 15</code></pre>
 <section id="prediction-accuracy" class="level3" data-number="3.2.3">
 <h3 data-number="3.2.3" class="anchored" data-anchor-id="prediction-accuracy"><span class="header-section-number">3.2.3</span> Prediction Accuracy</h3>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reduced model</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Predictions</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>preds_reduced <span class="ot">&lt;-</span> <span class="fu">predict</span>(log_reduced, <span class="at">newdata =</span> hpsa_test, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span>
@@ -3364,26 +3380,35 @@ Number of Fisher Scoring iterations: 15</code></pre>
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># confusion matrix</span></span>
 <span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>confm_reduced <span class="ot">&lt;-</span> <span class="fu">table</span>(Yhat_reduced, hpsa_test<span class="sc">$</span>hpsa_status)</span>
 <span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>confm_reduced</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>            
 Yhat_reduced Designated Withdrawn
   Designated         58        15
   Withdrawn          29       133</code></pre>
 </div>
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Correct classification prediction rate</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>accuracy_reduced <span class="ot">&lt;-</span> <span class="fu">sum</span>(confm_reduced[<span class="dv">1</span>], confm_reduced[<span class="dv">4</span>])<span class="sc">/</span><span class="fu">sum</span>(confm_reduced)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>accuracy_reduced</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.812766</code></pre>
 </div>
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># test error rate</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>error_reduced <span class="ot">&lt;-</span> <span class="fu">mean</span>(Yhat_reduced <span class="sc">!=</span> hpsa_test<span class="sc">$</span>hpsa_status)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>error_reduced</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.187234</code></pre>
 </div>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Full model</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Predictions</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>preds <span class="ot">&lt;-</span> <span class="fu">predict</span>(log_full, <span class="at">newdata =</span> hpsa_test, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span>
@@ -3394,21 +3419,28 @@ Yhat_reduced Designated Withdrawn
 <span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co"># confusion matrix</span></span>
 <span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>confm <span class="ot">&lt;-</span> <span class="fu">table</span>(Yhat, hpsa_test<span class="sc">$</span>hpsa_status)</span>
 <span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>confm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>            
 Yhat         Designated Withdrawn
   Designated         77        15
   Withdrawn          10       133</code></pre>
 </div>
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Correct classification prediction rate</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>accuracy <span class="ot">&lt;-</span> <span class="fu">sum</span>(confm[<span class="dv">1</span>], confm[<span class="dv">4</span>])<span class="sc">/</span><span class="fu">sum</span>(confm)</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>accuracy</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.893617</code></pre>
 </div>
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># test error rate </span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>error_full <span class="ot">&lt;-</span> <span class="fu">mean</span>(Yhat <span class="sc">!=</span> hpsa_test<span class="sc">$</span>hpsa_status)</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>error_full</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.106383</code></pre>
 </div>
@@ -3418,6 +3450,8 @@ Yhat         Designated Withdrawn
 <section id="using-k-fold-cross-validation-to-find-prediction-mean-squared-error" class="level3" data-number="3.2.4">
 <h3 data-number="3.2.4" class="anchored" data-anchor-id="using-k-fold-cross-validation-to-find-prediction-mean-squared-error"><span class="header-section-number">3.2.4</span> Using K-fold cross validation to find prediction mean squared error</h3>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Loss function</span></span>
@@ -3428,8 +3462,11 @@ Yhat         Designated Withdrawn
 <span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert response to numeric 0&#39;s and 1&#39;s</span></span>
 <span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>hpsa<span class="sc">$</span>Y <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">as.factor</span>(hpsa<span class="sc">$</span>hpsa_status)) <span class="sc">-</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(boot)</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -3439,12 +3476,16 @@ Yhat         Designated Withdrawn
 <span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="co"># KFold Reduced</span></span>
 <span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>Kfold_reduced <span class="ot">&lt;-</span> <span class="fu">cv.glm</span>(hpsa, log_reduced, <span class="at">cost =</span> Lossfn, <span class="at">K=</span><span class="dv">10</span>)<span class="sc">$</span>delta</span>
 <span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>Kfold_reduced</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.4837234 0.1995639</code></pre>
 </div>
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Full Model </span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>Kfold_full <span class="ot">&lt;-</span> <span class="fu">cv.glm</span>(hpsa, log_full, <span class="at">cost =</span> Lossfn, <span class="at">K=</span><span class="dv">10</span>)<span class="sc">$</span>delta</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>Kfold_full</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.4546211 0.1497533</code></pre>
 </div>
@@ -3454,7 +3495,10 @@ Yhat         Designated Withdrawn
 <section id="compare-models" class="level3" data-number="3.2.5">
 <h3 data-number="3.2.5" class="anchored" data-anchor-id="compare-models"><span class="header-section-number">3.2.5</span> Compare models</h3>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(log_reduced, log_full, <span class="at">test =</span> <span class="st">&quot;Chisq&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Analysis of Deviance Table
 
@@ -3472,6 +3516,8 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 </div>
 <p>Giving the results obtained and from this approaches and the results of model comparison we lack sufficient evidence (p = 0.3744) to conclude that logistic regression (full) model is better than the logistic regression (reduced) model. Consequently, we will recommend the reduced logistic regression model as the better model.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">models =</span> <span class="fu">c</span>(<span class="st">&quot;Reduced&quot;</span>, <span class="st">&quot;Full&quot;</span>),</span>
@@ -3480,6 +3526,7 @@ Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&
 <span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
 <span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">|&gt;</span></span>
 <span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(<span class="at">title =</span> <span class="st">&quot;Accuracy and Prediction Error Estimates Logistic regression models&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <div id="aiiwxqjhrx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
@@ -3906,9 +3953,14 @@ text-indent: 25px;
 <section id="sec-method-c.2" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="sec-method-c.2"><span class="header-section-number">3.3</span> Method 2</h2>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>hpsa <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;Data/hpsa.csv&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>Z <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(hpsa), <span class="dv">260</span>)</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>train <span class="ot">&lt;-</span> hpsa[Z,]</span>
@@ -3925,15 +3977,19 @@ text-indent: 25px;
 <span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a><span class="co">#280 ^, 0.1107</span></span>
 <span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a><span class="co">#STOP AT 410 #70 percent of the observations</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 </section>
 <section id="creating-an-unpruned-tree" class="level2" data-number="3.4">
 <h2 data-number="3.4" class="anchored" data-anchor-id="creating-an-unpruned-tree"><span class="header-section-number">3.4</span> Creating an Unpruned Tree</h2>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>tr <span class="ot">&lt;-</span> <span class="fu">tree</span>(<span class="fu">as.factor</span>(hpsa_status) <span class="sc">~</span> ., <span class="at">data =</span> train)</span>
 <span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(tr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Classification tree:
@@ -3946,8 +4002,11 @@ Misclassification error rate: 0.1385 = 36 / 260 </code></pre>
 </div>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(tr, <span class="at">type =</span> <span class="st">&quot;uniform&quot;</span>)</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(tr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -3957,15 +4016,21 @@ Misclassification error rate: 0.1385 = 36 / 260 </code></pre>
 </div>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>Yhat <span class="ot">=</span> <span class="fu">predict</span>(tr, <span class="at">newdata =</span> test, <span class="at">type =</span> <span class="st">&quot;class&quot;</span>)</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(Yhat, test<span class="sc">$</span>hpsa_status)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>            
 Yhat         Designated Withdrawn
   Designated         83        35
   Withdrawn          32       177</code></pre>
 </div>
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(Yhat <span class="sc">!=</span> test<span class="sc">$</span>hpsa_status) <span class="co">#test error rate</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.204893</code></pre>
 </div>
@@ -3975,9 +4040,12 @@ Yhat         Designated Withdrawn
 <h2 data-number="3.5" class="anchored" data-anchor-id="creating-a-pruned-tree"><span class="header-section-number">3.5</span> Creating a Pruned Tree</h2>
 <p>Uses cv.tree on the training set to determine the optimal tree size based on the misclassification rate</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>cv <span class="ot">&lt;-</span> <span class="fu">cv.tree</span>(tr, <span class="at">FUN =</span> prune.misclass)</span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>cv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>$size
 [1] 12 11 10  8  3  2  1
@@ -3996,7 +4064,10 @@ attr(,&quot;class&quot;)
 </div>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -4006,16 +4077,22 @@ attr(,&quot;class&quot;)
 </div>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">which.min</span>(cv<span class="sc">$</span>dev)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4</code></pre>
 </div>
 </div>
 <p>Tree size 8 corresponds to the lowest cross-validated classification error rate with the fewest nodes.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>trp <span class="ot">&lt;-</span> <span class="fu">prune.misclass</span>(tr, <span class="at">best =</span> <span class="dv">8</span>)</span>
 <span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(trp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Classification tree:
@@ -4029,8 +4106,11 @@ Misclassification error rate: 0.1538 = 40 / 260 </code></pre>
 </div>
 <p>“HPSA Score” and HPSA designation population remains in this node, but with reduced nodes.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(trp, <span class="at">type =</span> <span class="st">&quot;uniform&quot;</span>)</span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">text</span>(trp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -4043,6 +4123,8 @@ Misclassification error rate: 0.1538 = 40 / 260 </code></pre>
 <section id="comparing-the-error-rates-of-the-trees" class="level2" data-number="3.6">
 <h2 data-number="3.6" class="anchored" data-anchor-id="comparing-the-error-rates-of-the-trees"><span class="header-section-number">3.6</span> Comparing the Error Rates of the Trees</h2>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Unpruned Tree</span></span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>yhat_unpruned <span class="ot">=</span> <span class="fu">predict</span>(tr, <span class="at">newdata =</span> test, <span class="at">type =</span> <span class="st">&quot;class&quot;</span>)</span>
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>cfmatrix_unpruned <span class="ot">&lt;-</span> <span class="fu">table</span>(yhat_unpruned, test<span class="sc">$</span>hpsa_status)</span>
@@ -4052,15 +4134,21 @@ Misclassification error rate: 0.1538 = 40 / 260 </code></pre>
 <span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>accuracy_unpruned <span class="ot">&lt;-</span> <span class="fu">sum</span>(cfmatrix_unpruned[<span class="dv">1</span>], cfmatrix_unpruned[<span class="dv">4</span>])<span class="sc">/</span><span class="fu">sum</span>(cfmatrix_unpruned)</span>
 <span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>accuracy_unpruned</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.795107</code></pre>
 </div>
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>test_error_rate_unpruned</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.204893</code></pre>
 </div>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Pruned Tree</span></span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>yhat_pruned <span class="ot">=</span> <span class="fu">predict</span>(trp, <span class="at">newdata =</span> test, <span class="at">type =</span> <span class="st">&quot;class&quot;</span>)</span>
 <span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>cfmatrix_pruned <span class="ot">&lt;-</span> <span class="fu">table</span>(yhat_pruned, test<span class="sc">$</span>hpsa_status)</span>
@@ -4069,16 +4157,22 @@ Misclassification error rate: 0.1538 = 40 / 260 </code></pre>
 <span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>accuracy_pruned <span class="ot">&lt;-</span> <span class="fu">sum</span>(cfmatrix_pruned[<span class="dv">1</span>], cfmatrix_pruned[<span class="dv">4</span>])<span class="sc">/</span><span class="fu">sum</span>(cfmatrix_pruned)</span>
 <span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb53-8"><a href="#cb53-8" aria-hidden="true" tabindex="-1"></a>accuracy_pruned</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.7981651</code></pre>
 </div>
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>test_error_rate_pruned</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.2018349</code></pre>
 </div>
 </div>
 <p>The test error rates are not equal. The pruned tree has an error rate of 0.2018349 which is a little lower than the unpruned tree which has an error rate of 0.204893. Meanwhile the accuracy of the pruned tree is 0.7981651 which is higher than that of the unpruned tree 0.795107 . We recommend the pruned tree more.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(</span>
@@ -4088,6 +4182,7 @@ Misclassification error rate: 0.1538 = 40 / 260 </code></pre>
 <span id="cb57-7"><a href="#cb57-7" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
 <span id="cb57-8"><a href="#cb57-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">|&gt;</span></span>
 <span id="cb57-9"><a href="#cb57-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(<span class="at">title =</span> <span class="st">&quot;Accuracy and Prediction Error Estimates Tree models&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <div id="osncjrvket" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
@@ -4516,11 +4611,17 @@ text-indent: 25px;
 <h2 data-number="3.7" class="anchored" data-anchor-id="sec-method-c.3"><span class="header-section-number">3.7</span> Method 3</h2>
 <p>wants to do boosting model , compared to SVM</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gbm3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Convert each character variable to a factor</span></span>
 <span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(hpsa)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 587
 Columns: 8
@@ -4533,19 +4634,28 @@ $ u_s_mexico_border_county_indicator &lt;chr&gt; &quot;N&quot;, &quot;Y&quot;, &
 $ rural_status                       &lt;chr&gt; &quot;non_rural&quot;, &quot;rural&quot;, &quot;non_rural&quot;, …
 $ hpsa_population_type               &lt;chr&gt; &quot;native_american&quot;, &quot;native_american…</code></pre>
 </div>
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>hpsa2 <span class="ot">&lt;-</span> <span class="fu">mutate</span>(hpsa, <span class="fu">across</span>(<span class="fu">where</span>(is.character), as.factor))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
 <span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>Z <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">nrow</span>(hpsa2), <span class="fu">nrow</span>(hpsa2)<span class="sc">/</span><span class="dv">2</span>)</span>
 <span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>train <span class="ot">&lt;-</span> hpsa2[Z,]</span>
 <span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a>test <span class="ot">&lt;-</span> hpsa2[<span class="sc">-</span>Z,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
 <span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>boosth <span class="ot">&lt;-</span> <span class="fu">gbm</span>(hpsa_status <span class="sc">~</span>., <span class="at">data =</span> train, </span>
 <span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">n.trees =</span> <span class="dv">3000</span>, <span class="at">distribution =</span> <span class="st">&quot;Bernoulli&quot;</span>)</span>
 <span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>boosth</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>gbm(formula = hpsa_status ~ ., distribution = &quot;Bernoulli&quot;, data = train, 
     n.trees = 3000)
@@ -4555,7 +4665,10 @@ There were 7 predictors of which 7 had non-zero influence.</code></pre>
 </div>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(boosth, <span class="at">cBars =</span> <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -4583,8 +4696,11 @@ u_s_mexico_border_county_indicator  0.007297366</code></pre>
 </div>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co">#To see the tree structure</span></span>
 <span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>gbm<span class="sc">::</span><span class="fu">pretty.gbm.tree</span>(boosth)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>  SplitVar SplitCodePred LeftNode RightNode MissingNode ErrorReduction Weight
 0        0   0.000000000        1         2           3       15.53109    146
@@ -4597,7 +4713,10 @@ u_s_mexico_border_county_indicator  0.007297366</code></pre>
 2  1.518135e-03
 3  0.000000e+00</code></pre>
 </div>
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>gbm<span class="sc">::</span><span class="fu">pretty.gbm.tree</span>(boosth, <span class="at">i.tree =</span> <span class="dv">3000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>  SplitVar SplitCodePred LeftNode RightNode MissingNode ErrorReduction Weight
 0        0  1.939000e+03        1         2           3      0.6895292    146
@@ -4611,9 +4730,12 @@ u_s_mexico_border_county_indicator  0.007297366</code></pre>
 3  0.0000000000</code></pre>
 </div>
 </div>
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(boosth, <span class="st">&quot;metropolitan_indicator&quot;</span>)</span>
 <span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(boosth, <span class="st">&quot;hpsa_score&quot;</span>)</span>
 <span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a><span class="co">#plot(boosth, c(&quot;hpsa_population_type&quot;, &quot;hpsa_score&quot;))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
@@ -4628,6 +4750,8 @@ u_s_mexico_border_county_indicator  0.007297366</code></pre>
 <section id="prediction" class="level2" data-number="3.8">
 <h2 data-number="3.8" class="anchored" data-anchor-id="prediction"><span class="header-section-number">3.8</span> Prediction</h2>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>yhat <span class="ot">&lt;-</span> <span class="fu">predict</span>(boosth, <span class="at">newdata =</span> test, <span class="at">n.trees =</span> <span class="dv">3000</span>, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span>
 <span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to classification prediction</span></span>
@@ -4635,31 +4759,41 @@ u_s_mexico_border_county_indicator  0.007297366</code></pre>
 <span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a>cfm_yhat <span class="ot">&lt;-</span> <span class="fu">table</span>(Yhat_class, test<span class="sc">$</span>hpsa_status)</span>
 <span id="cb72-6"><a href="#cb72-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb72-7"><a href="#cb72-7" aria-hidden="true" tabindex="-1"></a>cfm_yhat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>            
 Yhat_class   Designated Withdrawn
   Designated         93        21
   Withdrawn          15       165</code></pre>
 </div>
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co"># prediction error rate and accuracy</span></span>
 <span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>yhat_error <span class="ot">&lt;-</span> <span class="fu">mean</span>(Yhat_class <span class="sc">!=</span> test<span class="sc">$</span>hpsa_status)</span>
 <span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a>accuracy_yhat <span class="ot">&lt;-</span> <span class="fu">sum</span>(cfm_yhat[<span class="dv">1</span>], cfm_yhat[<span class="dv">4</span>])<span class="sc">/</span><span class="fu">sum</span>(cfm_yhat)</span>
 <span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb74-5"><a href="#cb74-5" aria-hidden="true" tabindex="-1"></a>yhat_error</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.122449</code></pre>
 </div>
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>accuracy_yhat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.877551</code></pre>
 </div>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co">#adjust the shrinkage parameter</span></span>
 <span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
 <span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a>boosth_shrink <span class="ot">&lt;-</span> <span class="fu">gbm</span>(hpsa_status <span class="sc">~</span> ., <span class="at">data =</span> train, </span>
 <span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">n.trees =</span> <span class="dv">5000</span>, <span class="at">shrinkage =</span> <span class="fl">0.001</span>, <span class="at">distribution =</span> <span class="st">&quot;Bernoulli&quot;</span>)</span>
 <span id="cb78-5"><a href="#cb78-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(boosth_shrink, <span class="at">cBars =</span> <span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -4687,6 +4821,8 @@ u_s_mexico_border_county_indicator  0.02731957</code></pre>
 </div>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>yhat2 <span class="ot">&lt;-</span> <span class="fu">predict</span>(boosth_shrink, <span class="at">newdata =</span> test, <span class="at">n.trees =</span> <span class="dv">3000</span>, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span>
 <span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to classification prediction</span></span>
@@ -4694,21 +4830,28 @@ u_s_mexico_border_county_indicator  0.02731957</code></pre>
 <span id="cb80-5"><a href="#cb80-5" aria-hidden="true" tabindex="-1"></a>cfm_yhat2 <span class="ot">&lt;-</span> <span class="fu">table</span>(Yhat2_class, test<span class="sc">$</span>hpsa_status)</span>
 <span id="cb80-6"><a href="#cb80-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb80-7"><a href="#cb80-7" aria-hidden="true" tabindex="-1"></a>cfm_yhat2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>            
 Yhat2_class  Designated Withdrawn
   Designated         93        21
   Withdrawn          15       165</code></pre>
 </div>
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co"># prediction error rate and accuracy</span></span>
 <span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a>yhat2_error <span class="ot">&lt;-</span> <span class="fu">mean</span>(Yhat2_class <span class="sc">!=</span> test<span class="sc">$</span>hpsa_status)</span>
 <span id="cb82-3"><a href="#cb82-3" aria-hidden="true" tabindex="-1"></a>accuracy_yhat2 <span class="ot">&lt;-</span> <span class="fu">sum</span>(cfm_yhat2[<span class="dv">1</span>], cfm_yhat2[<span class="dv">4</span>])<span class="sc">/</span><span class="fu">sum</span>(cfm_yhat2)</span>
 <span id="cb82-4"><a href="#cb82-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb82-5"><a href="#cb82-5" aria-hidden="true" tabindex="-1"></a>yhat2_error</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.122449</code></pre>
 </div>
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>accuracy_yhat2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.877551</code></pre>
 </div>
@@ -4718,12 +4861,15 @@ Yhat2_class  Designated Withdrawn
 <section id="cross-validation-for-the-number-of-trees" class="level2" data-number="3.9">
 <h2 data-number="3.9" class="anchored" data-anchor-id="cross-validation-for-the-number-of-trees"><span class="header-section-number">3.9</span> Cross Validation for the Number of Trees</h2>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
 <span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a>boosth_cv <span class="ot">&lt;-</span> <span class="fu">gbm</span>(hpsa_status <span class="sc">~</span> ., <span class="at">data =</span> train, </span>
 <span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a>              <span class="at">n.trees =</span> <span class="dv">3000</span>, <span class="at">shrinkage =</span> <span class="fl">0.001</span>, </span>
 <span id="cb86-4"><a href="#cb86-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">cv.folds =</span> <span class="dv">10</span>, </span>
 <span id="cb86-5"><a href="#cb86-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">distribution =</span> <span class="st">&quot;Bernoulli&quot;</span>)</span>
 <span id="cb86-6"><a href="#cb86-6" aria-hidden="true" tabindex="-1"></a>boosth_cv</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>gbm(formula = hpsa_status ~ ., distribution = &quot;Bernoulli&quot;, data = train, 
     n.trees = 3000, shrinkage = 0.001, cv.folds = 10)
@@ -4740,7 +4886,10 @@ Cross-validation confusion matrix:
 Cross-validation prediction Accuracy = 83.62%</code></pre>
 </div>
 </div>
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(boosth_cv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
@@ -4767,7 +4916,10 @@ u_s_mexico_border_county_indicator  0.007297366</code></pre>
 </div>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb90"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gbm.perf</span>(boosth_cv, <span class="at">method =</span> <span class="st">&quot;cv&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -4780,6 +4932,8 @@ u_s_mexico_border_county_indicator  0.007297366</code></pre>
 </div>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a>yhat3 <span class="ot">&lt;-</span> <span class="fu">predict</span>(boosth_cv, <span class="at">newdata =</span> test, <span class="at">n.trees =</span> <span class="dv">3000</span>, <span class="at">type =</span> <span class="st">&quot;response&quot;</span>)</span>
 <span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb92-3"><a href="#cb92-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to classification prediction</span></span>
@@ -4787,27 +4941,36 @@ u_s_mexico_border_county_indicator  0.007297366</code></pre>
 <span id="cb92-5"><a href="#cb92-5" aria-hidden="true" tabindex="-1"></a>cfm_yhat3 <span class="ot">&lt;-</span> <span class="fu">table</span>(Yhat3_class, test<span class="sc">$</span>hpsa_status)</span>
 <span id="cb92-6"><a href="#cb92-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb92-7"><a href="#cb92-7" aria-hidden="true" tabindex="-1"></a>cfm_yhat3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>            
 Yhat3_class  Designated Withdrawn
   Designated         93        21
   Withdrawn          15       165</code></pre>
 </div>
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="co"># prediction error rate and accuracy</span></span>
 <span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a>yhat3_error <span class="ot">&lt;-</span> <span class="fu">mean</span>(Yhat3_class <span class="sc">!=</span> test<span class="sc">$</span>hpsa_status)</span>
 <span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a>accuracy_yhat3 <span class="ot">&lt;-</span> <span class="fu">sum</span>(cfm_yhat3[<span class="dv">1</span>], cfm_yhat3[<span class="dv">4</span>])<span class="sc">/</span><span class="fu">sum</span>(cfm_yhat3)</span>
 <span id="cb94-4"><a href="#cb94-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb94-5"><a href="#cb94-5" aria-hidden="true" tabindex="-1"></a>yhat3_error</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.122449</code></pre>
 </div>
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a>accuracy_yhat3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.877551</code></pre>
 </div>
 </div>
 <p>The cross-validated boosted model with shrinkage parameter, boosted model with shrinkage parameter and initial boosted model all have the prediction mean squared error. Top important predictors in the initial and boost_shrinkage models were metropolitan indicator and hpsa score. While the top important predictors of hpsa status in the boost_shrinkage_cv model were hpsa designation population, hpsa status and metropolitan indicator. We will recommend the boost_shrinkage_cv model.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)</span>
 <span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb98-3"><a href="#cb98-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(</span>
@@ -4817,6 +4980,7 @@ Yhat3_class  Designated Withdrawn
 <span id="cb98-7"><a href="#cb98-7" aria-hidden="true" tabindex="-1"></a>) <span class="sc">|&gt;</span></span>
 <span id="cb98-8"><a href="#cb98-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">|&gt;</span></span>
 <span id="cb98-9"><a href="#cb98-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tab_header</span>(<span class="at">title =</span> <span class="st">&quot;Accuracy and Prediction Error Estimates of Boosting models&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <div id="kylokphkrb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
@@ -5254,15 +5418,21 @@ text-indent: 25px;
 <p>To start, we will employ a series of multiple regressions to get a better understanding of the relationships at play and which variables are most useful in predicting the mortality rate from heart disease.</p>
 <p>I begin by importing and setting up the data.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb99"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse); <span class="fu">theme_set</span>(<span class="fu">theme_bw</span>())</span>
 <span id="cb99-2"><a href="#cb99-2" aria-hidden="true" tabindex="-1"></a>reg_data_long <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;.</span><span class="sc">\\</span><span class="st">Data</span><span class="sc">\\</span><span class="st">reg_data_long.csv&quot;</span>)</span>
 <span id="cb99-3"><a href="#cb99-3" aria-hidden="true" tabindex="-1"></a><span class="co"># head(reg_data_long)</span></span>
 <span id="cb99-4"><a href="#cb99-4" aria-hidden="true" tabindex="-1"></a>reg_data_long<span class="sc">$</span>female_prop <span class="ot">&lt;-</span> reg_data_long<span class="sc">$</span>FemalePop<span class="sc">/</span>reg_data_long<span class="sc">$</span>TotalPop</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>When I initially began building this model, I ran into issues in calculating the MSE because of a couple of NA values. To prevent this issue, I checked the data for NA values. Both PercFemale and PercUnder18yo have NA values and were thus removed from the full regression model.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb100"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a>na_counts <span class="ot">&lt;-</span> <span class="fu">colSums</span>(<span class="fu">is.na</span>(reg_data_long))</span>
 <span id="cb100-2"><a href="#cb100-2" aria-hidden="true" tabindex="-1"></a>na_counts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>         County        TotalPop         MalePop       FemalePop       MedianAge 
               0               0               0               0               0 
@@ -5286,6 +5456,8 @@ text-indent: 25px;
 </div>
 <p>Splitting up the data</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb102"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
 <span id="cb102-2"><a href="#cb102-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb102-3"><a href="#cb102-3" aria-hidden="true" tabindex="-1"></a>training_pct <span class="ot">&lt;-</span> .<span class="dv">8</span></span>
@@ -5297,15 +5469,22 @@ text-indent: 25px;
 <span id="cb102-9"><a href="#cb102-9" aria-hidden="true" tabindex="-1"></a><span class="co"># dim(test)</span></span>
 <span id="cb102-10"><a href="#cb102-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb102-11"><a href="#cb102-11" aria-hidden="true" tabindex="-1"></a>test<span class="sc">$</span>County <span class="ot">&lt;-</span> <span class="fu">factor</span>(test<span class="sc">$</span>County, <span class="at">levels =</span> <span class="fu">levels</span>(train<span class="sc">$</span>County))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <section id="full-model" class="level3" data-number="4.1.1">
 <h3 data-number="4.1.1" class="anchored" data-anchor-id="full-model"><span class="header-section-number">4.1.1</span> Full Model</h3>
 <p>Training the full model</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb103"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a>full_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(DeathsperThou <span class="sc">~</span> TotalPop <span class="sc">+</span> MalePop <span class="sc">+</span> FemalePop <span class="sc">+</span> MedianAge <span class="sc">+</span> MaleMedianAge <span class="sc">+</span> FemaleMedianAge <span class="sc">+</span> Under5yoPop <span class="sc">+</span> Under18yoPop <span class="sc">+</span> Pop21andOlder <span class="sc">+</span> Pop55andOlder <span class="sc">+</span> Pop60andOlder <span class="sc">+</span> Pop65andOlder <span class="sc">+</span> num_desig <span class="sc">+</span> amer_indian <span class="sc">+</span> black <span class="sc">+</span> hispanic <span class="sc">+</span> asian <span class="sc">+</span> multi_race <span class="sc">+</span> pac_island <span class="sc">+</span> white <span class="sc">+</span> poverty <span class="sc">+</span> labor_force <span class="sc">+</span> unemployed <span class="sc">+</span> median_income <span class="sc">+</span> TotalDeaths <span class="sc">+</span> TotalCases <span class="sc">+</span> prop_hpsa <span class="sc">+</span> nonwhite_prop <span class="sc">+</span> Rating <span class="sc">+</span> Deaths <span class="sc">+</span> unempl_prop <span class="sc">+</span> poverty_prop <span class="sc">+</span> prop55older <span class="sc">+</span> Cases <span class="sc">+</span> HospNumber <span class="sc">+</span> CasesperThou <span class="sc">+</span> female_prop , <span class="at">data =</span> train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <p>Looking at the full model, we see that the full model is statistically significant with a p-value of almost zero. Further, it has an adjusted R^2 value of 0.9345 telling us that the model explains 93.45% of the variation in the results. This is a strong result. But, only a handful of the variables are significant in the model. ::: {.cell}</p>
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb104"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(full_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -5373,7 +5552,10 @@ F-statistic: 31.06 on 37 and 41 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <p>:::</p>
 <p>These plots give some insight to the shape of the model. For example, the plotting on the QQ-plot does not demonstrate a strong linear relationship. The edges of the plot deviate from the line suggesting that the model is not perfectly linear. Further, the scattered dots on the Leverage plot show several points on the line of Cook’s Distance signifying that they have overstated influence on the model. With these concerns in mind, I want to investigate the linearity of the model further. Does a linear model make sense? To get a better understanding of the data, I created some basic plots to demonstrate the shape of the data and get an idea of if a linear model will make sense here (<a href="https://www.statology.org/plot-multiple-linear-regression-in-r/">source on code</a>) ::: {.cell}</p>
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb106"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(full_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -5404,8 +5586,11 @@ F-statistic: 31.06 on 37 and 41 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <p>:::</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb107"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span>
 <span id="cb107-2"><a href="#cb107-2" aria-hidden="true" tabindex="-1"></a><span class="fu">avPlots</span>(full_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -5445,10 +5630,13 @@ F-statistic: 31.06 on 37 and 41 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>Here, we can see that some variables provide a better linear fit than others. For example, variables such as <code>MaleMedianAge</code> and <code>FemaleMedianAge</code> both are more or less scattered along the regression line. However, other variables such as <code>MalePop</code> and <code>FemalePop</code> do not fit the line well. Instead, the data is gathered in one spot and has almost no linear shape. These graphs give some reason for concern that the basic full model will not be the strongest. Not all of the variables are linear so a reduced model might be a better fit.</p>
 <p>Next, we will go ahead and calculate the Mean Square Error of the full model.</p>
 <p>Testing the full model ::: {.cell}</p>
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb108"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a>Yhat <span class="ot">&lt;-</span> <span class="fu">predict</span>(full_model, <span class="at">newdata =</span> test)</span>
 <span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb108-3"><a href="#cb108-3" aria-hidden="true" tabindex="-1"></a>mse <span class="ot">&lt;-</span> <span class="fu">mean</span>((test<span class="sc">$</span>DeathsperThou <span class="sc">-</span> Yhat)<span class="sc">^</span><span class="dv">2</span>)</span>
 <span id="cb108-4"><a href="#cb108-4" aria-hidden="true" tabindex="-1"></a>mse</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.07419842</code></pre>
 </div>
@@ -5459,10 +5647,16 @@ F-statistic: 31.06 on 37 and 41 DF,  p-value: &lt; 2.2e-16</code></pre>
 <h3 data-number="4.1.2" class="anchored" data-anchor-id="reduced-model"><span class="header-section-number">4.1.2</span> Reduced Model</h3>
 <p>Training the reduced model</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb110"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a>reduced_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(DeathsperThou <span class="sc">~</span> MedianAge <span class="sc">+</span> MaleMedianAge <span class="sc">+</span> FemaleMedianAge <span class="sc">+</span> hispanic <span class="sc">+</span> CasesperThou <span class="sc">+</span> TotalCases <span class="sc">+</span> HospNumber, <span class="at">data =</span> train)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 </div>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(reduced_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -5493,9 +5687,12 @@ F-statistic: 114.3 on 7 and 71 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 <p>This model yields a p-value of almost zero. It has an adjusted R^2 value of 0.9104 which is lower than the previous value from the full model of 0.9345. However, the decrease in the number of variables might be worth the slightly lower R^2 value.</p>
 <p>Testing the reduced model ::: {.cell}</p>
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a>prediction_reduced <span class="ot">&lt;-</span> <span class="fu">predict</span>(reduced_model, <span class="at">newdata =</span> test)</span>
 <span id="cb113-2"><a href="#cb113-2" aria-hidden="true" tabindex="-1"></a>mse_reduced <span class="ot">&lt;-</span> <span class="fu">mean</span>((test<span class="sc">$</span>DeathsperThou <span class="sc">-</span> prediction_reduced)<span class="sc">^</span><span class="dv">2</span>)</span>
 <span id="cb113-3"><a href="#cb113-3" aria-hidden="true" tabindex="-1"></a>mse_reduced</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.05392615</code></pre>
 </div>
@@ -5503,8 +5700,11 @@ F-statistic: 114.3 on 7 and 71 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>However, we see a lower MSE at 0.0539 compared to 0.0742 from the full model. However, <code>hispanic</code>, <code>MedianAge</code>, <code>MaleMedianAge</code>, <code>FemaleMedianAge</code>, and <code>TotalCases</code> are no longer significant in this model.</p>
 <p>To get an even better understanding of the data, we reduce the model again to just the significant variables in the reduced model. We are down to just two predictor variables, <code>CasesperThou</code> and <code>HospNumber</code>. This makes logical sense that the number of cases per thousand and the ranking of the hospital would be good predictor variables of the deaths per thousand.</p>
 <div class="cell">
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a>small_model <span class="ot">&lt;-</span> <span class="fu">lm</span>(DeathsperThou <span class="sc">~</span> CasesperThou <span class="sc">+</span> HospNumber, <span class="at">data=</span>train)</span>
 <span id="cb115-2"><a href="#cb115-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(small_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -5526,9 +5726,12 @@ Residual standard error: 0.122 on 76 degrees of freedom
 Multiple R-squared:  0.9087,    Adjusted R-squared:  0.9063 
 F-statistic: 378.1 on 2 and 76 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
+<details class="code-fold">
+<summary>Show the code</summary>
 <div class="sourceCode cell-code" id="cb117"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a>prediction_small <span class="ot">&lt;-</span> <span class="fu">predict</span>(small_model, <span class="at">newdata =</span> test)</span>
 <span id="cb117-2"><a href="#cb117-2" aria-hidden="true" tabindex="-1"></a>mse_small <span class="ot">&lt;-</span> <span class="fu">mean</span>((test<span class="sc">$</span>DeathsperThou <span class="sc">-</span> prediction_reduced)<span class="sc">^</span><span class="dv">2</span>)</span>
 <span id="cb117-3"><a href="#cb117-3" aria-hidden="true" tabindex="-1"></a>mse_small</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.05392615</code></pre>
 </div>
@@ -5693,7 +5896,7 @@ F-statistic: 378.1 on 2 and 76 DF,  p-value: &lt; 2.2e-16</code></pre>
 <h2 data-number="4.3" class="anchored" data-anchor-id="sec-method-r.3"><span class="header-section-number">4.3</span> Method 3. Regression Trees</h2>
 <section id="random-forest" class="level3" data-number="4.3.1">
 <h3 data-number="4.3.1" class="anchored" data-anchor-id="random-forest"><span class="header-section-number">4.3.1</span> Random Forest</h3>
-<p>WHile there are nine unique predictors in the data, an exhaustive search using cross validation produced the optimal number of predictors and number of trees to use for the training data: 7 predictors and 398 trees respectively.</p>
+<p>While there are nine unique predictors in the data, an exhaustive search using cross validation produced the optimal number of predictors and number of trees to use for the training data: 7 predictors and 398 trees respectively.</p>
 <div class="cell">
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
@@ -5732,15 +5935,12 @@ F-statistic: 378.1 on 2 and 76 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </div>
-<p>We find that the dominant predictor, as expected, was the number of heart attack cases per thousand residents, but unlike LASSO, the random forest model routinely employs other predictors to keep the prediction error low. We find that hospital rating and amount are significantly used predictors in the random forest, and likely reflect the quality and accessibility of care in different counties. The effect of hospital rating and the number of hospitals far outweigh the effect of demographic factors, including the proportion of residents aged 55 years and older. In general, the random forest model performs with the second lowest error of all regression models explored, and strikes a reasonable balance between bias and complexity in the number of predictors. We fail to find strong evidence of demographic factors, but these regression models illustrate that that hospital quality and number in counties in the state of California are associated with deaths due to heart disease when controlling for variation in the number of heart disease cases.</p>
+<p>We find that the dominant predictor, as expected, was the number of heart attack cases per thousand residents, but unlike LASSO, the random forest model routinely employs other predictors to keep the prediction error low. We find that hospital rating and amount are significantly used predictors in the random forest, and likely reflect the quality and accessibility of care in different counties. The effect of hospital rating and the number of hospitals far outweigh the effect of demographic factors, including the proportion of residents aged 55 years and older. In general, the random forest model performs with the second lowest prediction error of all regression models explored, and strikes a reasonable balance between bias and complexity in the number of predictors. We fail to find strong evidence of demographic factors, but these regression models illustrate that that hospital quality and number in counties in the state of California are associated with deaths due to heart disease when controlling for variation in the number of heart disease cases.</p>
 </section>
 </section>
 </section>
 <section id="sec-risk" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Risk Analysis</h1>
-</section>
-<section id="ethical-analysis" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Ethical Analysis</h1>
+<h1 data-number="5"><span class="header-section-number">5</span> Ethical Analysis</h1>
 <p>Managing health-related data and models comes with a wide variety of serious ethical concerns. Understanding the risks of biased data or an inaccurate model is critical to safeguarding against these. As such, as we work on these models, we must keep in mind the privacy of patients, the quality of our data, and its ability to accurately represent the demographics of the whole population, and we must be mindful of the variables that are included or excluded.</p>
 <ol type="1">
 <li><p>Managing data: Collecting medical data is a delicate challenge. First and foremost, health data is personal and sensitive. It must be handled with the utmost respect and caution as it contains sensitive and personal information. The US legal system, through The Health Insurance Portability and Accountability Act of 1996 (HIPAA), protects sensitive patient information. However, to study the health system and understand the weaknesses and strengths of the current hospital system, we need data. As such, as data scientists, we must be sure to handle data in a careful manner that ensures that individual and identifiable information is not connected with the data used to build the model. Protecting privacy creates challenges in collecting the data and ensuring that the data is representative. (<a href="https://www.ncbi.nlm.nih.gov/books/NBK9579/">NIH</a>)</p></li>
@@ -5750,28 +5950,29 @@ F-statistic: 378.1 on 2 and 76 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>Conversely, good data and strong models can serve as guidance to hospitals and be accountability measures. For example, the NIH has found a 10% increase in in-hospital mortality rates due to unsafe practices while increased staffing is correlated with a 12% decrease in deaths. Accurate data reporting can provide accountability for hospital practices. This gives community members insight into the medical system and the needed improvements in their locality.</p>
 <p>Further, better public policy can stem from accurate reporting. For example, when considering our models, overlaying deaths and demographic information can highlight at-risk groups that need further support. We find in our LASSO analysis that patients over the age of 55 are at a higher risk of death. As such, policymakers know that they need to further focus on resources for this community. Continued monitoring of the death rate can demonstrate if policy changes yield a change in mortality rates. Good policy is based on good data and models.</p>
 </section>
-<section id="sec-summary" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> Summary of Findings</h1>
-<p>After three regression models, a couple of trends stand out. First, the best model is the random forests model. It provides the lowest MSE value of 0.02992 while still explaining more than 80% of the variation in the model. To decrease the MSE, we had to sacrifice some of the power of the model. For example, the multiple linear regression model offered more than a 90% explanation of the variance, however, because we are handling medical data, accuracy is of the utmost importance. Further, all three models demonstrate the importance of the number of cases of heart disease as a predictor of the number of deaths. The next more significant factor was hospital ranking. Other demographic variables proved less insightful which was surprising to the researchers and would be a good opportunity for further research. Understanding why demographic information did not make a difference, which was an assumption of the research team, would be pressing for future medical studies.</p>
+<section id="sec-summary" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Summary of Findings</h1>
+<p>The best regression model found to predict the death rate due to heart disease with these data was the random forest model. It provides the lowest MSE value of 0.02992 while still explaining more than 80% of the variation in the model, and demonstrated a reasonable balance between bias and flexibility. To decrease prediction error, we found we had to sacrifice some of the power of the model: for example, the best multiple linear regression model explained over 90% of the variance, however, because we are handling medical data, accurate predictions are of the utmost importance. All three models demonstrate the importance of including the number of cases of heart disease as a predictor of the number of deaths. After controlling for heart disease cases, the next more significant factor was found to be hospital ranking, then the number of hospitals in a region. Demographic variable associations with heart disease deaths were weak or absent, which was surprising to the researchers and would be a good opportunity for further research. Understanding why demographic variables were not significant, which was an assumption of the research team, would be pressing for future medical studies, as well as collecting complete data, exploring other model diseases, and employing missing data handling methods (such as multiple imputation) for an accurate survey of the state of public health in California.</p>
 <p>The classification models …</p>
 </section>
-<section id="sec-future" class="level1" data-number="8">
-<h1 data-number="8"><span class="header-section-number">8</span> Future Directions</h1>
+<section id="sec-future" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Future Directions</h1>
 <p>Future Directions Text</p>
 </section>
-<section id="sec-appendix" class="level1" data-number="9">
-<h1 data-number="9"><span class="header-section-number">9</span> Appendix</h1>
-<section id="group-member-accomplishments" class="level2" data-number="9.1">
-<h2 data-number="9.1" class="anchored" data-anchor-id="group-member-accomplishments"><span class="header-section-number">9.1</span> Group Member Accomplishments</h2>
+<section id="sec-appendix" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Appendix</h1>
+<section id="group-member-accomplishments" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="group-member-accomplishments"><span class="header-section-number">8.1</span> Group Member Accomplishments</h2>
 <p><em>Roland Abi</em></p>
-<p><em>Elise Buellesbach</em> Found and proposed the original CA data set (<code>California Hospital Inpatient Mortality Rates and Quality Ratings</code>). Completed the linear regression models (both full and reduced). Wrote the executive summary and ethical analysis.</p>
+<p><em>Elise Buellesbach</em></p>
+<p>Found and proposed the original CA data set (<code>California Hospital Inpatient Mortality Rates and Quality Ratings</code>). Completed the linear regression models (both full and reduced). Wrote the executive summary, summary/conclusion, ethical analysis, and references.</p>
 <p><em>Amanda Concepcion</em></p>
 <p><em>Spencer Grewe</em></p>
 <p>Acquired CA demographic data (<code>data4</code>). Cleaned datasets 1, 3, and 4. Contributed toward tidying and joining datasets 1, 3, and 4 for the regression tasks. Carried out 627 tasks involving model selection for regression.</p>
 </section>
 </section>
-<section id="references" class="level1" data-number="10">
-<h1 data-number="10"><span class="header-section-number">10</span> References</h1>
+<section id="references" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> References</h1>
 </section>
 
 </main>

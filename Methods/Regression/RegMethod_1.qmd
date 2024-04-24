@@ -1,15 +1,4 @@
----
-title: "Regression Analysis: Linear Models"
-subtitle: "Name:Elise Buellesbach Course: STAT 427"
-number-sections: true
-cache: false
-format:
-  html:
-    code-fold: true
-    code-summary: "Show the code"
-    toc: false
-    toc-depth: 1
----
+
 
 Here we are working on a basic multiple linear model with cross validation.
 
@@ -20,7 +9,7 @@ To start, we will employ a series of multiple regressions to get a better unders
 I begin by importing and setting up the data.
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+# knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 ```
 
 ```{r}
@@ -28,7 +17,6 @@ library(tidyverse); theme_set(theme_bw())
 reg_data_long <- read_csv(".\\Data\\reg_data_long.csv")
 # head(reg_data_long)
 reg_data_long$female_prop <- reg_data_long$FemalePop/reg_data_long$TotalPop
-
 ```
 
 When I initially began building this model, I ran into issues in calculating the MSE because of a couple of NA values. To prevent this issue, I checked the data for NA values. Both PercFemale and PercUnder18yo have NA values and were thus removed from the full regression model.
