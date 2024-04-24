@@ -1,5 +1,9 @@
 
+
+### Random Forest
+
 ```{r}
+#| echo: false
 #| output: false
 library(randomForest)
 library(tidyverse); theme_set(theme_bw())
@@ -15,6 +19,7 @@ test <- as.data.frame(reg_data_long[-Z,])
 ```
 
 ```{r}
+#| echo: false
 p <- 9 
 RF <- OptimalTrees <- Yhat <- RMSEP <- vector(mode = "double", length = p)
 
@@ -31,27 +36,40 @@ for (k in 1:p) {
   RMSEP[k] <- sqrt(mean((Yhat - test$DeathsperThou)^2) )
 }
 
-which.min(RMSEP)
-OptimalTrees[7]
+# which.min(RMSEP)
+# OptimalTrees[which.min(RMSEP)]
+
 ```
 
-There are nine unique predictors in the data. An exhaustive search using cross validation produces the optimal number of predictors and number of trees to use for the training data: 7 predictors and 398 trees respectively. 
+WHile there are nine unique predictors in the data, an exhaustive search using cross validation produced the optimal number of predictors and number of trees to use for the training data: 7 predictors and 398 trees respectively. 
 
 ```{r}
+#| echo: false
+#| tbl-cap: "Summary of cross-validated random forest results."
+
 set.seed(123)
 model_RF <- randomForest(DeathsperThou ~ Rating*CasesperThou + prop_hpsa + nonwhite_prop + median_income + unempl_prop + poverty_prop + Rating*prop55older + Rating*HospNumber, data = train, mtry = 7, ntree = 398)
-model_RF
-plot(model_RF)
+# model_RF
+# plot(model_RF)
 
 Y_hat <- predict(model_RF, newdata = test)
-mean((test$DeathsperThou-Y_hat)^2)
+# mean((test$DeathsperThou-Y_hat)^2)
+
+tibble(
+  Metric = c("Number of Predictors", "Number of Trees", "Prediction MSE"),
+  Value = list(which.min(RMSEP), OptimalTrees[which.min(RMSEP)], round(mean((test$DeathsperThou-Y_hat)^2), digits = 4))
+) %>%  knitr::kable()
 ```
 
 The random forest model has a prediction MSE of 0.02992, which corresponds to a 37.64% decrease in prediction MSE with respect to the lambda 1se LASSO regression model. We find that 81.33% of the variation in deaths due to heart disease per 1000 individuals is explained by the combination of 7 variables, and it is again clear that hospital and demographic variables are lending predictive power to the model.
 
 ```{r}
-varImpPlot(model_RF)
+#| echo: false
+#| fig-cap: "Random forest importance plot of all predictors."
+model_RF <- randomForest(DeathsperThou ~ Rating*CasesperThou + prop_hpsa + nonwhite_prop + median_income + unempl_prop + poverty_prop + Rating*prop55older + Rating*HospNumber, data = train, importance = TRUE, mtry = 7, ntree = 398)
+varImpPlot(model_RF, type = 1)
 ```
 
-We find that the dominant predictor, as expected, was the number of heart attack cases per thousand residents, though the rating of the hospital has a considerable effect on predicting deaths as we explored with the lambda min LASSO regression model. Rating far outweighs the effect of the demographic factors, including the proportion of residents aged 55 years and older.
+We find that the dominant predictor, as expected, was the number of heart attack cases per thousand residents, but unlike LASSO, the random forest model routinely employs other predictors to keep the prediction error low. We find that hospital  rating and amount are significantly used predictors in the random forest, and likely reflect the quality and accessibility of care in different counties. The effect of hospital rating and the number of hospitals far outweigh the effect of demographic factors, including the proportion of residents aged 55 years and older. In general, the random forest model performs with the second lowest error of all regression models explored, and strikes a reasonable balance between bias and complexity in the number of predictors. We fail to find strong evidence of demographic factors, but these regression models illustrate that that hospital quality and number in counties in the state of California are associated with deaths due to heart disease when controlling for variation in the number of heart disease cases.
+
 
