@@ -1,17 +1,17 @@
 ```{r}
 #| echo: false
 library(tidyverse)
+library(broom)
 ```
 
-## Loading the dataset
+## Method 1: Logistic Regression
 
 ```{r}
 #| message: false
-hpsa <- read_csv("./Data/hpsa.csv") 
-glimpse(hpsa)
+hpsa <- read_csv("Data/hpsa.csv") 
 ```
 
-### Creating training and testing sets
+### Training and Testing
 
 Here we will be using 60% of our dataset for training and 40% for testing
 
@@ -24,19 +24,21 @@ Z <- sample(nrow(hpsa), training_pct*nrow(hpsa))
 hpsa_train <- hpsa[Z, ]
 hpsa_test <- hpsa[-Z, ]
 
-nrow(hpsa_test)
-nrow(hpsa_train)
+#paste('Training set: ', nrow(hpsa_train))
+#paste('Test set: ', nrow(hpsa_test))
 ```
 
-### Models
+### Full model
 
 ```{r}
 set.seed(123)
 log_full <- glm(as.factor(hpsa_status) ~., data = hpsa_train, 
                 family = "binomial")
 
-summary(log_full)
+tidy(log_full)
 ```
+
+### Reduced model
 
 ```{r}
 set.seed(123)
@@ -46,8 +48,6 @@ log_reduced <- glm(as.factor(hpsa_status) ~ designation_type + hpsa_score +
 
 summary(log_reduced)
 ```
-
-### Prediction Accuracy
 
 ```{r}
 
@@ -60,15 +60,12 @@ Yhat_reduced <-  ifelse(preds_reduced >= 0.5, "Withdrawn", "Designated")
 
 # confusion matrix
 confm_reduced <- table(Yhat_reduced, hpsa_test$hpsa_status)
-confm_reduced
 
 # Correct classification prediction rate
 accuracy_reduced <- sum(confm_reduced[1], confm_reduced[4])/sum(confm_reduced)
-accuracy_reduced
 
 # test error rate
 error_reduced <- mean(Yhat_reduced != hpsa_test$hpsa_status)
-error_reduced
 ```
 
 ```{r}
@@ -82,21 +79,14 @@ Yhat <-  ifelse(preds >= 0.5, "Withdrawn", "Designated")
 
 # confusion matrix
 confm <- table(Yhat, hpsa_test$hpsa_status)
-confm
 
 # Correct classification prediction rate
 accuracy <- sum(confm[1], confm[4])/sum(confm)
-accuracy
 
 # test error rate 
 error_full <- mean(Yhat != hpsa_test$hpsa_status)
-error_full
+
 ```
-
-The reduced model has an accuracy of 0.8095238 and a mean prediction error rate of 0.1904762 while the full model has an accuracy of 0.7993197 and a prediction error rate of 0.2006803.
-This reveals an increased accuracy in the reduced model and a decrease in the prediction error rate as compared to the full model.
-
-### Using K-fold cross validation to find prediction mean squared error
 
 ```{r}
 set.seed(123)
@@ -121,32 +111,39 @@ set.seed(123)
 
 # KFold Reduced
 Kfold_reduced <- cv.glm(hpsa, log_reduced, cost = Lossfn, K=10)$delta
-Kfold_reduced
 
 
 # Full Model 
 Kfold_full <- cv.glm(hpsa, log_full, cost = Lossfn, K=10)$delta
-Kfold_full
 ```
 
-While the full and reduced model had similar prediction mean squared error, the reduced model had a slightly lower prediction mean squared error using the k-10 cross validation approach.
-
-### Compare models
+### Compare models Full and reduced logistic regression models
 
 ```{r}
-anova(log_reduced, log_full, test = "Chisq")
+#| tbl-cap: "Model comparison"
+#| label: tbl-anova
+anov <- anova(log_reduced, log_full, test = "Chisq")
+anov
 ```
-
-Giving the results obtained and from this approaches and the results of model comparison we lack sufficient evidence (p = 0.3744) to conclude that logistic regression (full) model is better than the logistic regression (reduced) model.
-Consequently, we will recommend the reduced logistic regression model as the better model.
 
 ```{r}
 library(gt)
+#| tbl-cap: "Accuracy and Prediction Error Estimates"
+#| label: tbl-accuracy-preds
 tibble(
   models = c("Reduced", "Full"),
   Accuracy = c(accuracy_reduced, accuracy),
-  Error = c(error_reduced, error_full)
+  Error = c(error_reduced, error_full),
+  Adjusted_MSEP = c(Kfold_reduced[2], Kfold_full[2])
 ) |>
   gt() |>
   tab_header(title = "Accuracy and Prediction Error Estimates Logistic regression models")
 ```
+
+### Summary of Logistic regression models
+
+The reduced model has an accuracy of 0.812766 and a mean prediction error rate of 0.1995639 while the full model has an accuracy of 0.893617 which represent an 8% increase in accuracy over the reduced model and a mean prediction error rate of 0.1497533.
+The full model also has a lower adjusted mean square error of prediction 0.1497533 compared to the reduced model 0.1995639 using 10-fold cross validation @tbl-accuracy-preds .
+
+Giving the results obtained and from from the reduced and full logistic regression models and the results of model comparison we lack sufficient evidence (p = 2.446e-11) @tbl-anova to conclude that logistic regression (reduced) model is better than the logistic regression (full) model.
+Consequently, we will recommend the full logistic regression model as the better model with predictors such as designation:HPSA_population, hpsa score rural_status:unknown and hpsa_population_type:native american among the significant predictors in determining hpsa status.

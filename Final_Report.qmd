@@ -95,5 +95,12 @@ Data preparation code and documentation was omitted from this report, but can be
 
 {{< include ./Appendix.qmd >}}
 
+
 # References
+
+
+# Supplemental Information
+
+{{< include ./Supplemental.qmd >}}
+
 

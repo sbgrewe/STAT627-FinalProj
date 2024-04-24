@@ -16,23 +16,24 @@ author:
     - STAT-627
 date: today
 number-sections: true
+echo: false
+message: false
 cache: false
 bibliography: references.bib
 format:
   pdf:
-    fig-height: 2.5
-    fig-width: 5
     toc: true
-    toc-depth: 2
+    toc-depth: 1
     toc-title: Table of Contents
 ---
+
+{{< pagebreak >}}
 
 # Executive Summary {#sec-exec}
 
 {{< include ./Executive_Summary.qmd >}}
 
-
-# Introduction, Data Overview {#sec-introduction}
+# Data Overview {#sec-introduction}
 
 Data preparation code and documentation was omitted from this report, but can be found within the source code in the GitHub repository under `Data_Clean.qmd`.
 
@@ -83,10 +84,17 @@ Data preparation code and documentation was omitted from this report, but can be
 
 {{< include ./FutureDirs.qmd >}}
 
+{{< pagebreak >}}
 
 # Appendix {#sec-appendix}
 
 {{< include ./Appendix.qmd >}}
 
+
 # References
+
+
+# Supplemental Information
+
+{{< include ./Supplemental.qmd >}}
 
