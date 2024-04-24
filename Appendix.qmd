@@ -1,6 +1,51 @@
 ---
 bibliography: references.bib
 ---
+## Appendix Graphics
+
+*Linear Regression Model*
+```{r}
+library(tidyverse); theme_set(theme_bw())
+reg_data_long <- read_csv(".\\Data\\reg_data_long.csv")
+# head(reg_data_long)
+reg_data_long$female_prop <- reg_data_long$FemalePop/reg_data_long$TotalPop
+
+set.seed(123)
+
+training_pct <- .8
+Z <- sample(nrow(reg_data_long), floor(training_pct*nrow(reg_data_long)))
+
+train <- reg_data_long[Z,]
+# dim(train)
+test <- reg_data_long[-Z,]
+# dim(test)
+
+test$County <- factor(test$County, levels = levels(train$County))
+
+full_model <- lm(DeathsperThou ~ TotalPop + MalePop + FemalePop + MedianAge + MaleMedianAge + FemaleMedianAge + Under5yoPop + Under18yoPop + Pop21andOlder + Pop55andOlder + Pop60andOlder + Pop65andOlder + num_desig + amer_indian + black + hispanic + asian + multi_race + pac_island + white + poverty + labor_force + unemployed + median_income + TotalDeaths + TotalCases + prop_hpsa + nonwhite_prop + Rating + Deaths + unempl_prop + poverty_prop + prop55older + Cases + HospNumber + CasesperThou + female_prop , data = train)
+```
+
+NA Counts for Regression Data
+```{r}
+na_counts <- colSums(is.na(reg_data_long))
+na_counts
+
+```
+Plotting Full Model
+```{r}
+plot(full_model)
+```
+These plots give some insight to the shape of the model. For example, the plotting on the QQ-plot does not demonstrate a strong linear relationship. The edges of the plot deviate from the line suggesting that the model is not perfectly linear. Further, the scattered dots on the Leverage plot show several points on the line of Cook's Distance signifying that they have overstated influence on the model. With these concerns in mind, I want to investigate the linearity of the model further. Does a linear model make sense? To get a better understanding of the data, I created some basic plots to demonstrate the shape of the data and get an idea of if a linear model will make sense here ([source on code](https://www.statology.org/plot-multiple-linear-regression-in-r/))
+
+Linear Fit of Variables
+```{r}
+
+library(car)
+avPlots(full_model)
+
+```
+Here, we can see that some variables provide a better linear fit than others. For example, variables such as `MaleMedianAge` and `FemaleMedianAge` both are more or less scattered along the regression line. However, other variables such as `MalePop` and `FemalePop` do not fit the line well. Instead, the data is gathered in one spot and has almost no linear shape. These graphs give some reason for concern that the basic full model will not be the strongest. Not all of the variables are linear so a reduced model might be a better fit. 
+
 
 ## Group Member Accomplishments
 
