@@ -128,10 +128,9 @@ tibble(
   tab_header(title = "Accuracy and Prediction Error Estimates Tree models")
 ```
 
-### Summary of Decision Tree model
+### Summary of Decision Tree models
 
-"HPSA Score" and HPSA designation population remains in this node, but with reduced nodes.\
-The test error rates are not equal.
-The pruned tree has an error rate of `r test_error_rate_pruned` which is a little lower than the unpruned tree which has an error rate of `r test_error_rate_unpruned`.
-Meanwhile the accuracy of the pruned tree is `r accuracy_pruned` which is a 0.3% higher than that of the unpruned tree `r accuracy_unpruned` .
+"HPSA Score" and HPSA designation population are the dominant predictors in both the unpruned and pruned models.
+The pruned tree has an mean prediction error rate of `r test_error_rate_pruned` which is a little lower than the unpruned tree which has an error rate of `r test_error_rate_unpruned`.
+Meanwhile the accuracy of the pruned tree is `r accuracy_pruned` which represent a 0.3% increase in accuracy over the unpruned tree model with accuracy `r accuracy_unpruned` .
 We recommend the pruned tree model.
