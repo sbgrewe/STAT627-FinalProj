@@ -37,6 +37,8 @@ test <- hpsa[-Z,]
 ### Un-pruned decision Tree 
 
 ```{r}
+#| tbl-cap: "Unpruned model output"
+#| label: tbl-unpruned-result
 #| echo: false
 #| warning: false
 set.seed(123)
@@ -47,6 +49,8 @@ summary(tr)
 
 ```{r}
 #| echo: false
+#| fig-cap: "Decision tree from unpruned model with 12 nodes"
+#| label: fig-decisiontree-unpruned
 plot(tr, type = "uniform")
 text(tr)
 ```
@@ -60,6 +64,7 @@ Yhat = predict(tr, newdata = test, type = "class")
 ### Pruned Tree
 
 ```{r}
+#| tbl-cap: "Output from cross validation to determine tree size with lowest\n misclassification"
 #| echo: false
 #| warning: false
 set.seed(123)
@@ -68,6 +73,8 @@ cv
 ```
 
 ```{r}
+#| fig-cap: "Misclassification rate from Cross valid"
+#| label: fig-misclass-pruned
 plot(cv)
 ```
 
@@ -79,12 +86,16 @@ Tree size 8 corresponds to the lowest cross-validated classification error rate 
 
 ```{r}
 #| echo: false
+#| tbl-cap: "Pruned model output"
+#| label: tbl-pruned-model
 set.seed(123)
 trp <- prune.misclass(tr, best = 8)
 summary(trp)
 ```
 
 ```{r}
+#| fig-cap: "Decision tree from pruned model with 8 nodes"
+#| label: fig-decisiontree-pruned
 #| echo: false
 plot(trp, type = "uniform")
 text(trp)
@@ -130,7 +141,10 @@ tibble(
 
 ### Summary of Decision Tree models
 
-"HPSA Score" and HPSA designation population are the dominant predictors in both the unpruned and pruned models.
-The pruned tree has an mean prediction error rate of `r test_error_rate_pruned` which is a little lower than the unpruned tree which has an error rate of `r test_error_rate_unpruned`.
+The result obtained shows that the unpruned model with a training error rate of 0.1385 had twelve terminal nodes and retained the variables hpsa score and hpsa designation population in the model.
+Meanwhile the pruned model using cross validation to obtain the number of trees with the minimum misclassification rate @fig-misclass-pruned had a slightly higher training error rate as shown in @tbl-pruned-model cross validated model with eight terminal nodes.
+
+"HPSA Score" and HPSA designation population were the dominant predictors in both the unpruned and pruned models.
+Overall, The pruned model had a mean prediction error rate of `r test_error_rate_pruned` which is a little lower than the unpruned tree which has an error rate of `r test_error_rate_unpruned`.
 Meanwhile the accuracy of the pruned tree is `r accuracy_pruned` which represent a 0.3% increase in accuracy over the unpruned tree model with accuracy `r accuracy_unpruned` .
-We recommend the pruned tree model.
+We recommend the pruned tree @fig-decisiontree-pruned model.
