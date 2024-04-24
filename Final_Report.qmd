@@ -30,6 +30,10 @@ format:
       dark: [solar, my_css.scss]
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
+```
+
 # Executive Summary {#sec-exec}
 
 {{< include ./Executive_Summary.qmd >}}
