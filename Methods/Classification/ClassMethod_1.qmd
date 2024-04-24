@@ -24,8 +24,8 @@ Z <- sample(nrow(hpsa), training_pct*nrow(hpsa))
 hpsa_train <- hpsa[Z, ]
 hpsa_test <- hpsa[-Z, ]
 
-paste('Training set: ', nrow(hpsa_train))
-paste('Test set: ', nrow(hpsa_test))
+#paste('Training set: ', nrow(hpsa_train))
+#paste('Test set: ', nrow(hpsa_test))
 ```
 
 ### Full model
