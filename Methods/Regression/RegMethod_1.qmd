@@ -1,10 +1,5 @@
 
-
-Here we are working on a basic multiple linear model with cross validation.
-
-Question: Can mortality rate from heart disease per 1000 people be predicted from demographic conditions within counties in California?
-
-To start, we will employ a series of multiple regressions to get a better understanding of the relationships at play and which variables are most useful in predicting the mortality rate from heart disease.
+Here we are working on a basic multiple linear model with cross validation to investigate whether mortality rate from heart disease per 1000 people be predicted from demographic conditions within counties in California? To start, we will employ a series of multiple regressions to get a better understanding of which variables are most useful in predicting the mortality rate from heart disease. Both PercFemale and PercUnder18yo have missingness and were thus removed from the full regression model.
 
 ```{r setup, include=FALSE}
 # knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
@@ -16,8 +11,6 @@ reg_data_long <- read_csv(".\\Data\\reg_data_long.csv")
 # head(reg_data_long)
 reg_data_long$female_prop <- reg_data_long$FemalePop/reg_data_long$TotalPop
 ```
-
-When I initially began building this model, I ran into issues in calculating the MSE because of a couple of NA values. To prevent this issue, I checked the data for NA values. Both PercFemale and PercUnder18yo have NA values and were thus removed from the full regression model.
 
 ```{r}
 set.seed(123)
@@ -31,47 +24,37 @@ test <- reg_data_long[-Z,]
 # dim(test)
 
 test$County <- factor(test$County, levels = levels(train$County))
-
 ```
 
 ### Full Model 
 
 ```{r}
 full_model <- lm(DeathsperThou ~ TotalPop + MalePop + FemalePop + MedianAge + MaleMedianAge + FemaleMedianAge + Under5yoPop + Under18yoPop + Pop21andOlder + Pop55andOlder + Pop60andOlder + Pop65andOlder + num_desig + amer_indian + black + hispanic + asian + multi_race + pac_island + white + poverty + labor_force + unemployed + median_income + TotalDeaths + TotalCases + prop_hpsa + nonwhite_prop + Rating + Deaths + unempl_prop + poverty_prop + prop55older + Cases + HospNumber + CasesperThou + female_prop , data = train)
-
 ```
 
-Looking at the full model, we see that the full model is statistically significant with a p-value of almost zero. Further, it has an adjusted R^2 value of 0.9345 telling us that the model explains 93.45% of the variation in the results. This is a strong result. But, only a handful of the variables are significant in the model. 
-```{r}
-summary(full_model)
-```
+Looking at the full model, we see that the full model is statistically significant with a p-value of almost zero (SI). Further, it has an adjusted R^2 value of 0.9345 telling us that the model explains 93.45% of the variation in the results (@tbl-reg-MLR-summary). This is a strong result, but only a handful of the variables are significant in the model. 
 
-When looking at plots for this model, some concerns arise. For example, the plotting on the QQ-plot does not demonstrate a strong linear relationship. The edges of the plot deviate from the line suggesting that the model is not perfectly linear. Further, the scattered dots on the Leverage plot show several points on the line of Cook's Distance signifying that they have overstated influence on the model. Further attentions is paid to these plots in the appendix.
+When looking at plots for this model, some concerns arise. For example, the plotting on the QQ-plot does not demonstrate a strong linear relationship (SI). The edges of the plot deviate from the line suggesting that the model is not perfectly linear. Further, the scattered dots on the leverage plot show several points on the line of Cook's Distance signifying that they have overstated influence on the model.
 
 ```{r}
 Yhat <- predict(full_model, newdata = test)
-
 mse <- mean((test$DeathsperThou - Yhat)^2)
-mse
 ```
-The MSE is .0742. This is a low MSE in general. Next, we can see how a reduced model will work and then we will have a good point of comparison between the two models. 
 
-Here, I will take only the significant variables from the above model for the reduced model. This includes variables that are significant up to the p=.1 threshold This was chosen because so few variables are significant and I want to see what this model will yield. Then, we can remove more variables if the results warrant that action.
+The prediction MSE of the full model is .0742 (@tbl-reg-MLR-summary). Next, we can see how a reduced model will work by taking only the significant variables from the above model for the reduced model. This includes variables that are significant up to the p=.1 threshold.
 
 ### Reduced Model 
 
 ```{r}
 reduced_model <- lm(DeathsperThou ~ MedianAge + MaleMedianAge + FemaleMedianAge + hispanic + CasesperThou + TotalCases + HospNumber, data = train)
-summary(reduced_model)
-
 ```
 
-This model yields a p-value of almost zero. It has an adjusted R^2 value of 0.9104 which is lower than the previous value from the full model of  0.9345. However, the decrease in the number of variables might be worth the slightly lower R^2 value. 
+This model yields a p-value of almost zero. It has an adjusted R^2 value of 0.9104 which is lower than the previous value from the full model of 0.9345. However, the decrease in the number of variables might be worth the slightly lower R^2 value. 
 
 ```{r}
 prediction_reduced <- predict(reduced_model, newdata = test)
 mse_reduced <- mean((test$DeathsperThou - prediction_reduced)^2)
-mse_reduced
+# mse_reduced
 ```
 However, we see a lower MSE at  0.0539 compared to 0.0742 from the full model. However, `hispanic`, `MedianAge`, `MaleMedianAge`, `FemaleMedianAge`, and `TotalCases` are no longer significant in this model. 
 
@@ -79,15 +62,27 @@ To get an even better understanding of the data, we reduce the model again to ju
 
 ```{r}
 small_model <- lm(DeathsperThou ~ CasesperThou + HospNumber, data=train)
-summary(small_model)
+# summary(small_model)
 prediction_small <- predict(small_model, newdata = test)
 mse_small <- mean((test$DeathsperThou - prediction_reduced)^2)
-mse_small
+# mse_small
 ```
 
-This small model yields the same MSE as the previous reduced model of 0.0539 and only requires two variables. We still have a p-value of almost zero. However, we continue to lose some power in the adjusted R-squared with a value of 0.9063 compared to  0.9104 in the reduced model and 0.9345 in the full model. 
+This small model yields the same MSE as the previous reduced model of 0.0539 and only requires two variables. We still have a p-value of almost zero. However, we continue to lose some power in the adjusted R-squared with a value of 0.9063 compared to 0.9104 in the reduced model and 0.9345 in the full model (@tbl-reg-MLR-summary). 
 
 ### Comparison Between the Two Models and Recommendation
 
-Between the original two models, the reduced model should be chosen. It offers a more accurate prediction of the rate of deaths due to heart disease per thousand people. The reduced model uses only 7 prediction variables compared to the more than 30 variables that the full model requires. Further, the smallest model with only 2 variables gives the same low MSE value with even fewer predictor variables. This implies that many of those variables are either not useful in prediction or they might have high levels of multi-co linearity This concept will be explored further in the next regression models. 
+```{r}
+#| tbl-cap: "Overview of multiple linear regression models and their test performance."
+#| label: tbl-reg-MLR-summary
+
+tibble(
+  Model = c("Full", "Reduced", "Smallest"),
+  `Number of Predictors` = c(7, NA, 2),
+  MSE = c(mse, NA, mse_small),
+  `Multiple R2` = c(0.9345, NA, 0.9087)
+) %>% knitr::kable(digits = 4)
+```
+
+Between the original two models, the reduced model should be chosen. It offers a more accurate prediction of the rate of deaths due to heart disease per thousand people. The reduced model uses only 7 prediction variables compared to the more than 30 variables that the full model requires. Further, the smallest model with only 2 variables gives the same low MSE value with even fewer predictor variables. This implies that many of those variables are either not useful in prediction or redundant due to multicollinearity, which we will explore. 
 

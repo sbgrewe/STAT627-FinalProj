@@ -21,6 +21,8 @@ test <- reg_data_long[-Z,]
 test$County <- factor(test$County, levels = levels(train$County))
 
 full_model <- lm(DeathsperThou ~ TotalPop + MalePop + FemalePop + MedianAge + MaleMedianAge + FemaleMedianAge + Under5yoPop + Under18yoPop + Pop21andOlder + Pop55andOlder + Pop60andOlder + Pop65andOlder + num_desig + amer_indian + black + hispanic + asian + multi_race + pac_island + white + poverty + labor_force + unemployed + median_income + TotalDeaths + TotalCases + prop_hpsa + nonwhite_prop + Rating + Deaths + unempl_prop + poverty_prop + prop55older + Cases + HospNumber + CasesperThou + female_prop , data = train)
+
+summary(full_model)
 ```
 
 NA Counts for Regression Data
@@ -54,12 +56,17 @@ avPlots(full_model)
 
 ```
 
-Here, we can see that some variables provide a better linear fit than others.
-For example, variables such as `MaleMedianAge` and `FemaleMedianAge` both are more or less scattered along the regression line.
-However, other variables such as `MalePop` and `FemalePop` do not fit the line well.
-Instead, the data is gathered in one spot and has almost no linear shape.
-These graphs give some reason for concern that the basic full model will not be the strongest.
-Not all of the variables are linear so a reduced model might be a better fit.
+Here, we can see that some variables provide a better linear fit than others. For example, variables such as `MaleMedianAge` and `FemaleMedianAge` both are more or less scattered along the regression line. However, other variables such as `MalePop` and `FemalePop` do not fit the line well. Instead, the data is gathered in one spot and has almost no linear shape. These graphs give some reason for concern that the basic full model will not be the strongest. Not all of the variables are linear so a reduced model might be a better fit.
+
+```{r}
+summary(reduced_model)
+```
+
+```{r}
+summary(small_model)
+```
+
+
 
 ```{r}
 #| fig-cap: "Pairs plot of predictors selected for regression."
