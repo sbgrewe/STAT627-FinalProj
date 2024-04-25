@@ -2,4 +2,4 @@
 bibliography: references.bib
 ---
 
-Future Directions Text
+The study reveals that the number of patients with heart disease, hospital ranking, and hospital number in a region are significant predictors of mortality rates. The classification model also reveals the importance of hpsa score, hpsa designation population, and metropolitan indicator in predicting health professional service area status. Despite the high accuracy of the models, they lack the necessary demographic characteristics for generalization due to low sample size and data collection methods. The researchers plan to explore further data transformation approaches and combine the predictions of both models into a stacking model to improve their performance. This could enhance the ability to determine mortality rates or hpsa status.
