@@ -41,15 +41,9 @@ Data preparation code and documentation was omitted from this report, but can be
 
 # Classification Models {#sec-class}
 
-## Method 1 {#sec-method-c.1}
-
 {{< include ./Methods/Classification/ClassMethod_1.qmd >}}
 
-## Method 2 {#sec-method-c.2}
-
 {{< include ./Methods/Classification/ClassMethod_2.qmd >}}
-
-## Method 3 {#sec-method-c.3}
 
 {{< include ./Methods/Classification/ClassMethod_3.qmd >}}
 
