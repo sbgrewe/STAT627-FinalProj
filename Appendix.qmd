@@ -14,7 +14,7 @@ Found and proposed the original CA data set (`California Hospital Inpatient Mort
 
 *Amanda Concepcion*
 
-
+I worked on developing two of the three classification models, specifically the decision tree and the boosting model. I worked on these models and developed graphics, found prediction error rates, and contributed to the cross-validation methods for the two models which Roland reviewed for errors. Also, I wrote the section elaborating on the data sources, challenges, and choices for cleaning the data. 
 
 *Spencer Grewe*
 
