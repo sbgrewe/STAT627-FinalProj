@@ -18,6 +18,7 @@ date: today
 number-sections: true
 echo: false
 message: false
+warning: false
 cache: false
 bibliography: references.bib
 format:
@@ -88,7 +89,7 @@ format:
 
 {{< pagebreak >}}
 
-# Supplemental Information
+# Supplemental Information {#sec-si}
 
 {{< include ./Supplemental.qmd >}}
 

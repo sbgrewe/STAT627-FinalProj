@@ -194,13 +194,12 @@ anov
 **Un-pruned decision Tree**
 
 ```{r}
-
 #| tbl-cap: "Unpruned model output"
 #| label: tbl-unpruned-result
 #| echo: false
 
 set.seed(123)
-summary(tr)
+summary(class_2_tr)
 ```
 
 ```{r}
@@ -208,8 +207,8 @@ summary(tr)
 #| fig-cap: "Decision tree from unpruned model with 12 nodes"
 #| label: fig-decisiontree-unpruned
 
-plot(tr, type = "uniform")
-text(tr)
+plot(class_2_tr, type = "uniform")
+text(class_2_tr)
 ```
 
 **Pruned Tree**
