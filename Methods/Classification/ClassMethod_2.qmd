@@ -5,7 +5,7 @@ library(tidyverse)
 library(tree)
 ```
 
-## Method 2: Decision Tree 
+## Method 2: Decision Tree
 
 ```{r}
 #| echo: false
@@ -34,7 +34,7 @@ test <- hpsa[-Z,]
 
 ```
 
-### Un-pruned decision Tree 
+### Un-pruned decision Tree
 
 ```{r}
 #| tbl-cap: "Unpruned model output"
