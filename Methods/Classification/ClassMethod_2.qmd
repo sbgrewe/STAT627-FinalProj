@@ -1,0 +1,137 @@
+```{r}
+#| echo: false
+#| include: false
+library(tidyverse)
+library(tree)
+```
+
+## Method 2: Decision Tree
+
+```{r}
+#| echo: false
+#| message: false
+hpsa <- read_csv("Data/hpsa.csv")
+```
+
+```{r}
+#| echo: false
+set.seed(123)
+Z <- sample(1:nrow(hpsa), 260)
+train <- hpsa[Z,]
+test <- hpsa[-Z,]
+#50 score, 0.1
+#20 uses designation population , error = 0.15
+#70 looks good, score and population ; 0.08571
+#90 ^^ ; 0.1
+#140, ^^; 0.09286
+#170 ^ ; 0.1353
+#220 ^ 0.1273
+#240 ^ ; 0.1083
+#260; 0.1
+#280 ^, 0.1107
+
+#STOP AT 410 #70 percent of the observations
+
+```
+
+```{r}
+#| tbl-cap: "Unpruned model output"
+#| label: tbl-unpruned-result
+#| echo: false
+#| warning: false
+set.seed(123)
+
+tr <- tree(as.factor(hpsa_status) ~ ., data = train)
+
+```
+
+```{r}
+#| echo: false
+#| include: false
+#| fig-cap: "Decision tree from unpruned model with 12 nodes"
+#| label: fig-decisiontree-unpruned
+plot(tr, type = "uniform")
+text(tr)
+```
+
+```{r}
+#| echo: false
+#| warning: false
+Yhat = predict(tr, newdata = test, type = "class")
+```
+
+```{r}
+#| tbl-cap: "Output from cross validation to determine tree size with lowest\n misclassification"
+#| echo: false
+#| warning: false
+#| include: false
+
+set.seed(123)
+cv <- cv.tree(tr, FUN = prune.misclass)
+```
+
+```{r}
+#| fig-cap: "Misclassification rate from Cross valid"
+#| label: fig-misclass-pruned
+#| include: false
+plot(cv)
+```
+
+```{r}
+#| echo: false
+#| tbl-cap: "Pruned model output"
+#| label: tbl-pruned-model
+set.seed(123)
+trp <- prune.misclass(tr, best = 8)
+```
+
+```{r}
+#| fig-cap: "Decision tree from pruned model with 8 nodes"
+#| label: fig-decisiontree-pruned
+#| echo: false
+#| include: false
+plot(trp, type = "uniform")
+text(trp)
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#Unpruned Tree
+yhat_unpruned = predict(tr, newdata = test, type = "class")
+cfmatrix_unpruned <- table(yhat_unpruned, test$hpsa_status)
+test_error_rate_unpruned <- mean(yhat_unpruned != test$hpsa_status)
+
+
+accuracy_unpruned <- sum(cfmatrix_unpruned[1], cfmatrix_unpruned[4])/sum(cfmatrix_unpruned)
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#Pruned Tree
+yhat_pruned = predict(trp, newdata = test, type = "class")
+cfmatrix_pruned <- table(yhat_pruned, test$hpsa_status)
+test_error_rate_pruned <- mean(yhat_pruned != test$hpsa_status)
+
+accuracy_pruned <- sum(cfmatrix_pruned[1], cfmatrix_pruned[4])/sum(cfmatrix_pruned)
+```
+
+```{r}
+#| echo: false
+library(gt)
+
+tibble(
+  models = c("Unpruned", "Pruned"),
+  Accuracy = c(accuracy_unpruned, accuracy_pruned),
+  Error = c(test_error_rate_unpruned, test_error_rate_pruned)
+) |>
+  gt() |>
+  tab_header(title = "Accuracy and Prediction Error Estimates Tree models")
+```
+
+### Summary of Decision Tree models
+
+The result obtained shows that the unpruned model @tbl-unpruned-result with a training error rate of 0.1385 had twelve terminal nodes and retained the variables hpsa score and hpsa designation population in the model. Meanwhile the pruned model @tbl-pruned-model using cross validation to obtain the number of trees with the minimum misclassification rate @fig-misclass-pruned had a slightly higher training error rate as shown in @tbl-pruned-model cross validated model with eight terminal nodes.
+
+"HPSA Score" and HPSA designation population were the dominant predictors in both the unpruned and pruned models. Overall, The pruned model had a mean prediction error rate of `r test_error_rate_pruned` which is a little lower than the unpruned tree which has an error rate of `r test_error_rate_unpruned`. Meanwhile the accuracy of the pruned tree is `r accuracy_pruned` which represent a 0.3% increase in accuracy over the unpruned tree model with accuracy `r accuracy_unpruned` . We recommend the pruned tree @fig-decisiontree-pruned model.
