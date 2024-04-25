@@ -1,10 +1,17 @@
 ```{r}
 #| echo: false
+library(gt)
 library(tidyverse)
 library(broom)
 ```
 
+**Objective:** In the classification task, we seek to answer the question "Can health facilities within a county be designated as a Health Professional Shortage Area (HPSA) based on hpsa score, rural status, metropolitan indicator, designation type, HPSA designation population, HPSA population type and US-Mexico border indicator".
+
 ## Method 1: Logistic Regression
+
+Two logistic regression models were employed to determine the predictors of hpsa status: A full model and a reduced model containing only predictors with p-values \<0.05.
+We determined the best model by estimating the mean prediction error rate and using a 10-fold cross validation approach with a loss function.
+We determined the best model by selecting one with the lowest mean prediction error rate
 
 ```{r}
 #| message: false
@@ -25,12 +32,15 @@ hpsa_test <- hpsa[-Z, ]
 ```
 
 ```{r}
+
 set.seed(123)
 log_full <- glm(as.factor(hpsa_status) ~., data = hpsa_train, 
                 family = "binomial")
 ```
 
 ```{r}
+
+#| include: false
 set.seed(123)
 log_reduced <- glm(as.factor(hpsa_status) ~ designation_type + hpsa_score + 
                      rural_status + hpsa_population_type, data = hpsa_train, 
@@ -106,14 +116,16 @@ Kfold_full <- cv.glm(hpsa, log_full, cost = Lossfn, K=10)$delta
 ```
 
 ```{r}
+
 anov <- anova(log_reduced, log_full, test = "Chisq")
 ```
 
 ```{r}
+
 #| warning: false
-library(gt)
 #| tbl-cap: "Accuracy and Prediction Error Estimates"
-#| label: tbl-accuracy-preds
+#| label:   tbl-accuracy-preds
+
 tibble(
   models = c("Reduced", "Full"),
   Accuracy = c(accuracy_reduced, accuracy),
@@ -127,8 +139,8 @@ tibble(
 ### Summary of Logistic regression models
 
 The reduced model has an accuracy of 0.812766 and a mean prediction error rate of 0.1995639 while the full model has an accuracy of 0.893617 which represent an 8% increase in accuracy over the reduced model and a mean prediction error rate of 0.1497533.
-The full model also has a lower adjusted mean square error of prediction 0.1497533 compared to the reduced model 0.1995639 using 10-fold cross validation @tbl-accuracy-preds .
+The full model also has a lower adjusted mean square error of prediction 0.1497533 compared to the reduced model 0.1995639 using 10-fold cross validation (@tbl-accuracy-preds) .
 
-Giving the results obtained and from from the reduced and full logistic regression models and the results of model comparison we lack sufficient evidence (p = 2.446e-11) @tbl-anova to conclude that logistic regression (reduced) model is better than the logistic regression (full) model.
+Giving the results obtained and from from the reduced and full logistic regression models and the results of model comparison we lack sufficient evidence (p = 2.446e-11) (SI @tbl-anova) to conclude that logistic regression (reduced) model is better than the logistic regression (full) model.
 Consequently, we will recommend the full logistic regression model as the better model with predictors such as designation:HPSA_population, hpsa score rural_status:unknown and hpsa_population_type:native american among the significant predictors in determining hpsa status.
-The output of the full logistic regression model is found at @tbl-full-logistic .
+The output of the full logistic regression model is found at (SI @tbl-full-logistic).

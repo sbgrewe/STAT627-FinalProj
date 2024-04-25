@@ -2,6 +2,7 @@
 #| echo: false
 #| message: false
 library(tidyverse)
+library(gt)
 hpsa <- read_csv("Data/hpsa.csv")
 ```
 
@@ -25,74 +26,49 @@ hpsa2 <- mutate(hpsa, across(where(is.character), as.factor))
 #| echo: false
 set.seed(123)
 Z <- sample(nrow(hpsa2), nrow(hpsa2)/2)
-train <- hpsa2[Z,]
-test <- hpsa2[-Z,]
+train_b <- hpsa2[Z,]
+test_b <- hpsa2[-Z,]
 ```
 
 ```{r}
 set.seed(123)
 #| echo: false
-boosth <- gbm(hpsa_status ~., data = train, 
+boosth <- gbm(hpsa_status ~., data = train_b, 
               n.trees = 3000, distribution = "Bernoulli")
 ```
 
 ```{r}
-#| fig-cap: "Top 6 important variables for initial boosting model"
-#| label: fig-initialboosting
-#| fig-width: 5
-#| echo: false
-#| include: false
-summary(boosth, cBars = 6)
-```
-
-```{r}
-#| echo: false
-#To see the tree structure
-#<<<<<<< HEAD
-#pretty.gbm.tree(boosth)
-#pretty.gbm.tree(boosth, i.tree = 3000)
-#gbm::pretty.gbm.tree(boosth)
-#gbm::pretty.gbm.tree(boosth, i.tree = 3000)
-#>>>>>>> c64d14439bbefc0845299f8c30ad009ef9341a50
-```
-
-```{r}
-yhat <- predict(boosth, newdata = test, n.trees = 3000, type = "response")
+yhat <- predict(boosth, newdata = test_b, n.trees = 3000, type = "response")
 
 # Convert to classification prediction
 Yhat_class <-  ifelse(yhat >= 0.5, "Withdrawn", "Designated")
-cfm_yhat <- table(Yhat_class, test$hpsa_status)
+cfm_yhat <- table(Yhat_class, test_b$hpsa_status)
 
 # prediction error rate and accuracy
-yhat_error <- mean(Yhat_class != test$hpsa_status)
+yhat_error <- mean(Yhat_class != test_b$hpsa_status)
 accuracy_yhat <- sum(cfm_yhat[1], cfm_yhat[4])/sum(cfm_yhat)
 ```
 
 ```{r}
 set.seed(123)
+
 #| echo: false
 #adjust the shrinkage parameter
 
-boosth_shrink <- gbm(hpsa_status ~ ., data = train, 
+boosth_shrink <- gbm(hpsa_status ~ ., data = train_b, 
               n.trees = 5000, shrinkage = 0.001, distribution = "Bernoulli")
 ```
 
 ```{r}
-#| fig-width: 5
-#| include: false
-summary(boosth_shrink, cBars = 6)
-```
-
-```{r}
 #| echo: false
-yhat2 <- predict(boosth_shrink, newdata = test, n.trees = 3000, type = "response")
+yhat2 <- predict(boosth_shrink, newdata = test_b, n.trees = 3000, type = "response")
 
 # Convert to classification prediction
 Yhat2_class <-  ifelse(yhat2 >= 0.5, "Withdrawn", "Designated")
-cfm_yhat2 <- table(Yhat2_class, test$hpsa_status)
+cfm_yhat2 <- table(Yhat2_class, test_b$hpsa_status)
 
 # prediction error rate and accuracy
-yhat2_error <- mean(Yhat2_class != test$hpsa_status)
+yhat2_error <- mean(Yhat2_class != test_b$hpsa_status)
 accuracy_yhat2 <- sum(cfm_yhat2[1], cfm_yhat2[4])/sum(cfm_yhat2)
 ```
 
@@ -101,7 +77,7 @@ set.seed(123)
 
 #| echo: false
 
-boosth_cv <- gbm(hpsa_status ~ ., data = train, 
+boosth_cv <- gbm(hpsa_status ~ ., data = train_b, 
               n.trees = 3000, shrinkage = 0.001, 
               cv.folds = 10, 
               distribution = "Bernoulli")
@@ -109,29 +85,11 @@ boosth_cv <- gbm(hpsa_status ~ ., data = train,
 
 ```{r}
 #| echo: false
-#| include: false
-summary(boosth_cv)
-```
-
-```{r}
-#| include: false
-plot(boosth_cv, "metropolitan_indicator")
-plot(boosth_cv, "hpsa_score")
-```
-
-```{r}
-
-#| include: false
-
-gbm.perf(boosth_cv, method = "cv")
-```
-
-```{r}
-yhat3 <- predict(boosth_cv, newdata = test, n.trees = 3000, type = "response")
+yhat3 <- predict(boosth_cv, newdata = test_b, n.trees = 3000, type = "response")
 
 # Convert to classification prediction
 Yhat3_class <-  ifelse(yhat3 >= 0.5, "Withdrawn", "Designated")
-cfm_yhat3 <- table(Yhat3_class, test$hpsa_status)
+cfm_yhat3 <- table(Yhat3_class, test_b$hpsa_status)
 
 # prediction error rate and accuracy
 yhat3_error <- mean(Yhat3_class != test$hpsa_status)
@@ -139,8 +97,8 @@ accuracy_yhat3 <- sum(cfm_yhat3[1], cfm_yhat3[4])/sum(cfm_yhat3)
 ```
 
 ```{r}
-library(gt)
 
+#| tbl-cap: "Accuracy and Prediction Error Estimates of Boosting models"
 tibble(
   Models = c("initial model", "boost_shrinkage", "boost_shrinkage_cv"),
   Accuracy = c(accuracy_yhat, accuracy_yhat2, accuracy_yhat3),
@@ -152,8 +110,8 @@ tibble(
 
 ### Summary of boosting models
 
-Our analysis shows that increasing or decreasing the shrinkage rate did not affect the performance of the model with shrinkage parameter, and the cross validated model with shrinkage parameter .The cross-validated boosted model with shrinkage parameter @tbl-boostingshrinkage-cv , boosted model with shrinkage parameter @tbl-boostingshrinkage and initial boosted @tbl-initialboosting model all have similar prediction mean squared error.
-Top important predictors in the initial @fig-initialboosting and boost_shrinkage @fig-boostingshrinking models were metropolitan indicator and hpsa score.
-While the top important predictors in the boost_shrinkage_cv @fig-boostingshrinking_cv model were hpsa designation population, hpsa status and metropolitan indicator.
+Our analysis shows that increasing or decreasing the shrinkage rate did not affect the performance of the model with shrinkage parameter, and the cross validated model with shrinkage parameter .The cross-validated boosted model with shrinkage parameter (SI @tbl-boostingshrinkage-cv) , boosted model with shrinkage parameter (SI @tbl-boostingshrinkage) and initial boosted (SI @tbl-initialboosting ) model all have similar prediction mean squared error.
+Top important predictors in the initial (SI @fig-initialboosting ) and boost_shrinkage (SI @fig-boostingshrinking ) models were metropolitan indicator and hpsa score.
+While the top important predictors in the boost_shrinkage_cv (SI @fig-boostingshrinking-cv ) model were hpsa designation population, hpsa status and metropolitan indicator.
 In all three models, hpsa score and metropolitan indicator were the consistent predictors of hpsa status.
 We will recommend the boost_shrinkage_cv model because we believe it will likely generalize to unseen data having used cross validation to tune model parameters.

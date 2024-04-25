@@ -1,7 +1,7 @@
-
 ## Appendix Graphics
 
 *Linear Regression Model*
+
 ```{r}
 library(tidyverse); theme_set(theme_bw())
 reg_data_long <- read_csv(".\\Data\\reg_data_long.csv")
@@ -24,26 +24,42 @@ full_model <- lm(DeathsperThou ~ TotalPop + MalePop + FemalePop + MedianAge + Ma
 ```
 
 NA Counts for Regression Data
+
 ```{r}
 na_counts <- colSums(is.na(reg_data_long))
 na_counts
 
 ```
+
 Plotting Full Model
+
 ```{r}
 plot(full_model)
 ```
-These plots give some insight to the shape of the model. For example, the plotting on the QQ-plot does not demonstrate a strong linear relationship. The edges of the plot deviate from the line suggesting that the model is not perfectly linear. Further, the scattered dots on the Leverage plot show several points on the line of Cook's Distance signifying that they have overstated influence on the model. With these concerns in mind, I want to investigate the linearity of the model further. Does a linear model make sense? To get a better understanding of the data, I created some basic plots to demonstrate the shape of the data and get an idea of if a linear model will make sense here ([source on code](https://www.statology.org/plot-multiple-linear-regression-in-r/))
+
+These plots give some insight to the shape of the model.
+For example, the plotting on the QQ-plot does not demonstrate a strong linear relationship.
+The edges of the plot deviate from the line suggesting that the model is not perfectly linear.
+Further, the scattered dots on the Leverage plot show several points on the line of Cook's Distance signifying that they have overstated influence on the model.
+With these concerns in mind, I want to investigate the linearity of the model further.
+Does a linear model make sense?
+To get a better understanding of the data, I created some basic plots to demonstrate the shape of the data and get an idea of if a linear model will make sense here ([source on code](https://www.statology.org/plot-multiple-linear-regression-in-r/))
 
 Linear Fit of Variables
+
 ```{r}
 
 library(car)
 avPlots(full_model)
 
 ```
-Here, we can see that some variables provide a better linear fit than others. For example, variables such as `MaleMedianAge` and `FemaleMedianAge` both are more or less scattered along the regression line. However, other variables such as `MalePop` and `FemalePop` do not fit the line well. Instead, the data is gathered in one spot and has almost no linear shape. These graphs give some reason for concern that the basic full model will not be the strongest. Not all of the variables are linear so a reduced model might be a better fit. 
 
+Here, we can see that some variables provide a better linear fit than others.
+For example, variables such as `MaleMedianAge` and `FemaleMedianAge` both are more or less scattered along the regression line.
+However, other variables such as `MalePop` and `FemalePop` do not fit the line well.
+Instead, the data is gathered in one spot and has almost no linear shape.
+These graphs give some reason for concern that the basic full model will not be the strongest.
+Not all of the variables are linear so a reduced model might be a better fit.
 
 ```{r}
 #| fig-cap: "Pairs plot of predictors selected for regression."
@@ -56,14 +72,12 @@ ggpairs(reg_data_long[, c("CasesperThou", "prop_hpsa", "nonwhite_prop", "median_
 # car::vif(lm(DeathsperThou ~ Rating + CasesperThou + prop_hpsa + nonwhite_prop + median_income + unempl_prop + poverty_prop + prop55older + HospNumber, data = train))
 ```
 
-
 ```{r}
 #| tbl-cap: "Coefficients and estimates obtained after LASSO regression at two different L1 penalty strengths."
 #| label: tbl-lasso-ests
 
 LASSO_estimates_SI %>% knitr::kable(digits = 4)
 ```
-
 
 ```{r}
 #| fig-cap: "Importance plot of all predictors in the random forest model."
@@ -72,12 +86,12 @@ model_RF <- randomForest(DeathsperThou ~ Rating*CasesperThou + prop_hpsa + nonwh
 varImpPlot(model_RF, main = "", type = 1)
 ```
 
-
-### Full model
+**Full model logistic**
 
 ```{r}
 #| tbl-cap: "Full Logistic Regression Model"
 #| label: tbl-full-logistic
+
 set.seed(123)
 log_full <- glm(as.factor(hpsa_status) ~., data = hpsa_train, 
                 family = "binomial")
@@ -85,7 +99,7 @@ log_full <- glm(as.factor(hpsa_status) ~., data = hpsa_train,
 tidy(log_full)
 ```
 
-### Reduced model
+**Reduced model**
 
 ```{r}
 #| tbl-cap: "Reduced Logistic Regression Model"
@@ -166,7 +180,7 @@ Kfold_reduced <- cv.glm(hpsa, log_reduced, cost = Lossfn, K=10)$delta
 Kfold_full <- cv.glm(hpsa, log_full, cost = Lossfn, K=10)$delta
 ```
 
-### Compare models Full and reduced logistic regression models
+**Compare models Full and reduced logistic regression models**
 
 ```{r}
 #| tbl-cap: "Model comparison"
@@ -175,17 +189,16 @@ anov <- anova(log_reduced, log_full, test = "Chisq")
 anov
 ```
 
-
-### Un-pruned decision Tree
+**Un-pruned decision Tree**
 
 ```{r}
+
 #| tbl-cap: "Unpruned model output"
 #| label: tbl-unpruned-result
 #| echo: false
 #| warning: false
-set.seed(123)
 
-tr <- tree(as.factor(hpsa_status) ~ ., data = train)
+set.seed(123)
 summary(tr)
 ```
 
@@ -193,31 +206,29 @@ summary(tr)
 #| echo: false
 #| fig-cap: "Decision tree from unpruned model with 12 nodes"
 #| label: fig-decisiontree-unpruned
+
 plot(tr, type = "uniform")
 text(tr)
 ```
 
-### Pruned Tree
+**Pruned Tree**
 
 ```{r}
 #| tbl-cap: "Output from cross validation to determine tree size with lowest\n misclassification"
+#| label: fig-decisiontree-cvout
 #| echo: false
 #| warning: false
 #| include: false
-#| label: fig-decisiontree-pruned
 
 set.seed(123)
-cv <- cv.tree(tr, FUN = prune.misclass)
+cv
 ```
 
 ```{r}
 #| fig-cap: "Misclassification rate from Cross valid"
 #| label: fig-misclass-pruned
-plot(cv)
-```
 
-```{r}
-#which.min(cv$dev)
+plot(cv)
 ```
 
 Tree size 8 corresponds to the lowest cross-validated classification error rate with the fewest nodes.
@@ -226,8 +237,8 @@ Tree size 8 corresponds to the lowest cross-validated classification error rate 
 #| echo: false
 #| tbl-cap: "Pruned model output"
 #| label: tbl-pruned-model
+
 set.seed(123)
-trp <- prune.misclass(tr, best = 8)
 summary(trp)
 ```
 
@@ -235,20 +246,20 @@ summary(trp)
 #| fig-cap: "Decision tree from pruned model with 8 nodes"
 #| label: fig-decisiontree-pruned
 #| echo: false
+
 plot(trp, type = "uniform")
 text(trp)
 ```
 
-### Initial boosting model
+**Initial boosting model**
 
 ```{r}
-set.seed(123)
+
 #| echo: false
 #| tbl-cap: "Initial boosting model ouput"
 #| label: tbl-initialboosting
-#| 
-boosth <- gbm(hpsa_status ~., data = train, 
-              n.trees = 3000, distribution = "Bernoulli")
+
+set.seed(123)
 boosth
 ```
 
@@ -257,20 +268,20 @@ boosth
 #| label: fig-initialboosting
 #| fig-width: 5
 #| echo: false
+
 summary(boosth, cBars = 6)
 ```
 
-### Using Shrinkage parameter
+**Using Shrinkage parameter**
 
 ```{r}
-set.seed(123)
+
 #| echo: false
 #| tbl-cap: "boosting model with shrinkage parameter ouput"
 #| label: tbl-boostingshrinkage
-#adjust the shrinkage parameter
 
-boosth_shrink <- gbm(hpsa_status ~ ., data = train, 
-              n.trees = 5000, shrinkage = 0.001, distribution = "Bernoulli")
+set.seed(123)
+#adjust the shrinkage parameter
 boosth_shrink
 ```
 
@@ -278,36 +289,37 @@ boosth_shrink
 #| fig-cap: "Top 6 important variables for boosting with shrinkage model"
 #| label: fig-boostingshrinking
 #| fig-width: 5
+
 summary(boosth_shrink, cBars = 6)
 ```
 
-### Using Cross Validation with shrinkage parameter
+**Using Cross Validation with shrinkage parameter**
 
 ```{r}
-set.seed(123)
+
 
 #| echo: false
 #| tbl-cap: "Cross validated boosting model with shrinkage parameter"
 #| label: tbl-boostingshrinkage-cv
 
-boosth_cv <- gbm(hpsa_status ~ ., data = train, 
-              n.trees = 3000, shrinkage = 0.001, 
-              cv.folds = 10, 
-              distribution = "Bernoulli")
+set.seed(123)
 boosth_cv
 ```
 
 ```{r}
 #| echo: false
 #| fig-cap: "Top 6 important variables for CV boosting_shrinkage model"
-#| label: fig-boostingshrinking_cv
+#| label: fig-boostingshrinking-cv
 #| fig-width: 5
+#
 summary(boosth_cv)
 ```
 
 ```{r}
 #| fig-cap: "Marginal effect of top two predictors"
+#| label: fig-marginal-effect
 #| layout-ncol: 2
+
 plot(boosth_cv, "metropolitan_indicator")
 plot(boosth_cv, "hpsa_score")
 ```
@@ -315,10 +327,10 @@ plot(boosth_cv, "hpsa_score")
 ```{r}
 
 #| fig-cap: "Top 6 important variables for CV boosting_shrinkage model"
-#| label: fig-boostingshrinking_cv
+#| label: fig-boostingshrinking-deviance
 #| fig-width: 5
 
 gbm.perf(boosth_cv, method = "cv")
 ```
 
-Both training deviance (black line) and testing deviance (green line) seemed fairly closed.
+Both training deviance (black line) and testing deviance (green line) seemed fairly closed @fig-boostingshrinking-deviance
