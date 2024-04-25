@@ -33,9 +33,9 @@ format:
 
 {{< include ./Executive_Summary.qmd >}}
 
-# Data Overview {#sec-introduction}
+# Data Overview {#sec-data}
 
-Data preparation code and documentation was omitted from this report, but can be found within the source code in the GitHub repository under `Data_Clean.qmd`.
+{{< include ./Data_Overview.qmd >}}
 
 <!-- {{< include ./Data_Clean.qmd >}} -->
 
