@@ -7,6 +7,8 @@ hpsa <- read_csv("Data/hpsa.csv")
 
 ## Method 3: Boosting Method
 
+Here we employed three models: An initial boosting model, a boosting model with shrinkage parameter and a cross validated (10-fold) boosting model with a shrinkage parameter.
+
 ```{r}
 #| warning: false
 #| echo: false
@@ -27,14 +29,9 @@ train <- hpsa2[Z,]
 test <- hpsa2[-Z,]
 ```
 
-### Initial boosting model
-
 ```{r}
 set.seed(123)
 #| echo: false
-#| tbl-cap: "Initial boosting model ouput"
-#| label: tbl-initialboosting
-#| 
 boosth <- gbm(hpsa_status ~., data = train, 
               n.trees = 3000, distribution = "Bernoulli")
 ```
@@ -74,8 +71,6 @@ accuracy_yhat <- sum(cfm_yhat[1], cfm_yhat[4])/sum(cfm_yhat)
 ```{r}
 set.seed(123)
 #| echo: false
-#| tbl-cap: "boosting model with shrinkage parameter ouput"
-#| label: tbl-boostingshrinkage
 #adjust the shrinkage parameter
 
 boosth_shrink <- gbm(hpsa_status ~ ., data = train, 
@@ -83,8 +78,6 @@ boosth_shrink <- gbm(hpsa_status ~ ., data = train,
 ```
 
 ```{r}
-#| fig-cap: "Top 6 important variables for boosting with shrinkage model"
-#| label: fig-boostingshrinking
 #| fig-width: 5
 #| include: false
 summary(boosth_shrink, cBars = 6)
@@ -107,8 +100,6 @@ accuracy_yhat2 <- sum(cfm_yhat2[1], cfm_yhat2[4])/sum(cfm_yhat2)
 set.seed(123)
 
 #| echo: false
-#| tbl-cap: "Cross validated boosting model with shrinkage parameter"
-#| label: tbl-boostingshrinkage-cv
 
 boosth_cv <- gbm(hpsa_status ~ ., data = train, 
               n.trees = 3000, shrinkage = 0.001, 
@@ -118,16 +109,11 @@ boosth_cv <- gbm(hpsa_status ~ ., data = train,
 
 ```{r}
 #| echo: false
-#| fig-cap: "Top 6 important variables for CV boosting_shrinkage model"
-#| label: fig-boostingshrinking_cv
-#| fig-width: 5
 #| include: false
 summary(boosth_cv)
 ```
 
 ```{r}
-#| fig-cap: "Marginal effect of top two predictors"
-#| layout-ncol: 2
 #| include: false
 plot(boosth_cv, "metropolitan_indicator")
 plot(boosth_cv, "hpsa_score")
@@ -135,9 +121,6 @@ plot(boosth_cv, "hpsa_score")
 
 ```{r}
 
-#| fig-cap: "Top 6 important variables for CV boosting_shrinkage model"
-#| label: fig-boostingshrinking_cv
-#| fig-width: 5
 #| include: false
 
 gbm.perf(boosth_cv, method = "cv")
@@ -169,4 +152,8 @@ tibble(
 
 ### Summary of boosting models
 
-Our analysis shows that increasing or decreasing the shrinkage rate did not affect the performance of the model with shrinkage parameter, and the cross validated model with shrinkage parameter .The cross-validated boosted model with shrinkage parameter @tbl-boostingshrinkage-cv , boosted model with shrinkage parameter @tbl-boostingshrinkage and initial boosted @tbl-initialboosting model all have similar prediction mean squared error. Top important predictors in the initial @fig-initialboosting and boost_shrinkage @fig-boostingshrinking models were metropolitan indicator and hpsa score. While the top important predictors in the boost_shrinkage_cv @fig-boostingshrinking_cv model were hpsa designation population, hpsa status and metropolitan indicator. In all three models, hpsa score and metropolitan indicator were the consistent predictors of hpsa status. We will recommend the boost_shrinkage_cv model because we believe it will likely generalize to unseen data having used cross validation to tune model parameters.
+Our analysis shows that increasing or decreasing the shrinkage rate did not affect the performance of the model with shrinkage parameter, and the cross validated model with shrinkage parameter .The cross-validated boosted model with shrinkage parameter @tbl-boostingshrinkage-cv , boosted model with shrinkage parameter @tbl-boostingshrinkage and initial boosted @tbl-initialboosting model all have similar prediction mean squared error.
+Top important predictors in the initial @fig-initialboosting and boost_shrinkage @fig-boostingshrinking models were metropolitan indicator and hpsa score.
+While the top important predictors in the boost_shrinkage_cv @fig-boostingshrinking_cv model were hpsa designation population, hpsa status and metropolitan indicator.
+In all three models, hpsa score and metropolitan indicator were the consistent predictors of hpsa status.
+We will recommend the boost_shrinkage_cv model because we believe it will likely generalize to unseen data having used cross validation to tune model parameters.
