@@ -78,6 +78,7 @@ format:
 
 {{< include ./FutureDirs.qmd >}}
 
+
 {{< pagebreak >}}
 
 # Appendix {#sec-appendix}
@@ -85,8 +86,7 @@ format:
 {{< include ./Appendix.qmd >}}
 
 
-# References
-
+{{< pagebreak >}}
 
 # Supplemental Information
 
