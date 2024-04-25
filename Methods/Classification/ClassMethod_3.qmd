@@ -130,6 +130,13 @@ summary(boosth_cv)
 ```
 
 ```{r}
+#| fig-cap: "Marginal effect of top two predictors"
+#| layout-ncol: 2
+plot(boosth_cv, "metropolitan_indicator")
+plot(boosth_cv, "hpsa_score")
+```
+
+```{r}
 
 #| fig-cap: "Top 6 important variables for CV boosting_shrinkage model"
 #| label: fig-boostingshrinking_cv
