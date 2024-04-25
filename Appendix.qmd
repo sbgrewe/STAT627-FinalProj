@@ -50,7 +50,7 @@ Here, we can see that some variables provide a better linear fit than others. Fo
 ## Group Member Accomplishments
 
 *Roland Abi*
-Developed the research question for the classification, and found the data set for `california health professional shortage area` and cleaned and transformed the data. Completed logistic regression model (full and reduced), as well as cross validation approaches contributed to completing decision tree and boosting models, carried out 627 tasks for model selection and two wrote the classification session of the summary as well as future direction.   
+Developed the research question for the classification, and found the data set for `california health professional shortage area` and cleaned and transformed the data. Completed logistic regression model (full and reduced), as well as cross validation approaches contributed to completing decision tree and boosting models, carried out 627 tasks for model selection and two wrote the classification section of the summary as well as future direction.   
 
 *Elise Buellesbach*
 
