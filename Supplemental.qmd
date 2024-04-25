@@ -104,6 +104,7 @@ tidy(log_full)
 ```{r}
 #| tbl-cap: "Reduced Logistic Regression Model"
 #| label: tbl-reduced-logistic
+
 set.seed(123)
 log_reduced <- glm(as.factor(hpsa_status) ~ designation_type + hpsa_score + 
                      rural_status + hpsa_population_type, data = hpsa_train, 
@@ -185,6 +186,7 @@ Kfold_full <- cv.glm(hpsa, log_full, cost = Lossfn, K=10)$delta
 ```{r}
 #| tbl-cap: "Model comparison"
 #| label: tbl-anova
+
 anov <- anova(log_reduced, log_full, test = "Chisq")
 anov
 ```
@@ -196,7 +198,6 @@ anov
 #| tbl-cap: "Unpruned model output"
 #| label: tbl-unpruned-result
 #| echo: false
-#| warning: false
 
 set.seed(123)
 summary(tr)
@@ -217,8 +218,7 @@ text(tr)
 #| tbl-cap: "Output from cross validation to determine tree size with lowest\n misclassification"
 #| label: fig-decisiontree-cvout
 #| echo: false
-#| warning: false
-#| include: false
+
 
 set.seed(123)
 cv
@@ -266,7 +266,6 @@ boosth
 ```{r}
 #| fig-cap: "Top 6 important variables for initial boosting model"
 #| label: fig-initialboosting
-#| fig-width: 5
 #| echo: false
 
 summary(boosth, cBars = 6)
@@ -288,7 +287,6 @@ boosth_shrink
 ```{r}
 #| fig-cap: "Top 6 important variables for boosting with shrinkage model"
 #| label: fig-boostingshrinking
-#| fig-width: 5
 
 summary(boosth_shrink, cBars = 6)
 ```
@@ -310,15 +308,13 @@ boosth_cv
 #| echo: false
 #| fig-cap: "Top 6 important variables for CV boosting_shrinkage model"
 #| label: fig-boostingshrinking-cv
-#| fig-width: 5
-#
+
 summary(boosth_cv)
 ```
 
 ```{r}
 #| fig-cap: "Marginal effect of top two predictors"
 #| label: fig-marginal-effect
-#| layout-ncol: 2
 
 plot(boosth_cv, "metropolitan_indicator")
 plot(boosth_cv, "hpsa_score")
@@ -328,7 +324,6 @@ plot(boosth_cv, "hpsa_score")
 
 #| fig-cap: "Top 6 important variables for CV boosting_shrinkage model"
 #| label: fig-boostingshrinking-deviance
-#| fig-width: 5
 
 gbm.perf(boosth_cv, method = "cv")
 ```
