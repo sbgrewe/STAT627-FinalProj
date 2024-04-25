@@ -78,9 +78,9 @@ This small model yields the same MSE as the previous reduced model of 0.0539 and
 
 tibble(
   Model = c("Full", "Reduced", "Smallest"),
-  `Number of Predictors` = c(7, NA, 2),
-  MSE = c(mse, NA, mse_small),
-  `Multiple R2` = c(0.9345, NA, 0.9087)
+  `Number of Predictors` = c(37, 7, 2),
+  MSE = c(mse, mse_reduced, mse_small),
+  `Adjusted Multiple R2` = c(0.9345, 0.9104, 0.9063)
 ) %>% knitr::kable(digits = 4)
 ```
 
