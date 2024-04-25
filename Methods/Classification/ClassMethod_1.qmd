@@ -127,6 +127,7 @@ anov
 ```
 
 ```{r}
+#| warning: false
 library(gt)
 #| tbl-cap: "Accuracy and Prediction Error Estimates"
 #| label: tbl-accuracy-preds
